@@ -1,0 +1,55 @@
+/* Шрифт */
+@font-face {
+  font-family: "Circular";
+  src: url("./font/Circular_Air-Book.woff") format("woff"),
+    url("./font/Circular_Air-Book.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Circular";
+  src: url("./font/Circular_Air-Bold.woff") format("woff"),
+    url("./font/Circular_Air-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Circular";
+  src: url("./font/Circular_Air-Light.woff") format("woff"),
+    url("./font/Circular_Air-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  font: normal normal 15px/18px "Circular", "Helvetica Neue", "Helvetica",
+    "Arial", sans-serif;
+  color: #383838;
+  -webkit-font-smoothing: antialiased;
+
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+}
+
+a:active,
+a:visited {
+  color: inherit;
+}
+
+button {
+  outline: none;
+}
