@@ -13,7 +13,7 @@ const MenuBox = styled.div`
 const Link = styled.a`
   font-size: 12px;
   line-height: 16px;
-  color: ##636363;
+  color: #636363;
 
   margin: 0 12px 0 0;
   &:last-child {

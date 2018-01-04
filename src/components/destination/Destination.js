@@ -6,6 +6,7 @@ import img3 from "./img/item-3.png";
 import img4 from "./img/item-4.png";
 import img5 from "./img/item-5.png";
 import img6 from "./img/item-6.png";
+import right from "./img/right.svg";
 
 const Section = styled.section`
   margin: 0 0 40px;
@@ -23,7 +24,7 @@ const Row = styled.div`
     margin: -16px -8px 0;
   }
   @media (min-width: 1200px) {
-    margin: -17px -8.5px 0;
+    margin: 0 -8.5px;
   }
 `;
 
@@ -39,7 +40,7 @@ const Cell = styled.div`
   @media (min-width: 1200px) {
     width: 16.666667%;
     padding: 0 8.5px;
-    margin-top: 17px;
+    margin-top: 0;
   }
 `;
 
@@ -74,6 +75,9 @@ const ItemImage = styled.div`
     height: 264px;
     margin: 0 0 8px;
   }
+  @media (min-width: 1200px) {
+    height: 220px;
+  }
 `;
 
 const ItemTitle = styled.h6`
@@ -89,61 +93,86 @@ const ItemTitle = styled.h6`
   }
 `;
 
+const SliderTrack = styled.div`
+  position: relative;
+`;
+
+const SliderRight = styled.button`
+  display: none;
+  width: 40px;
+  height: 40px;
+  background: url(${right}) no-repeat right 14px center #ffffff;
+  border: 0.5px solid rgba(72, 72, 72, 0.2);
+  box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.16);
+  border-radius: 100%;
+  position: absolute;
+  top: 110px;
+  right: 0;
+  transform: translate(50%, -50%);
+  cursor: pointer;
+  @media (min-width: 1200px) {
+    display: block;
+  }
+`;
+
 class Destination extends Component {
   render() {
     return (
       <Section>
         <Title>Featured destination</Title>
-        <Row>
-          <Cell>
-            <Item href="#url">
-              <ItemImage>
-                <img src={img1} alt="Paris" />
-              </ItemImage>
-              <ItemTitle>Paris</ItemTitle>
-            </Item>
-          </Cell>
-          <Cell>
-            <Item href="#url">
-              <ItemImage>
-                <img src={img2} alt="Miami" />
-              </ItemImage>
-              <ItemTitle>Miami</ItemTitle>
-            </Item>
-          </Cell>
-          <Cell>
-            <Item href="#url">
-              <ItemImage>
-                <img src={img3} alt="Tokyo" />
-              </ItemImage>
-              <ItemTitle>Tokyo</ItemTitle>
-            </Item>
-          </Cell>
-          <Cell>
-            <Item href="#url">
-              <ItemImage>
-                <img src={img4} alt="Cape town" />
-              </ItemImage>
-              <ItemTitle>Cape town</ItemTitle>
-            </Item>
-          </Cell>
-          <Cell>
-            <Item href="#url">
-              <ItemImage>
-                <img src={img5} alt="Seoul" />
-              </ItemImage>
-              <ItemTitle>Seoul</ItemTitle>
-            </Item>
-          </Cell>
-          <Cell>
-            <Item href="#url">
-              <ItemImage>
-                <img src={img6} alt="Los Angeles" />
-              </ItemImage>
-              <ItemTitle>Los Angeles</ItemTitle>
-            </Item>
-          </Cell>
-        </Row>
+        <SliderTrack>
+          <Row>
+            <Cell>
+              <Item href="#url">
+                <ItemImage>
+                  <img src={img1} alt="Paris" />
+                </ItemImage>
+                <ItemTitle>Paris</ItemTitle>
+              </Item>
+            </Cell>
+            <Cell>
+              <Item href="#url">
+                <ItemImage>
+                  <img src={img2} alt="Miami" />
+                </ItemImage>
+                <ItemTitle>Miami</ItemTitle>
+              </Item>
+            </Cell>
+            <Cell>
+              <Item href="#url">
+                <ItemImage>
+                  <img src={img3} alt="Tokyo" />
+                </ItemImage>
+                <ItemTitle>Tokyo</ItemTitle>
+              </Item>
+            </Cell>
+            <Cell>
+              <Item href="#url">
+                <ItemImage>
+                  <img src={img4} alt="Cape town" />
+                </ItemImage>
+                <ItemTitle>Cape town</ItemTitle>
+              </Item>
+            </Cell>
+            <Cell>
+              <Item href="#url">
+                <ItemImage>
+                  <img src={img5} alt="Seoul" />
+                </ItemImage>
+                <ItemTitle>Seoul</ItemTitle>
+              </Item>
+            </Cell>
+            <Cell>
+              <Item href="#url">
+                <ItemImage>
+                  <img src={img6} alt="Los Angeles" />
+                </ItemImage>
+                <ItemTitle>Los Angeles</ItemTitle>
+              </Item>
+            </Cell>
+          </Row>
+          <SliderRight />
+        </SliderTrack>
       </Section>
     );
   }

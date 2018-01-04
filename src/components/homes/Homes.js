@@ -5,6 +5,7 @@ import img1 from "./img/prod-1.png";
 import img2 from "./img/prod-2.png";
 import img3 from "./img/prod-3.png";
 import rightSmall from "./img/right-small.svg";
+import right from "./img/right.svg";
 
 const Section = styled.section`
   margin: 0 0 40px;
@@ -22,7 +23,7 @@ const Row = styled.div`
     margin: -16px -8px 0;
   }
   @media (min-width: 1200px) {
-    margin: -18px -9px 0;
+    margin: 0 -9px;
   }
 `;
 
@@ -37,7 +38,7 @@ const Cell = styled.div`
   }
   @media (min-width: 1200px) {
     padding: 0 9px;
-    margin-top: 18px;
+    margin-top: 0;
   }
 `;
 
@@ -141,6 +142,28 @@ const ReviewStatus = styled.div`
   }
 `;
 
+const SliderTrack = styled.div`
+  position: relative;
+`;
+
+const SliderRight = styled.button`
+  display: none;
+  width: 40px;
+  height: 40px;
+  background: url(${right}) no-repeat right 14px center #ffffff;
+  border: 0.5px solid rgba(72, 72, 72, 0.2);
+  box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.16);
+  border-radius: 100%;
+  position: absolute;
+  top: 102px;
+  right: 0;
+  transform: translate(50%, -50%);
+  cursor: pointer;
+  @media (min-width: 1200px) {
+    display: block;
+  }
+`;
+
 class Homes extends Component {
   render() {
     return (
@@ -149,66 +172,71 @@ class Homes extends Component {
           <Title>Homes</Title>
           <Link href="#url">See all</Link>
         </Heading>
-        <Row>
-          <Cell>
-            <Prod>
-              <ProdImage href="#url">
-                <img src={img1} alt="La Salentina, see, nature, & relax" />
-              </ProdImage>
-              <ProdTitle href="#url">
-                $82 La Salentina, see, nature, & relax
-              </ProdTitle>
-              <ProdText>Entrie house · 9 bed</ProdText>
-              <ReviewStatus>
-                <img src={star} alt="1" />
-                <img src={star} alt="2" />
-                <img src={star} alt="3" />
-                <img src={star} alt="4" />
-                <img src={star} alt="5" />
-                <span>97 · Superhost</span>
-              </ReviewStatus>
-            </Prod>
-          </Cell>
-          <Cell>
-            <Prod>
-              <ProdImage href="#url">
-                <img
-                  src={img2}
-                  alt="Your private 3 bedr.riad and exclusive bonus with stars"
-                />
-              </ProdImage>
-              <ProdTitle href="#url">
-                $82 Your private 3 bedr.riad and exclusive bonus with stars
-              </ProdTitle>
-              <ProdText>Entrie house · 5 bed</ProdText>
-              <ReviewStatus>
-                <img src={star} alt="1" />
-                <img src={star} alt="2" />
-                <img src={star} alt="3" />
-                <img src={star} alt="4" />
-                <img src={star} alt="5" />
-                <span>161 · Superhost</span>
-              </ReviewStatus>
-            </Prod>
-          </Cell>
-          <Cell>
-            <Prod>
-              <ProdImage href="#url">
-                <img src={img3} alt="Dreamy Tropical Tree House" />
-              </ProdImage>
-              <ProdTitle href="#url">$200 Dreamy Tropical Tree House</ProdTitle>
-              <ProdText>Entrie house · 1 bed</ProdText>
-              <ReviewStatus>
-                <img src={star} alt="1" />
-                <img src={star} alt="2" />
-                <img src={star} alt="3" />
-                <img src={star} alt="4" />
-                <img src={star} alt="5" />
-                <span>364 · Superhost</span>
-              </ReviewStatus>
-            </Prod>
-          </Cell>
-        </Row>
+        <SliderTrack>
+          <Row>
+            <Cell>
+              <Prod>
+                <ProdImage href="#url">
+                  <img src={img1} alt="La Salentina, see, nature, & relax" />
+                </ProdImage>
+                <ProdTitle href="#url">
+                  $82 La Salentina, see, nature, & relax
+                </ProdTitle>
+                <ProdText>Entrie house · 9 bed</ProdText>
+                <ReviewStatus>
+                  <img src={star} alt="1" />
+                  <img src={star} alt="2" />
+                  <img src={star} alt="3" />
+                  <img src={star} alt="4" />
+                  <img src={star} alt="5" />
+                  <span>97 · Superhost</span>
+                </ReviewStatus>
+              </Prod>
+            </Cell>
+            <Cell>
+              <Prod>
+                <ProdImage href="#url">
+                  <img
+                    src={img2}
+                    alt="Your private 3 bedr.riad and exclusive bonus with stars"
+                  />
+                </ProdImage>
+                <ProdTitle href="#url">
+                  $82 Your private 3 bedr.riad and exclusive bonus with stars
+                </ProdTitle>
+                <ProdText>Entrie house · 5 bed</ProdText>
+                <ReviewStatus>
+                  <img src={star} alt="1" />
+                  <img src={star} alt="2" />
+                  <img src={star} alt="3" />
+                  <img src={star} alt="4" />
+                  <img src={star} alt="5" />
+                  <span>161 · Superhost</span>
+                </ReviewStatus>
+              </Prod>
+            </Cell>
+            <Cell>
+              <Prod>
+                <ProdImage href="#url">
+                  <img src={img3} alt="Dreamy Tropical Tree House" />
+                </ProdImage>
+                <ProdTitle href="#url">
+                  $200 Dreamy Tropical Tree House
+                </ProdTitle>
+                <ProdText>Entrie house · 1 bed</ProdText>
+                <ReviewStatus>
+                  <img src={star} alt="1" />
+                  <img src={star} alt="2" />
+                  <img src={star} alt="3" />
+                  <img src={star} alt="4" />
+                  <img src={star} alt="5" />
+                  <span>364 · Superhost</span>
+                </ReviewStatus>
+              </Prod>
+            </Cell>
+          </Row>
+          <SliderRight />
+        </SliderTrack>
       </Section>
     );
   }

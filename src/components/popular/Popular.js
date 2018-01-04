@@ -5,6 +5,7 @@ import img2 from "./img/img-2.png";
 import img3 from "./img/img-3.png";
 import img4 from "./img/img-4.png";
 import rightSmall from "./img/right-small.svg";
+import right from "./img/right.svg";
 
 const Section = styled.section`
   margin: 0 0 40px;
@@ -22,7 +23,7 @@ const Row = styled.div`
     margin: -16px -8px 0;
   }
   @media (min-width: 1200px) {
-    margin: -18px -9px 0;
+    margin: 0 -9px;
   }
 `;
 
@@ -38,7 +39,7 @@ const Cell = styled.div`
   @media (min-width: 1200px) {
     width: 25%;
     padding: 0 9px;
-    margin-top: 18px;
+    margin-top: 0;
   }
 `;
 
@@ -135,6 +136,28 @@ const ItemText = styled.p`
   margin: 0;
 `;
 
+const SliderTrack = styled.div`
+  position: relative;
+`;
+
+const SliderRight = styled.button`
+  display: none;
+  width: 40px;
+  height: 40px;
+  background: url(${right}) no-repeat right 14px center #ffffff;
+  border: 0.5px solid rgba(72, 72, 72, 0.2);
+  box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.16);
+  border-radius: 100%;
+  position: absolute;
+  top: 82px;
+  right: 0;
+  transform: translate(50%, -50%);
+  cursor: pointer;
+  @media (min-width: 1200px) {
+    display: block;
+  }
+`;
+
 class Popular extends Component {
   render() {
     return (
@@ -143,48 +166,51 @@ class Popular extends Component {
           <Title>Popular reservations around the world</Title>
           <Link href="#url">See all</Link>
         </Heading>
-        <Row>
-          <Cell>
-            <Item>
-              <ItemImage href="#url">
-                <img src={img1} alt="Chumley’s" />
-              </ItemImage>
-              <ItemTag>Speakeasy</ItemTag>
-              <ItemTitle href="#url">Chumley’s</ItemTitle>
-              <ItemText>About $60 per person</ItemText>
-            </Item>
-          </Cell>
-          <Cell>
-            <Item>
-              <ItemImage href="#url">
-                <img src={img2} alt="Hanjan" />
-              </ItemImage>
-              <ItemTag>Korean gastropub</ItemTag>
-              <ItemTitle href="#url">Hanjan</ItemTitle>
-              <ItemText>About $50 per person</ItemText>
-            </Item>
-          </Cell>
-          <Cell>
-            <Item>
-              <ItemImage href="#url">
-                <img src={img3} alt="Prime Meats" />
-              </ItemImage>
-              <ItemTag>German american</ItemTag>
-              <ItemTitle href="#url">Prime Meats</ItemTitle>
-              <ItemText>About $55 per person</ItemText>
-            </Item>
-          </Cell>
-          <Cell>
-            <Item>
-              <ItemImage href="#url">
-                <img src={img4} alt="Seaprice" />
-              </ItemImage>
-              <ItemTag>Fine seafood</ItemTag>
-              <ItemTitle href="#url">Seaprice</ItemTitle>
-              <ItemText>About $70 per person</ItemText>
-            </Item>
-          </Cell>
-        </Row>
+        <SliderTrack>
+          <Row>
+            <Cell>
+              <Item>
+                <ItemImage href="#url">
+                  <img src={img1} alt="Chumley’s" />
+                </ItemImage>
+                <ItemTag>Speakeasy</ItemTag>
+                <ItemTitle href="#url">Chumley’s</ItemTitle>
+                <ItemText>About $60 per person</ItemText>
+              </Item>
+            </Cell>
+            <Cell>
+              <Item>
+                <ItemImage href="#url">
+                  <img src={img2} alt="Hanjan" />
+                </ItemImage>
+                <ItemTag>Korean gastropub</ItemTag>
+                <ItemTitle href="#url">Hanjan</ItemTitle>
+                <ItemText>About $50 per person</ItemText>
+              </Item>
+            </Cell>
+            <Cell>
+              <Item>
+                <ItemImage href="#url">
+                  <img src={img3} alt="Prime Meats" />
+                </ItemImage>
+                <ItemTag>German american</ItemTag>
+                <ItemTitle href="#url">Prime Meats</ItemTitle>
+                <ItemText>About $55 per person</ItemText>
+              </Item>
+            </Cell>
+            <Cell>
+              <Item>
+                <ItemImage href="#url">
+                  <img src={img4} alt="Seaprice" />
+                </ItemImage>
+                <ItemTag>Fine seafood</ItemTag>
+                <ItemTitle href="#url">Seaprice</ItemTitle>
+                <ItemText>About $70 per person</ItemText>
+              </Item>
+            </Cell>
+          </Row>
+          <SliderRight />
+        </SliderTrack>
       </Section>
     );
   }

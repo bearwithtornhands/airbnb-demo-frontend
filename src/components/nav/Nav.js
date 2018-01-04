@@ -13,7 +13,7 @@ const NavBox = styled.nav`
   }
 `;
 
-const NavLink = styled.nav`
+const NavLink = styled.a`
   font-weight: 300;
   color: #383838;
   text-align: center;

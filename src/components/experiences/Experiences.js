@@ -145,6 +145,7 @@ const SliderRight = styled.button`
   top: 173px;
   right: 0;
   transform: translate(50%, -50%);
+  cursor: pointer;
   @media (min-width: 1200px) {
     display: block;
   }
