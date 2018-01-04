@@ -10,6 +10,8 @@ const SearchBox = styled.div`
   }
 `;
 
+const SearchForm = styled.form``;
+
 const SearchField = styled.input`
   font: normal normal 14px/24px "Circular", "Helvetica Neue", "Helvetica",
     "Arial", sans-serif;
@@ -46,7 +48,9 @@ class Search extends Component {
   render() {
     return (
       <SearchBox>
-        <SearchField type="text" placeholder="Try “Miami”" />
+        <SearchForm action="">
+          <SearchField type="text" placeholder="Try “Miami”" />
+        </SearchForm>
       </SearchBox>
     );
   }

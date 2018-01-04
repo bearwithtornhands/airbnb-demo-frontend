@@ -1,16 +1,11 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { Wrapper } from "../defaults";
 import SiteOptions from "../siteOptions/SiteOptions";
 import Menu from "../menu/Menu";
 import FooterMenu from "../footerMenu/FooterMenu";
 import FooterSocial from "../footerSocial/FooterSocial";
 import FooterCopy from "../footerCopy/FooterCopy";
-
-const Wrapper = styled.div`
-  max-width: 982px;
-  margin: auto;
-  padding: 0 8px;
-`;
 
 const FooterBox = styled.footer`
   background: #ffffff;

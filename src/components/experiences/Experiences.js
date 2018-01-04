@@ -1,19 +1,18 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import star from "./img/star.svg";
+import {
+  H2,
+  Section,
+  Heading,
+  SliderTrack,
+  SliderRight,
+  Review
+} from "../defaults";
+import ReviewStatus from "../reviewStatus/ReviewStatus";
 import img1 from "./img/prod-1.png";
 import img2 from "./img/prod-2.png";
 import img3 from "./img/prod-3.png";
 import img4 from "./img/prod-4.png";
-import rightSmall from "./img/right-small.svg";
-import right from "./img/right.svg";
-
-const Section = styled.section`
-  margin: 0 0 40px;
-  @media (min-width: 768px) {
-    margin: 0 0 48px;
-  }
-`;
 
 const Row = styled.div`
   display: flex;
@@ -44,42 +43,7 @@ const Cell = styled.div`
   }
 `;
 
-const Heading = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin: 0 0 16px;
-  @media (min-width: 768px) {
-    margin: 0 0 24px;
-  }
-`;
-
-const Title = styled.h2`
-  font-size: 24px;
-  line-height: 31px;
-  font-weight: bold;
-
-  margin: 0 8px 0 0;
-  @media (min-width: 768px) {
-    font-size: 32px;
-    line-height: 34px;
-  }
-`;
-
-const Link = styled.a`
-  font-size: 12px;
-  line-height: 24px;
-  color: #383838;
-  white-space: nowrap;
-
-  padding-right: 13px;
-  background: url(${rightSmall}) no-repeat right center transparent;
-  @media (min-width: 768px) {
-    font-size: 14px;
-  }
-`;
-
-const Prod = styled.div`
+const Box = styled.div`
   font-size: 13px;
   line-height: 16px;
   @media (min-width: 768px) {
@@ -88,7 +52,7 @@ const Prod = styled.div`
   }
 `;
 
-const ProdImage = styled.a`
+const Image = styled.a`
   display: block;
   height: 216px;
   margin: 0 0 8px;
@@ -102,7 +66,7 @@ const ProdImage = styled.a`
   }
 `;
 
-const ProdTitle = styled.a`
+const Title = styled.a`
   font-weight: 300;
   color: #383838;
 
@@ -113,42 +77,8 @@ const ProdTitle = styled.a`
   }
 `;
 
-const ReviewStatus = styled.div`
-  font-size: 12px;
-  line-height: 16px;
-
-  display: flex;
-  align-items: baseline;
-  span {
-    margin-left: 6px;
-  }
-  img {
-    & + img {
-      margin-left: 4px;
-    }
-  }
-`;
-
-const SliderTrack = styled.div`
-  position: relative;
-`;
-
-const SliderRight = styled.button`
-  display: none;
-  width: 40px;
-  height: 40px;
-  background: url(${right}) no-repeat right 14px center #ffffff;
-  border: 0.5px solid rgba(72, 72, 72, 0.2);
-  box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.16);
-  border-radius: 100%;
-  position: absolute;
+const ButtonRight = SliderRight.extend`
   top: 173px;
-  right: 0;
-  transform: translate(50%, -50%);
-  cursor: pointer;
-  @media (min-width: 1200px) {
-    display: block;
-  }
 `;
 
 class Experiences extends Component {
@@ -156,85 +86,69 @@ class Experiences extends Component {
     return (
       <Section>
         <Heading>
-          <Title>Experiences</Title>
-          <Link href="#url">See all</Link>
+          <H2>Experiences</H2>
+          <a href="#url">See all</a>
         </Heading>
         <SliderTrack>
           <Row>
             <Cell>
-              <Prod>
-                <ProdImage href="#url">
+              <Box>
+                <Image href="#url">
                   <img src={img1} alt="Forest therapy" />
-                </ProdImage>
-                <ProdTitle href="#url">
+                </Image>
+                <Title href="#url">
                   <b>$29</b> Forest therapy
-                </ProdTitle>
-                <ReviewStatus>
-                  <img src={star} alt="1" />
-                  <img src={star} alt="2" />
-                  <img src={star} alt="3" />
-                  <img src={star} alt="4" />
-                  <img src={star} alt="5" />
+                </Title>
+                <Review>
+                  <ReviewStatus />
                   <span>44 reviews</span>
-                </ReviewStatus>
-              </Prod>
+                </Review>
+              </Box>
             </Cell>
             <Cell>
-              <Prod>
-                <ProdImage href="#url">
+              <Box>
+                <Image href="#url">
                   <img src={img2} alt="Whale watching" />
-                </ProdImage>
-                <ProdTitle href="#url">
+                </Image>
+                <Title href="#url">
                   <b>$69</b> Whale watching
-                </ProdTitle>
-                <ReviewStatus>
-                  <img src={star} alt="1" />
-                  <img src={star} alt="2" />
-                  <img src={star} alt="3" />
-                  <img src={star} alt="4" />
-                  <img src={star} alt="5" />
+                </Title>
+                <Review>
+                  <ReviewStatus />
                   <span>46 reviews</span>
-                </ReviewStatus>
-              </Prod>
+                </Review>
+              </Box>
             </Cell>
             <Cell>
-              <Prod>
-                <ProdImage href="#url">
+              <Box>
+                <Image href="#url">
                   <img src={img3} alt="Table Mountain Summit, Cable Car Down" />
-                </ProdImage>
-                <ProdTitle href="#url">
+                </Image>
+                <Title href="#url">
                   <b>$69</b> Table Mountain Summit, Cable Car Down
-                </ProdTitle>
-                <ReviewStatus>
-                  <img src={star} alt="1" />
-                  <img src={star} alt="2" />
-                  <img src={star} alt="3" />
-                  <img src={star} alt="4" />
-                  <img src={star} alt="5" />
+                </Title>
+                <Review>
+                  <ReviewStatus />
                   <span>44 reviews</span>
-                </ReviewStatus>
-              </Prod>
+                </Review>
+              </Box>
             </Cell>
             <Cell>
-              <Prod>
-                <ProdImage href="#url">
+              <Box>
+                <Image href="#url">
                   <img src={img4} alt="Salsa Night" />
-                </ProdImage>
-                <ProdTitle href="#url">
+                </Image>
+                <Title href="#url">
                   <b>$50</b> Salsa Night
-                </ProdTitle>
-                <ReviewStatus>
-                  <img src={star} alt="1" />
-                  <img src={star} alt="2" />
-                  <img src={star} alt="3" />
-                  <img src={star} alt="4" />
-                  <img src={star} alt="5" />
-                  <span>44 reviews</span>
-                </ReviewStatus>
-              </Prod>
+                </Title>
+                <Review>
+                  <ReviewStatus />
+                  <span>45 reviews</span>
+                </Review>
+              </Box>
             </Cell>
           </Row>
-          <SliderRight type="button" />
+          <ButtonRight type="button" />
         </SliderTrack>
       </Section>
     );

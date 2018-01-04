@@ -1,15 +1,9 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { H2, Section } from "../defaults";
 import categoryImage1 from "./img/category-1.jpg";
 import categoryImage2 from "./img/category-2.jpg";
 import categoryImage3 from "./img/category-3.jpg";
-
-const Section = styled.section`
-  margin: 0 0 40px;
-  @media (min-width: 768px) {
-    margin: 0 0 48px;
-  }
-`;
 
 const Row = styled.div`
   display: flex;
@@ -39,21 +33,7 @@ const Cell = styled.div`
   }
 `;
 
-const Title = styled.h2`
-  font-size: 24px;
-  line-height: 31px;
-  font-weight: bold;
-
-  margin: 0 0 16px;
-  @media (min-width: 768px) {
-    font-size: 32px;
-    line-height: 34px;
-
-    margin: 0 0 24px;
-  }
-`;
-
-const Item = styled.a`
+const Link = styled.a`
   color: #383838;
   display: block;
   @media (min-width: 768px) {
@@ -65,7 +45,7 @@ const Item = styled.a`
   }
 `;
 
-const ItemImage = styled.div`
+const Image = styled.div`
   height: 78px;
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
@@ -86,7 +66,7 @@ const ItemImage = styled.div`
   }
 `;
 
-const ItemTitle = styled.div`
+const Title = styled.div`
   font-size: 12px;
   line-height: 20px;
   font-weight: bold;
@@ -116,31 +96,31 @@ class Category extends Component {
   render() {
     return (
       <Section>
-        <Title>Explore Airbnb</Title>
+        <H2>Explore Airbnb</H2>
         <Row>
           <Cell>
-            <Item href="#url">
-              <ItemImage>
+            <Link href="#url">
+              <Image>
                 <img src={categoryImage1} alt="Homes" />
-              </ItemImage>
-              <ItemTitle>Homes</ItemTitle>
-            </Item>
+              </Image>
+              <Title>Homes</Title>
+            </Link>
           </Cell>
           <Cell>
-            <Item href="#url">
-              <ItemImage>
+            <Link href="#url">
+              <Image>
                 <img src={categoryImage2} alt="Experiences" />
-              </ItemImage>
-              <ItemTitle>Experiences</ItemTitle>
-            </Item>
+              </Image>
+              <Title>Experiences</Title>
+            </Link>
           </Cell>
           <Cell>
-            <Item href="#url">
-              <ItemImage>
+            <Link href="#url">
+              <Image>
                 <img src={categoryImage3} alt="Restaurants" />
-              </ItemImage>
-              <ItemTitle>Restaurants</ItemTitle>
-            </Item>
+              </Image>
+              <Title>Restaurants</Title>
+            </Link>
           </Cell>
         </Row>
       </Section>

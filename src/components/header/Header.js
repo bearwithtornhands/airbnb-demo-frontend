@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { Wrapper } from "../defaults";
 import Logo from "../logo/Logo";
 import Search from "../search/Search";
 import Nav from "../nav/Nav";
@@ -20,12 +21,6 @@ const HeaderInner = styled.div`
   @media (min-width: 768px) {
     justify-content: flex-start;
   }
-`;
-
-const Wrapper = styled.div`
-  max-width: 982px;
-  margin: auto;
-  padding: 0 8px;
 `;
 
 class Header extends Component {

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import bottom from "./img/bottom.svg";
+import bottom from "./bottom.svg";
 
 const Select = styled.select`
   font-size: 12px;

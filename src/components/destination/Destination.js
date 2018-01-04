@@ -1,19 +1,12 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { H2, Section, SliderTrack, SliderRight } from "../defaults";
 import img1 from "./img/item-1.png";
 import img2 from "./img/item-2.png";
 import img3 from "./img/item-3.png";
 import img4 from "./img/item-4.png";
 import img5 from "./img/item-5.png";
 import img6 from "./img/item-6.png";
-import right from "./img/right.svg";
-
-const Section = styled.section`
-  margin: 0 0 40px;
-  @media (min-width: 768px) {
-    margin: 0 0 48px;
-  }
-`;
 
 const Row = styled.div`
   display: flex;
@@ -41,20 +34,6 @@ const Cell = styled.div`
     width: 16.666667%;
     padding: 0 8.5px;
     margin-top: 0;
-  }
-`;
-
-const Title = styled.h2`
-  font-size: 24px;
-  line-height: 31px;
-  font-weight: bold;
-
-  margin: 0 0 16px;
-  @media (min-width: 768px) {
-    font-size: 32px;
-    line-height: 34px;
-
-    margin: 0 0 24px;
   }
 `;
 
@@ -93,33 +72,15 @@ const ItemTitle = styled.h6`
   }
 `;
 
-const SliderTrack = styled.div`
-  position: relative;
-`;
-
-const SliderRight = styled.button`
-  display: none;
-  width: 40px;
-  height: 40px;
-  background: url(${right}) no-repeat right 14px center #ffffff;
-  border: 0.5px solid rgba(72, 72, 72, 0.2);
-  box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.16);
-  border-radius: 100%;
-  position: absolute;
+const ButtonRight = SliderRight.extend`
   top: 110px;
-  right: 0;
-  transform: translate(50%, -50%);
-  cursor: pointer;
-  @media (min-width: 1200px) {
-    display: block;
-  }
 `;
 
 class Destination extends Component {
   render() {
     return (
       <Section>
-        <Title>Featured destination</Title>
+        <H2>Featured destination</H2>
         <SliderTrack>
           <Row>
             <Cell>
@@ -171,7 +132,7 @@ class Destination extends Component {
               </Item>
             </Cell>
           </Row>
-          <SliderRight />
+          <ButtonRight type="button" />
         </SliderTrack>
       </Section>
     );
