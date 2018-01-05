@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 
-const MenuList = styled.div`
+const Menu = styled.div`
   display: flex;
   align-items: center;
   margin: 0 12px 0 0;
@@ -24,16 +24,12 @@ const Link = styled.a`
   }
 `;
 
-class Menu extends Component {
-  render() {
-    return (
-      <MenuList>
-        <Link href="#url">Terms</Link>
-        <Link href="#url">Privacy</Link>
-        <Link href="#url">Site map</Link>
-      </MenuList>
-    );
-  }
-}
-
-export default Menu;
+export default () => {
+  return (
+    <Menu>
+      <Link href="#url">Terms</Link>
+      <Link href="#url">Privacy</Link>
+      <Link href="#url">Site map</Link>
+    </Menu>
+  );
+};

@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 
-const MenuWrap = styled.div`
+const Nav = styled.div`
   display: none;
   @media (min-width: 768px) {
     display: block;
@@ -50,43 +50,39 @@ const Link = styled.a`
   }
 `;
 
-class Nav extends Component {
-  render() {
-    return (
-      <MenuWrap>
-        <MenuList>
-          <MenuColumn>
-            <Title>Airbnb</Title>
-            <Link href="#url">About us</Link>
-            <Link href="#url">Careers</Link>
-            <Link href="#url">Press</Link>
-            <Link href="#url">Policies</Link>
-            <Link href="#url">Help</Link>
-            <Link href="#url">Diversity & Belongin</Link>
-          </MenuColumn>
-          <MenuColumn>
-            <Title>Discover</Title>
-            <Link href="#url">Trust & Safety</Link>
-            <Link href="#url">Travel Credit</Link>
-            <Link href="#url">Gift Cards</Link>
-            <Link href="#url">Airbnb Citizen</Link>
-            <Link href="#url">Business Travel</Link>
-            <Link href="#url">Guidebooks</Link>
-            <Link href="#url">Airbnbmag</Link>
-          </MenuColumn>
-          <MenuColumn>
-            <Title>Airbnb</Title>
-            <Link href="#url">Hosting</Link>
-            <Link href="#url">Why Host</Link>
-            <Link href="#url">Hospitality</Link>
-            <Link href="#url">Responsible Hosting</Link>
-            <Link href="#url">Help</Link>
-            <Link href="#url">Community Center</Link>
-          </MenuColumn>
-        </MenuList>
-      </MenuWrap>
-    );
-  }
-}
-
-export default Nav;
+export default () => {
+  return (
+    <Nav>
+      <MenuList>
+        <MenuColumn>
+          <Title>Airbnb</Title>
+          <Link href="#url">About us</Link>
+          <Link href="#url">Careers</Link>
+          <Link href="#url">Press</Link>
+          <Link href="#url">Policies</Link>
+          <Link href="#url">Help</Link>
+          <Link href="#url">Diversity & Belongin</Link>
+        </MenuColumn>
+        <MenuColumn>
+          <Title>Discover</Title>
+          <Link href="#url">Trust & Safety</Link>
+          <Link href="#url">Travel Credit</Link>
+          <Link href="#url">Gift Cards</Link>
+          <Link href="#url">Airbnb Citizen</Link>
+          <Link href="#url">Business Travel</Link>
+          <Link href="#url">Guidebooks</Link>
+          <Link href="#url">Airbnbmag</Link>
+        </MenuColumn>
+        <MenuColumn>
+          <Title>Airbnb</Title>
+          <Link href="#url">Hosting</Link>
+          <Link href="#url">Why Host</Link>
+          <Link href="#url">Hospitality</Link>
+          <Link href="#url">Responsible Hosting</Link>
+          <Link href="#url">Help</Link>
+          <Link href="#url">Community Center</Link>
+        </MenuColumn>
+      </MenuList>
+    </Nav>
+  );
+};

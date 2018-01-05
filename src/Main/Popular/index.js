@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import {
   Section,
@@ -83,62 +83,58 @@ const ButtonRight = SliderRight.extend`
   top: 82px;
 `;
 
-class Popular extends Component {
-  render() {
-    return (
-      <Section>
-        <Heading>
-          <HeadingH2>Popular reservations around the world</HeadingH2>
-          <HeadingLink href="#url">See all</HeadingLink>
-        </Heading>
-        <SliderTrack>
-          <div className="row">
-            <div className="col-xs-6 col-md-4 col-xl-3">
-              <Card>
-                <ImageLink href="#url">
-                  <Image src={popularImg1} alt="Chumley’s" />
-                </ImageLink>
-                <Tag>Speakeasy</Tag>
-                <Link href="#url">Chumley’s</Link>
-                <Text>About $60 per person</Text>
-              </Card>
-            </div>
-            <div className="col-xs-6 col-md-4 col-xl-3">
-              <Card>
-                <ImageLink href="#url">
-                  <Image src={popularImg2} alt="Hanjan" />
-                </ImageLink>
-                <Tag>Korean gastropub</Tag>
-                <Link href="#url">Hanjan</Link>
-                <Text>About $50 per person</Text>
-              </Card>
-            </div>
-            <div className="col-xs-6 col-md-4 col-xl-3">
-              <Card>
-                <ImageLink href="#url">
-                  <Image src={popularImg3} alt="Prime Meats" />
-                </ImageLink>
-                <Tag>German american</Tag>
-                <Link href="#url">Prime Meats</Link>
-                <Text>About $55 per person</Text>
-              </Card>
-            </div>
-            <div className="col-xs-6 col-md-4 col-xl-3">
-              <Card>
-                <ImageLink href="#url">
-                  <Image src={popularImg4} alt="Seaprice" />
-                </ImageLink>
-                <Tag>Fine seafood</Tag>
-                <Link href="#url">Seaprice</Link>
-                <Text>About $70 per person</Text>
-              </Card>
-            </div>
+export default () => {
+  return (
+    <Section>
+      <Heading>
+        <HeadingH2>Popular reservations around the world</HeadingH2>
+        <HeadingLink href="#url">See all</HeadingLink>
+      </Heading>
+      <SliderTrack>
+        <div className="row">
+          <div className="col-xs-6 col-md-4 col-xl-3">
+            <Card>
+              <ImageLink href="#url">
+                <Image src={popularImg1} alt="Chumley’s" />
+              </ImageLink>
+              <Tag>Speakeasy</Tag>
+              <Link href="#url">Chumley’s</Link>
+              <Text>About $60 per person</Text>
+            </Card>
           </div>
-          <ButtonRight type="button" />
-        </SliderTrack>
-      </Section>
-    );
-  }
-}
-
-export default Popular;
+          <div className="col-xs-6 col-md-4 col-xl-3">
+            <Card>
+              <ImageLink href="#url">
+                <Image src={popularImg2} alt="Hanjan" />
+              </ImageLink>
+              <Tag>Korean gastropub</Tag>
+              <Link href="#url">Hanjan</Link>
+              <Text>About $50 per person</Text>
+            </Card>
+          </div>
+          <div className="col-xs-6 col-md-4 col-xl-3">
+            <Card>
+              <ImageLink href="#url">
+                <Image src={popularImg3} alt="Prime Meats" />
+              </ImageLink>
+              <Tag>German american</Tag>
+              <Link href="#url">Prime Meats</Link>
+              <Text>About $55 per person</Text>
+            </Card>
+          </div>
+          <div className="col-xs-6 col-md-4 col-xl-3">
+            <Card>
+              <ImageLink href="#url">
+                <Image src={popularImg4} alt="Seaprice" />
+              </ImageLink>
+              <Tag>Fine seafood</Tag>
+              <Link href="#url">Seaprice</Link>
+              <Text>About $70 per person</Text>
+            </Card>
+          </div>
+        </div>
+        <ButtonRight type="button" />
+      </SliderTrack>
+    </Section>
+  );
+};

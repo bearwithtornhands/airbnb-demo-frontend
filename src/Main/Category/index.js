@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import { H2, Section } from "../defaults";
 import categoryImage1 from "./category-1.jpg";
@@ -65,40 +65,36 @@ const Title = styled.h6`
   }
 `;
 
-class Category extends Component {
-  render() {
-    return (
-      <Section>
-        <H2>Explore Airbnb</H2>
-        <div className="row">
-          <div className="col-xs-6 col-md-4">
-            <Link href="#url">
-              <ImageWrap>
-                <Image src={categoryImage1} alt="Homes" />
-              </ImageWrap>
-              <Title>Homes</Title>
-            </Link>
-          </div>
-          <div className="col-xs-6 col-md-4">
-            <Link href="#url">
-              <ImageWrap>
-                <Image src={categoryImage2} alt="Experiences" />
-              </ImageWrap>
-              <Title>Experiences</Title>
-            </Link>
-          </div>
-          <div className="col-xs-6 col-md-4">
-            <Link href="#url">
-              <ImageWrap>
-                <Image src={categoryImage3} alt="Restaurants" />
-              </ImageWrap>
-              <Title>Restaurants</Title>
-            </Link>
-          </div>
+export default () => {
+  return (
+    <Section>
+      <H2>Explore Airbnb</H2>
+      <div className="row">
+        <div className="col-xs-6 col-md-4">
+          <Link href="#url">
+            <ImageWrap>
+              <Image src={categoryImage1} alt="Homes" />
+            </ImageWrap>
+            <Title>Homes</Title>
+          </Link>
         </div>
-      </Section>
-    );
-  }
-}
-
-export default Category;
+        <div className="col-xs-6 col-md-4">
+          <Link href="#url">
+            <ImageWrap>
+              <Image src={categoryImage2} alt="Experiences" />
+            </ImageWrap>
+            <Title>Experiences</Title>
+          </Link>
+        </div>
+        <div className="col-xs-6 col-md-4">
+          <Link href="#url">
+            <ImageWrap>
+              <Image src={categoryImage3} alt="Restaurants" />
+            </ImageWrap>
+            <Title>Restaurants</Title>
+          </Link>
+        </div>
+      </div>
+    </Section>
+  );
+};

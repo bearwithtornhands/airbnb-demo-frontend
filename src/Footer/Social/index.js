@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import fb from "./fb.svg";
 import tw from "./tw.svg";
 import ig from "./ig.svg";
 
-const SocialList = styled.div`
+const Social = styled.div`
   display: flex;
   align-items: center;
 `;
@@ -51,16 +51,12 @@ const LinkIg = Link.extend`
   }
 `;
 
-class Social extends Component {
-  render() {
-    return (
-      <SocialList>
-        <LinkFb href="#url" />
-        <LinkTw href="#url" />
-        <LinkIg href="#url" />
-      </SocialList>
-    );
-  }
-}
-
-export default Social;
+export default () => {
+  return (
+    <Social>
+      <LinkFb href="#url" />
+      <LinkTw href="#url" />
+      <LinkIg href="#url" />
+    </Social>
+  );
+};

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import Category from "./Category";
 import Experiences from "./Experiences";
@@ -12,27 +12,23 @@ const Wrapper = styled.div`
   padding: 0 8px;
 `;
 
-const MainInner = styled.main`
+const Main = styled.main`
   margin: 0 0 40px;
   @media (min-width: 768px) {
     margin: 0 0 64px;
   }
 `;
 
-class Main extends Component {
-  render() {
-    return (
-      <MainInner>
-        <Wrapper>
-          <Category />
-          <Experiences />
-          <Homes />
-          <Popular />
-          <Destination />
-        </Wrapper>
-      </MainInner>
-    );
-  }
-}
-
-export default Main;
+export default () => {
+  return (
+    <Main>
+      <Wrapper>
+        <Category />
+        <Experiences />
+        <Homes />
+        <Popular />
+        <Destination />
+      </Wrapper>
+    </Main>
+  );
+};

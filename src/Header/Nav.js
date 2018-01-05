@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 
-const MenuList = styled.nav`
+const Menu = styled.nav`
   font-size: 14px;
   line-height: 24px;
 
@@ -25,17 +25,13 @@ const Link = styled.a`
   }
 `;
 
-class Nav extends Component {
-  render() {
-    return (
-      <MenuList>
-        <Link href="/">Become a host</Link>
-        <Link href="/">Help</Link>
-        <Link href="/">Sign Up</Link>
-        <Link href="/">Log In</Link>
-      </MenuList>
-    );
-  }
-}
-
-export default Nav;
+export default () => {
+  return (
+    <Menu>
+      <Link href="/">Become a host</Link>
+      <Link href="/">Help</Link>
+      <Link href="/">Sign Up</Link>
+      <Link href="/">Log In</Link>
+    </Menu>
+  );
+};

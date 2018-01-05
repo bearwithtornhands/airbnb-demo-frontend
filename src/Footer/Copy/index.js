@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import Logo from "./logo.svg";
 
-const CopyWrap = styled.div`
+const Copy = styled.div`
   font-size: 12px;
   line-height: 16px;
   color: #636363;
@@ -26,15 +26,11 @@ const Image = styled.img`
 
 const Text = styled.span``;
 
-class Copy extends Component {
-  render() {
-    return (
-      <CopyWrap>
-        <Image src={Logo} alt="Airbnb" />
-        <Text>© Airbnb Inc.</Text>
-      </CopyWrap>
-    );
-  }
-}
-
-export default Copy;
+export default () => {
+  return (
+    <Copy>
+      <Image src={Logo} alt="Airbnb" />
+      <Text>© Airbnb Inc.</Text>
+    </Copy>
+  );
+};

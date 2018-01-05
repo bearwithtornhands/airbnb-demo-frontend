@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import searchImg from "./search.svg";
 
-const SearchWrap = styled.div`
+const Search = styled.div`
   width: 100%;
   max-width: 432px;
   @media (min-width: 1200px) {
@@ -35,16 +35,12 @@ const Input = styled.input`
   }
 `;
 
-class Search extends Component {
-  render() {
-    return (
-      <SearchWrap>
-        <Form action="">
-          <Input type="text" placeholder="Try “Miami”" />
-        </Form>
-      </SearchWrap>
-    );
-  }
-}
-
-export default Search;
+export default () => {
+  return (
+    <Search>
+      <Form action="">
+        <Input type="text" placeholder="Try “Miami”" />
+      </Form>
+    </Search>
+  );
+};

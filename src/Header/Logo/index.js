@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import logoImg from "./logo.svg";
 import Bottom from "./bottom.svg";
 
-const LogoWrap = styled.div`
+const Logo = styled.div`
   margin-right: 8px;
   @media (min-width: 768px) {
     margin-right: 17px;
@@ -36,19 +36,15 @@ const Button = styled.button`
 
 const Image = styled.img``;
 
-class Logo extends Component {
-  render() {
-    return (
-      <LogoWrap>
-        <Link href="/">
-          <Image src={logoImg} alt="logo" />
-        </Link>
-        <Button type="button">
-          <Image src={logoImg} alt="logo" />
-        </Button>
-      </LogoWrap>
-    );
-  }
-}
-
-export default Logo;
+export default () => {
+  return (
+    <Logo>
+      <Link href="/">
+        <Image src={logoImg} alt="logo" />
+      </Link>
+      <Button type="button">
+        <Image src={logoImg} alt="logo" />
+      </Button>
+    </Logo>
+  );
+};

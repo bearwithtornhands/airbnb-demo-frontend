@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import SelectParams from "./SelectParams";
 import Nav from "./Nav";
@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   padding: 0 8px;
 `;
 
-const FooterBox = styled.footer`
+const Footer = styled.footer`
   background: #ffffff;
   -webkit-box-shadow: 0px -0.5px 0px rgba(72, 72, 72, 0.3);
   -moz-box-shadow: 0px -0.5px 0px rgba(72, 72, 72, 0.3);
@@ -52,26 +52,22 @@ const FooterFoot = styled.div`
   }
 `;
 
-class Footer extends Component {
-  render() {
-    return (
-      <FooterBox>
-        <Wrapper>
-          <FooterBody>
-            <SelectParams />
-            <Nav />
-          </FooterBody>
-          <FooterFoot>
-            <Copy />
-            <FooterTools>
-              <Menu />
-              <Social />
-            </FooterTools>
-          </FooterFoot>
-        </Wrapper>
-      </FooterBox>
-    );
-  }
-}
-
-export default Footer;
+export default () => {
+  return (
+    <Footer>
+      <Wrapper>
+        <FooterBody>
+          <SelectParams />
+          <Nav />
+        </FooterBody>
+        <FooterFoot>
+          <Copy />
+          <FooterTools>
+            <Menu />
+            <Social />
+          </FooterTools>
+        </FooterFoot>
+      </Wrapper>
+    </Footer>
+  );
+};

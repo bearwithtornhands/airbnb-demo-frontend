@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import Star from "./star.svg";
 
@@ -17,18 +17,14 @@ const Icon = styled.span`
   }
 `;
 
-class ReviewStatus extends Component {
-  render() {
-    return (
-      <ReviewList>
-        <Icon />
-        <Icon />
-        <Icon />
-        <Icon />
-        <Icon />
-      </ReviewList>
-    );
-  }
-}
-
-export default ReviewStatus;
+export default () => {
+  return (
+    <ReviewList>
+      <Icon />
+      <Icon />
+      <Icon />
+      <Icon />
+      <Icon />
+    </ReviewList>
+  );
+};

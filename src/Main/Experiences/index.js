@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import {
   Section,
@@ -61,81 +61,77 @@ const ButtonRight = SliderRight.extend`
   top: 173px;
 `;
 
-class Experiences extends Component {
-  render() {
-    return (
-      <Section>
-        <Heading>
-          <HeadingH2>Experiences</HeadingH2>
-          <HeadingLink href="#url">See all</HeadingLink>
-        </Heading>
-        <SliderTrack>
-          <div className="row">
-            <div className="col-xs-6 col-md-4 col-xl-3">
-              <Card>
-                <ImageLink href="#url">
-                  <Image src={expImg1} alt="Forest therapy" />
-                </ImageLink>
-                <Link href="#url">
-                  <Price>$29</Price> Forest therapy
-                </Link>
-                <Review>
-                  <ReviewStatus />
-                  <span>44 reviews</span>
-                </Review>
-              </Card>
-            </div>
-            <div className="col-xs-6 col-md-4 col-xl-3">
-              <Card>
-                <ImageLink href="#url">
-                  <Image src={expImg2} alt="Whale watching" />
-                </ImageLink>
-                <Link href="#url">
-                  <Price>$69</Price> Whale watching
-                </Link>
-                <Review>
-                  <ReviewStatus />
-                  <span>46 reviews</span>
-                </Review>
-              </Card>
-            </div>
-            <div className="col-xs-6 col-md-4 col-xl-3">
-              <Card>
-                <ImageLink href="#url">
-                  <Image
-                    src={expImg3}
-                    alt="Table Mountain Summit, Cable Car Down"
-                  />
-                </ImageLink>
-                <Link href="#url">
-                  <Price>$69</Price> Table Mountain Summit, Cable Car Down
-                </Link>
-                <Review>
-                  <ReviewStatus />
-                  <span>44 reviews</span>
-                </Review>
-              </Card>
-            </div>
-            <div className="col-xs-6 col-md-4 col-xl-3">
-              <Card>
-                <ImageLink href="#url">
-                  <Image src={expImg4} alt="Salsa Night" />
-                </ImageLink>
-                <Link href="#url">
-                  <Price>$50</Price> Salsa Night
-                </Link>
-                <Review>
-                  <ReviewStatus />
-                  <span>45 reviews</span>
-                </Review>
-              </Card>
-            </div>
+export default () => {
+  return (
+    <Section>
+      <Heading>
+        <HeadingH2>Experiences</HeadingH2>
+        <HeadingLink href="#url">See all</HeadingLink>
+      </Heading>
+      <SliderTrack>
+        <div className="row">
+          <div className="col-xs-6 col-md-4 col-xl-3">
+            <Card>
+              <ImageLink href="#url">
+                <Image src={expImg1} alt="Forest therapy" />
+              </ImageLink>
+              <Link href="#url">
+                <Price>$29</Price> Forest therapy
+              </Link>
+              <Review>
+                <ReviewStatus />
+                <span>44 reviews</span>
+              </Review>
+            </Card>
           </div>
-          <ButtonRight type="button" />
-        </SliderTrack>
-      </Section>
-    );
-  }
-}
-
-export default Experiences;
+          <div className="col-xs-6 col-md-4 col-xl-3">
+            <Card>
+              <ImageLink href="#url">
+                <Image src={expImg2} alt="Whale watching" />
+              </ImageLink>
+              <Link href="#url">
+                <Price>$69</Price> Whale watching
+              </Link>
+              <Review>
+                <ReviewStatus />
+                <span>46 reviews</span>
+              </Review>
+            </Card>
+          </div>
+          <div className="col-xs-6 col-md-4 col-xl-3">
+            <Card>
+              <ImageLink href="#url">
+                <Image
+                  src={expImg3}
+                  alt="Table Mountain Summit, Cable Car Down"
+                />
+              </ImageLink>
+              <Link href="#url">
+                <Price>$69</Price> Table Mountain Summit, Cable Car Down
+              </Link>
+              <Review>
+                <ReviewStatus />
+                <span>44 reviews</span>
+              </Review>
+            </Card>
+          </div>
+          <div className="col-xs-6 col-md-4 col-xl-3">
+            <Card>
+              <ImageLink href="#url">
+                <Image src={expImg4} alt="Salsa Night" />
+              </ImageLink>
+              <Link href="#url">
+                <Price>$50</Price> Salsa Night
+              </Link>
+              <Review>
+                <ReviewStatus />
+                <span>45 reviews</span>
+              </Review>
+            </Card>
+          </div>
+        </div>
+        <ButtonRight type="button" />
+      </SliderTrack>
+    </Section>
+  );
+};

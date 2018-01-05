@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import bottom from "./bottom.svg";
 
@@ -35,7 +35,7 @@ const Select = styled.select`
 
 const Option = styled.option``;
 
-const SelectsWrap = styled.div`
+const Selects = styled.div`
   margin: 0;
   @media (min-width: 768px) {
     width: 176px;
@@ -66,27 +66,23 @@ const SelectsColumn = styled.div`
   }
 `;
 
-class SelectParams extends Component {
-  render() {
-    return (
-      <SelectsWrap>
-        <SelectsList>
-          <SelectsColumn>
-            <Select>
-              <Option value="0">English</Option>
-              <Option value="1">Russia</Option>
-            </Select>
-          </SelectsColumn>
-          <SelectsColumn>
-            <Select>
-              <Option value="0">United States dollar</Option>
-              <Option value="1">Canada dollar</Option>
-            </Select>
-          </SelectsColumn>
-        </SelectsList>
-      </SelectsWrap>
-    );
-  }
-}
-
-export default SelectParams;
+export default () => {
+  return (
+    <Selects>
+      <SelectsList>
+        <SelectsColumn>
+          <Select>
+            <Option value="0">English</Option>
+            <Option value="1">Russia</Option>
+          </Select>
+        </SelectsColumn>
+        <SelectsColumn>
+          <Select>
+            <Option value="0">United States dollar</Option>
+            <Option value="1">Canada dollar</Option>
+          </Select>
+        </SelectsColumn>
+      </SelectsList>
+    </Selects>
+  );
+};

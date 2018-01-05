@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import {
   Section,
@@ -69,69 +69,65 @@ const ButtonRight = SliderRight.extend`
   top: 102px;
 `;
 
-class Homes extends Component {
-  render() {
-    return (
-      <Section>
-        <Heading>
-          <HeadingH2>Homes</HeadingH2>
-          <HeadingLink href="#url">See all</HeadingLink>
-        </Heading>
-        <SliderTrack>
-          <div className="row">
-            <div className="col-xs-6 col-md-4">
-              <Card>
-                <ImageLink href="#url">
-                  <Image
-                    src={homeImg1}
-                    alt="La Salentina, see, nature, & relax"
-                  />
-                </ImageLink>
-                <Link href="#url">$82 La Salentina, see, nature, & relax</Link>
-                <Text>Entrie house · 9 bed</Text>
-                <Review>
-                  <ReviewStatus />
-                  <span>97 · Superhost</span>
-                </Review>
-              </Card>
-            </div>
-            <div className="col-xs-6 col-md-4">
-              <Card>
-                <ImageLink href="#url">
-                  <Image
-                    src={homeImg2}
-                    alt="Your private 3 bedr.riad and exclusive bonus with stars"
-                  />
-                </ImageLink>
-                <Link href="#url">
-                  $82 Your private 3 bedr.riad and exclusive bonus with stars
-                </Link>
-                <Text>Entrie house · 5 bed</Text>
-                <Review>
-                  <ReviewStatus />
-                  <span>161 · Superhost</span>
-                </Review>
-              </Card>
-            </div>
-            <div className="col-xs-6 col-md-4">
-              <Card>
-                <ImageLink href="#url">
-                  <Image src={homeImg3} alt="Dreamy Tropical Tree House" />
-                </ImageLink>
-                <Link href="#url">$200 Dreamy Tropical Tree House</Link>
-                <Text>Entrie house · 1 bed</Text>
-                <Review>
-                  <ReviewStatus />
-                  <span>364 · Superhost</span>
-                </Review>
-              </Card>
-            </div>
+export default () => {
+  return (
+    <Section>
+      <Heading>
+        <HeadingH2>Homes</HeadingH2>
+        <HeadingLink href="#url">See all</HeadingLink>
+      </Heading>
+      <SliderTrack>
+        <div className="row">
+          <div className="col-xs-6 col-md-4">
+            <Card>
+              <ImageLink href="#url">
+                <Image
+                  src={homeImg1}
+                  alt="La Salentina, see, nature, & relax"
+                />
+              </ImageLink>
+              <Link href="#url">$82 La Salentina, see, nature, & relax</Link>
+              <Text>Entrie house · 9 bed</Text>
+              <Review>
+                <ReviewStatus />
+                <span>97 · Superhost</span>
+              </Review>
+            </Card>
           </div>
-          <ButtonRight type="button" />
-        </SliderTrack>
-      </Section>
-    );
-  }
-}
-
-export default Homes;
+          <div className="col-xs-6 col-md-4">
+            <Card>
+              <ImageLink href="#url">
+                <Image
+                  src={homeImg2}
+                  alt="Your private 3 bedr.riad and exclusive bonus with stars"
+                />
+              </ImageLink>
+              <Link href="#url">
+                $82 Your private 3 bedr.riad and exclusive bonus with stars
+              </Link>
+              <Text>Entrie house · 5 bed</Text>
+              <Review>
+                <ReviewStatus />
+                <span>161 · Superhost</span>
+              </Review>
+            </Card>
+          </div>
+          <div className="col-xs-6 col-md-4">
+            <Card>
+              <ImageLink href="#url">
+                <Image src={homeImg3} alt="Dreamy Tropical Tree House" />
+              </ImageLink>
+              <Link href="#url">$200 Dreamy Tropical Tree House</Link>
+              <Text>Entrie house · 1 bed</Text>
+              <Review>
+                <ReviewStatus />
+                <span>364 · Superhost</span>
+              </Review>
+            </Card>
+          </div>
+        </div>
+        <ButtonRight type="button" />
+      </SliderTrack>
+    </Section>
+  );
+};
