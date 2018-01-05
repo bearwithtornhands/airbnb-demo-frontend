@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import searchImg from "./search.svg";
+import searchImg from "./src/search.svg";
 
 const SearchBox = styled.div`
   width: 100%;

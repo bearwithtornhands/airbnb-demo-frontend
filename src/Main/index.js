@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Wrapper, MainInner } from "../defaults";
-import Category from "../category/Category";
-import Experiences from "../experiences/Experiences";
-import Homes from "../homes/Homes";
-import Popular from "../popular/Popular";
-import Destination from "../destination/Destination";
+import Category from "./Category";
+import Experiences from "./Experiences";
+import Homes from "./Homes";
+import Popular from "./Popular";
+import Destination from "./Destination";
 
 class Main extends Component {
   render() {

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import bottom from "./bottom.svg";
+import bottom from "./src/bottom.svg";
 
 const Select = styled.select`
   font-size: 12px;
@@ -33,7 +33,9 @@ const Select = styled.select`
   }
 `;
 
-const SiteOptionsBox = styled.div`
+const Option = styled.option``;
+
+const SelectsWrap = styled.div`
   margin: 0;
   @media (min-width: 768px) {
     width: 176px;
@@ -45,7 +47,7 @@ const SiteOptionsBox = styled.div`
   }
 `;
 
-const Row = styled.div`
+const SelectsList = styled.div`
   display: flex;
   align-items: flex-start;
   margin: 0 -9px;
@@ -55,7 +57,7 @@ const Row = styled.div`
   }
 `;
 
-const Cell = styled.div`
+const SelectsColumn = styled.div`
   padding: 0 9px;
   width: 50%;
   @media (min-width: 768px) {
@@ -64,27 +66,27 @@ const Cell = styled.div`
   }
 `;
 
-class SiteOptions extends Component {
+class SelectParams extends Component {
   render() {
     return (
-      <SiteOptionsBox>
-        <Row>
-          <Cell>
+      <SelectsWrap>
+        <SelectsList>
+          <SelectsColumn>
             <Select>
-              <option value="0">English</option>
-              <option value="1">Russia</option>
+              <Option value="0">English</Option>
+              <Option value="1">Russia</Option>
             </Select>
-          </Cell>
-          <Cell>
+          </SelectsColumn>
+          <SelectsColumn>
             <Select>
-              <option value="0">United States dollar</option>
-              <option value="1">Canada dollar</option>
+              <Option value="0">United States dollar</Option>
+              <Option value="1">Canada dollar</Option>
             </Select>
-          </Cell>
-        </Row>
-      </SiteOptionsBox>
+          </SelectsColumn>
+        </SelectsList>
+      </SelectsWrap>
     );
   }
 }
 
-export default SiteOptions;
+export default SelectParams;

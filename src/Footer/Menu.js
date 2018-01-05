@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-const MenuBox = styled.div`
+const MenuList = styled.div`
   display: flex;
   align-items: center;
   margin: 0 12px 0 0;
@@ -27,11 +27,11 @@ const Link = styled.a`
 class FooterMenu extends Component {
   render() {
     return (
-      <MenuBox>
+      <MenuList>
         <Link href="#url">Terms</Link>
         <Link href="#url">Privacy</Link>
         <Link href="#url">Site map</Link>
-      </MenuBox>
+      </MenuList>
     );
   }
 }

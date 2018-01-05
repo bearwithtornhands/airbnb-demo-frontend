@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-const MenuBox = styled.div`
+const MenuWrap = styled.div`
   display: none;
   @media (min-width: 768px) {
     display: block;
@@ -9,14 +9,14 @@ const MenuBox = styled.div`
   }
 `;
 
-const Row = styled.div`
+const MenuList = styled.div`
   display: flex;
   flex-flow: row wrap;
   align-items: flex-start;
   justify-content: space-between;
 `;
 
-const Cell = styled.div`
+const MenuColumn = styled.div`
   margin: 0;
 `;
 
@@ -50,12 +50,12 @@ const Link = styled.a`
   }
 `;
 
-class Menu extends Component {
+class Nav extends Component {
   render() {
     return (
-      <MenuBox>
-        <Row>
-          <Cell>
+      <MenuWrap>
+        <MenuList>
+          <MenuColumn>
             <Title>Airbnb</Title>
             <Link href="#url">About us</Link>
             <Link href="#url">Careers</Link>
@@ -63,8 +63,8 @@ class Menu extends Component {
             <Link href="#url">Policies</Link>
             <Link href="#url">Help</Link>
             <Link href="#url">Diversity & Belongin</Link>
-          </Cell>
-          <Cell>
+          </MenuColumn>
+          <MenuColumn>
             <Title>Discover</Title>
             <Link href="#url">Trust & Safety</Link>
             <Link href="#url">Travel Credit</Link>
@@ -73,8 +73,8 @@ class Menu extends Component {
             <Link href="#url">Business Travel</Link>
             <Link href="#url">Guidebooks</Link>
             <Link href="#url">Airbnbmag</Link>
-          </Cell>
-          <Cell>
+          </MenuColumn>
+          <MenuColumn>
             <Title>Airbnb</Title>
             <Link href="#url">Hosting</Link>
             <Link href="#url">Why Host</Link>
@@ -82,11 +82,11 @@ class Menu extends Component {
             <Link href="#url">Responsible Hosting</Link>
             <Link href="#url">Help</Link>
             <Link href="#url">Community Center</Link>
-          </Cell>
-        </Row>
-      </MenuBox>
+          </MenuColumn>
+        </MenuList>
+      </MenuWrap>
     );
   }
 }
 
-export default Menu;
+export default Nav;

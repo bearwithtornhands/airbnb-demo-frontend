@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import fb from "./img/fb.svg";
-import tw from "./img/tw.svg";
-import ig from "./img/ig.svg";
+import fb from "./src/fb.svg";
+import tw from "./src/tw.svg";
+import ig from "./src/ig.svg";
 
-const MenuBox = styled.div`
+const SocialList = styled.div`
   display: flex;
   align-items: center;
 `;
@@ -51,16 +51,16 @@ const LinkIg = Link.extend`
   }
 `;
 
-class FooterIcons extends Component {
+class Social extends Component {
   render() {
     return (
-      <MenuBox>
+      <SocialList>
         <LinkFb href="#url" />
         <LinkTw href="#url" />
         <LinkIg href="#url" />
-      </MenuBox>
+      </SocialList>
     );
   }
 }
 
-export default FooterIcons;
+export default Social;

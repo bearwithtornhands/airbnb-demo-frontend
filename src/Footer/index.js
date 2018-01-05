@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { Wrapper } from "../defaults";
-import SiteOptions from "../siteOptions/SiteOptions";
-import Menu from "../menu/Menu";
-import FooterMenu from "../footerMenu/FooterMenu";
-import FooterSocial from "../footerSocial/FooterSocial";
-import FooterCopy from "../footerCopy/FooterCopy";
+import SelectParams from "./SelectParams";
+import Nav from "./Nav";
+import Menu from "./Menu";
+import Social from "./Social";
+import Copy from "./Copy";
 
 const FooterBox = styled.footer`
   background: #ffffff;
@@ -53,14 +53,14 @@ class Footer extends Component {
       <FooterBox>
         <Wrapper>
           <FooterBody>
-            <SiteOptions />
-            <Menu />
+            <SelectParams />
+            <Nav />
           </FooterBody>
           <FooterFoot>
-            <FooterCopy />
+            <Copy />
             <FooterTools>
-              <FooterMenu />
-              <FooterSocial />
+              <Menu />
+              <Social />
             </FooterTools>
           </FooterFoot>
         </Wrapper>

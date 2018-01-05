@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import rightSmall from "../img/right-small.svg";
-import right from "../img/right.svg";
+import rightSmall from "./assets/right-small.svg";
+import right from "./assets/right.svg";
 
 export const H2 = styled.h2`
   font-size: 24px;
@@ -34,23 +34,28 @@ export const Heading = styled.div`
   justify-content: space-between;
   align-items: baseline;
   margin: 0 0 16px;
-  h2 {
-    margin: 0 8px 0 0;
-  }
-  a {
-    font-size: 12px;
-    line-height: 24px;
-    color: #383838;
-    white-space: nowrap;
-
-    padding-right: 13px;
-    background: url(${rightSmall}) no-repeat right center transparent;
-  }
   @media (min-width: 768px) {
     margin: 0 0 24px;
-    a {
-      font-size: 14px;
-    }
+  }
+`;
+
+export const HeadingH2 = H2.extend`
+  margin: 0 8px 0 0;
+  @media (min-width: 768px) {
+    margin: 0 16px 0 0;
+  }
+`;
+
+export const HeadingLink = styled.a`
+  font-size: 12px;
+  line-height: 24px;
+  color: #383838;
+  white-space: nowrap;
+
+  padding-right: 13px;
+  background: url(${rightSmall}) no-repeat right center transparent;
+  @media (min-width: 768px) {
+    font-size: 14px;
   }
 `;
 
@@ -91,4 +96,10 @@ export const MainInner = styled.main`
   @media (min-width: 768px) {
     margin: 0 0 64px;
   }
+`;
+
+export const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;

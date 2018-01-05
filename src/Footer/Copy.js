@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import img from "./img/logo.svg";
+import Logo from "./src/logo.svg";
 
-const CopyBox = styled.div`
+const CopyWrap = styled.div`
   font-size: 12px;
   line-height: 16px;
   color: #636363;
@@ -15,7 +15,7 @@ const CopyBox = styled.div`
   }
 `;
 
-const Logo = styled.img`
+const Image = styled.img`
   height: 19px;
   margin-right: 8px;
   @media (min-width: 768px) {
@@ -24,15 +24,17 @@ const Logo = styled.img`
   }
 `;
 
-class FooterCopy extends Component {
+const Text = styled.span``;
+
+class Copy extends Component {
   render() {
     return (
-      <CopyBox>
-        <Logo src={img} alt="Airbnb" />
-        <span>© Airbnb Inc.</span>
-      </CopyBox>
+      <CopyWrap>
+        <Image src={Logo} alt="Airbnb" />
+        <Text>© Airbnb Inc.</Text>
+      </CopyWrap>
     );
   }
 }
 
-export default FooterCopy;
+export default Copy;
