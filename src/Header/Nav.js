@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-const NavBox = styled.nav`
+const MenuList = styled.nav`
   font-size: 14px;
   line-height: 24px;
 
@@ -13,7 +13,7 @@ const NavBox = styled.nav`
   }
 `;
 
-const NavLink = styled.a`
+const Link = styled.a`
   font-weight: 300;
   color: #383838;
   text-align: center;
@@ -28,12 +28,12 @@ const NavLink = styled.a`
 class Nav extends Component {
   render() {
     return (
-      <NavBox>
-        <NavLink href="/">Become a host</NavLink>
-        <NavLink href="/">Help</NavLink>
-        <NavLink href="/">Sign Up</NavLink>
-        <NavLink href="/">Log In</NavLink>
-      </NavBox>
+      <MenuList>
+        <Link href="/">Become a host</Link>
+        <Link href="/">Help</Link>
+        <Link href="/">Sign Up</Link>
+        <Link href="/">Log In</Link>
+      </MenuList>
     );
   }
 }

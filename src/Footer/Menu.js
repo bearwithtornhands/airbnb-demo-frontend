@@ -24,7 +24,7 @@ const Link = styled.a`
   }
 `;
 
-class FooterMenu extends Component {
+class Menu extends Component {
   render() {
     return (
       <MenuList>
@@ -36,4 +36,4 @@ class FooterMenu extends Component {
   }
 }
 
-export default FooterMenu;
+export default Menu;

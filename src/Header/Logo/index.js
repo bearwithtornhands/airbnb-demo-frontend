@@ -3,7 +3,7 @@ import styled from "styled-components";
 import logoImg from "./logo.svg";
 import Bottom from "./bottom.svg";
 
-const LogoBox = styled.div`
+const LogoWrap = styled.div`
   margin-right: 8px;
   @media (min-width: 768px) {
     margin-right: 17px;
@@ -34,17 +34,19 @@ const Button = styled.button`
   }
 `;
 
+const Image = styled.img``;
+
 class Logo extends Component {
   render() {
     return (
-      <LogoBox>
+      <LogoWrap>
         <Link href="/">
-          <img src={logoImg} alt="logo" />
+          <Image src={logoImg} alt="logo" />
         </Link>
         <Button type="button">
-          <img src={logoImg} alt="logo" />
+          <Image src={logoImg} alt="logo" />
         </Button>
-      </LogoBox>
+      </LogoWrap>
     );
   }
 }

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import searchImg from "./search.svg";
 
-const SearchBox = styled.div`
+const SearchWrap = styled.div`
   width: 100%;
   max-width: 432px;
   @media (min-width: 1200px) {
@@ -10,9 +10,9 @@ const SearchBox = styled.div`
   }
 `;
 
-const SearchForm = styled.form``;
+const Form = styled.form``;
 
-const SearchField = styled.input`
+const Input = styled.input`
   font: normal normal 14px/24px "Circular", "Helvetica Neue", "Helvetica",
     "Arial", sans-serif;
   color: #383838;
@@ -38,11 +38,11 @@ const SearchField = styled.input`
 class Search extends Component {
   render() {
     return (
-      <SearchBox>
-        <SearchForm action="">
-          <SearchField type="text" placeholder="Try “Miami”" />
-        </SearchForm>
-      </SearchBox>
+      <SearchWrap>
+        <Form action="">
+          <Input type="text" placeholder="Try “Miami”" />
+        </Form>
+      </SearchWrap>
     );
   }
 }
