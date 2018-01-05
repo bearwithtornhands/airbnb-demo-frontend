@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import Logo from "./src/logo.svg";
+import Logo from "./logo.svg";
 
 const CopyWrap = styled.div`
   font-size: 12px;

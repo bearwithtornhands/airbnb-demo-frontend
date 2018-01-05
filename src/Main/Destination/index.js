@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { H2, Section, SliderTrack, SliderRight } from "../defaults";
-import destImg1 from "./src/dest-1.png";
-import destImg2 from "./src/dest-2.png";
-import destImg3 from "./src/dest-3.png";
-import destImg4 from "./src/dest-4.png";
-import destImg5 from "./src/dest-5.png";
-import destImg6 from "./src/dest-6.png";
+import destImg1 from "./dest-1.png";
+import destImg2 from "./dest-2.png";
+import destImg3 from "./dest-3.png";
+import destImg4 from "./dest-4.png";
+import destImg5 from "./dest-5.png";
+import destImg6 from "./dest-6.png";
 
 const Link = styled.a`
   display: block;

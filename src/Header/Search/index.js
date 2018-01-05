@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import searchImg from "./src/search.svg";
+import searchImg from "./search.svg";
 
 const SearchBox = styled.div`
   width: 100%;
@@ -25,15 +25,6 @@ const SearchField = styled.input`
   box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.08);
   border-radius: 4px;
   &::-webkit-input-placeholder {
-    color: rgba(56, 56, 56, 0.64);
-  }
-  &:-moz-placeholder {
-    color: rgba(56, 56, 56, 0.64);
-  }
-  &::-moz-placeholder {
-    color: rgba(56, 56, 56, 0.64);
-  }
-  &:-ms-input-placeholder {
     color: rgba(56, 56, 56, 0.64);
   }
 

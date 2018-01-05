@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { H2, Section } from "../defaults";
-import categoryImage1 from "./src/category-1.jpg";
-import categoryImage2 from "./src/category-2.jpg";
-import categoryImage3 from "./src/category-3.jpg";
+import categoryImage1 from "./category-1.jpg";
+import categoryImage2 from "./category-2.jpg";
+import categoryImage3 from "./category-3.jpg";
 
 const Link = styled.a`
   color: #383838;

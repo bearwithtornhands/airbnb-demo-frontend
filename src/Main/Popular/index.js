@@ -8,10 +8,10 @@ import {
   SliderTrack,
   SliderRight
 } from "../defaults";
-import popularImg1 from "./src/popular-1.png";
-import popularImg2 from "./src/popular-2.png";
-import popularImg3 from "./src/popular-3.png";
-import popularImg4 from "./src/popular-4.png";
+import popularImg1 from "./popular-1.png";
+import popularImg2 from "./popular-2.png";
+import popularImg3 from "./popular-3.png";
+import popularImg4 from "./popular-4.png";
 
 const Card = styled.div`
   font-size: 12px;

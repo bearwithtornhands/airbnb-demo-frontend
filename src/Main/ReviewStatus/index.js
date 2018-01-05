@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import img from "./src/star.svg";
+import Star from "./star.svg";
 
 const List = styled.div`
   display: flex;
@@ -8,10 +8,10 @@ const List = styled.div`
   margin-right: 8px;
 `;
 
-const Star = styled.span`
+const Icon = styled.span`
   width: 12px;
   height: 12px;
-  background: url(${img}) no-repeat center center transparent;
+  background: url(${Star}) no-repeat center center transparent;
   & + & {
     margin-left: 4px;
   }
@@ -21,11 +21,11 @@ class ReviewStatus extends Component {
   render() {
     return (
       <List>
-        <Star />
-        <Star />
-        <Star />
-        <Star />
-        <Star />
+        <Icon />
+        <Icon />
+        <Icon />
+        <Icon />
+        <Icon />
       </List>
     );
   }

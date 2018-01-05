@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import logoImg from "./src/logo.svg";
-import Bottom from "./src/bottom.svg";
+import logoImg from "./logo.svg";
+import Bottom from "./bottom.svg";
 
 const LogoBox = styled.div`
   margin-right: 8px;

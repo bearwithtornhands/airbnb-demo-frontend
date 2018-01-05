@@ -9,11 +9,11 @@ import {
   SliderRight,
   Review
 } from "../defaults";
-import ReviewStatus from "./ReviewStatus";
-import expImg1 from "./src/exp-1.png";
-import expImg2 from "./src/exp-2.png";
-import expImg3 from "./src/exp-3.png";
-import expImg4 from "./src/exp-4.png";
+import ReviewStatus from "../ReviewStatus";
+import expImg1 from "./exp-1.png";
+import expImg2 from "./exp-2.png";
+import expImg3 from "./exp-3.png";
+import expImg4 from "./exp-4.png";
 
 const Card = styled.div`
   font-size: 13px;

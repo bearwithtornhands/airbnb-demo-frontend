@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import fb from "./src/fb.svg";
-import tw from "./src/tw.svg";
-import ig from "./src/ig.svg";
+import fb from "./fb.svg";
+import tw from "./tw.svg";
+import ig from "./ig.svg";
 
 const SocialList = styled.div`
   display: flex;

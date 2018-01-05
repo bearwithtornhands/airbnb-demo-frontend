@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import rightSmall from "./assets/right-small.svg";
-import right from "./assets/right.svg";
+import rightSmall from "../assets/right-small.svg";
+import right from "../assets/right.svg";
 
 export const H2 = styled.h2`
   font-size: 24px;
@@ -14,12 +14,6 @@ export const H2 = styled.h2`
 
     margin: 0 0 24px;
   }
-`;
-
-export const Wrapper = styled.div`
-  max-width: 982px;
-  margin: auto;
-  padding: 0 8px;
 `;
 
 export const Section = styled.section`
@@ -89,17 +83,4 @@ export const Review = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-`;
-
-export const MainInner = styled.main`
-  margin: 0 0 40px;
-  @media (min-width: 768px) {
-    margin: 0 0 64px;
-  }
-`;
-
-export const Image = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 `;
