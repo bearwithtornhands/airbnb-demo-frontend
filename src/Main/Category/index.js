@@ -8,9 +8,11 @@ import categoryImage3 from "./category-3.jpg";
 const Link = styled.a`
   color: #383838;
   display: block;
+  margin: 0 0 16px;
   @media (min-width: 768px) {
     display: flex;
     height: 72px;
+    margin: 0;
     border-radius: 4px;
     box-shadow: inset 0 0 1px rgba(72, 72, 72, 0.2),
       0px 2px 4px rgba(72, 72, 72, 0.08);

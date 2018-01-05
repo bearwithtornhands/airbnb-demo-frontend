@@ -17,9 +17,13 @@ import homeImg3 from "./home-3.png";
 const Card = styled.div`
   font-size: 12px;
   line-height: 15px;
+
+  margin: 0 0 16px;
   @media (min-width: 768px) {
     font-size: 15px;
     line-height: 19px;
+
+    margin: 0;
   }
 `;
 

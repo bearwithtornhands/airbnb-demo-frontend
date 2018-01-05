@@ -18,9 +18,14 @@ import expImg4 from "./exp-4.png";
 const Card = styled.div`
   font-size: 13px;
   line-height: 16px;
+
+  margin: 0 0 16px;
   @media (min-width: 768px) {
     font-size: 15px;
     line-height: 19px;
+  }
+  @media (min-width: 1200px) {
+    margin: 0;
   }
 `;
 

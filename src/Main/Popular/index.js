@@ -16,9 +16,14 @@ import popularImg4 from "./popular-4.png";
 const Card = styled.div`
   font-size: 12px;
   line-height: 15px;
+
+  margin: 0 0 16px;
   @media (min-width: 768px) {
     font-size: 18px;
     line-height: 23px;
+  }
+  @media (min-width: 1200px) {
+    margin: 0;
   }
 `;
 

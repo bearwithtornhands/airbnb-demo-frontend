@@ -10,6 +10,10 @@ import destImg6 from "./dest-6.png";
 
 const Link = styled.a`
   display: block;
+  margin: 0 0 16px;
+  @media (min-width: 1200px) {
+    margin: 0;
+  }
 `;
 
 const ImageWrap = styled.div`
