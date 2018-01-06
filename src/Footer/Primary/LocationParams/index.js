@@ -11,11 +11,8 @@ const Select = styled.select`
   display: block;
   width: 100%;
   overflow: hidden;
-  background: #ffffff;
   border: 1px solid rgba(72, 72, 72, 0.2);
   border-radius: 4px;
-  outline: none;
-  -webkit-appearance: none;
   appearance: none;
   padding: 11px 25px 11px 7px;
   background: url(${bottom}) no-repeat right 7px center;
@@ -27,6 +24,7 @@ const Select = styled.select`
     background-position: right 11px center;
     background-size: 15px auto;
     padding: 13px 37px 14px 7px;
+    margin-bottom: 16px;
   }
   @media (min-width: 1200px) {
     background-position: right 15px center;
@@ -35,7 +33,7 @@ const Select = styled.select`
 
 const Option = styled.option``;
 
-const Selects = styled.div`
+const LocationParams = styled.div`
   margin: 0;
   @media (min-width: 768px) {
     width: 176px;
@@ -47,42 +45,23 @@ const Selects = styled.div`
   }
 `;
 
-const SelectsList = styled.div`
-  display: flex;
-  align-items: flex-start;
-  margin: 0 -9px;
-  @media (min-width: 768px) {
-    display: block;
-    margin: -8px 0;
-  }
-`;
-
-const SelectsColumn = styled.div`
-  padding: 0 9px;
-  width: 50%;
-  @media (min-width: 768px) {
-    padding: 8px 0;
-    width: 100%;
-  }
-`;
-
 export default () => {
   return (
-    <Selects>
-      <SelectsList>
-        <SelectsColumn>
+    <LocationParams>
+      <div className="row">
+        <div className="col-xs-6 col-md-12">
           <Select>
             <Option value="0">English</Option>
             <Option value="1">Russia</Option>
           </Select>
-        </SelectsColumn>
-        <SelectsColumn>
+        </div>
+        <div className="col-xs-6 col-md-12">
           <Select>
             <Option value="0">United States dollar</Option>
             <Option value="1">Canada dollar</Option>
           </Select>
-        </SelectsColumn>
-      </SelectsList>
-    </Selects>
+        </div>
+      </div>
+    </LocationParams>
   );
 };

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Logo from "./logo.svg";
 
-const Copy = styled.div`
+const Copy = styled.p`
   font-size: 12px;
   line-height: 16px;
   color: #636363;

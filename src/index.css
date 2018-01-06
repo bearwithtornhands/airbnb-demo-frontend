@@ -49,7 +49,3 @@ a:active,
 a:visited {
   color: inherit;
 }
-
-button {
-  outline: none;
-}

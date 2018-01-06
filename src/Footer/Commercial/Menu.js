@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Menu = styled.div`
+const Menu = styled.nav`
   display: flex;
   align-items: center;
   margin: 0 12px 0 0;
