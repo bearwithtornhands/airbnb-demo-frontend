@@ -17,21 +17,21 @@ const Card = styled.div`
   font-size: 12px;
   line-height: 15px;
 
-  margin: 0 0 16px;
+  margin-bottom: 16px;
   @media (min-width: 768px) {
     font-size: 18px;
     line-height: 23px;
   }
   @media (min-width: 1200px) {
-    margin: 0;
+    margin-bottom: 0;
   }
 `;
 
 const ImageLink = styled.a`
   display: block;
-  margin: 0 0 7px;
+  margin-bottom: 7px;
   @media (min-width: 768px) {
-    margin: 0 0 12px;
+    margin-bottom: 12px;
   }
 `;
 
@@ -51,7 +51,7 @@ const Tag = styled.div`
   font-weight: bold;
   text-transform: uppercase;
 
-  margin: 0 0 2px;
+  margin-bottom: 2px;
   @media (min-width: 768px) {
     font-size: 10px;
     line-height: 13px;
@@ -65,7 +65,7 @@ const Link = styled.a`
   color: #383838;
 
   display: block;
-  margin: 0 0 4px;
+  margin-bottom: 4px;
   @media (min-width: 768px) {
     font-size: 18px;
     line-height: 23px;

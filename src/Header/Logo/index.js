@@ -22,10 +22,9 @@ const Link = styled.a`
 
 const Button = styled.button`
   display: block;
-  padding: 0 15.5px 0 0;
+  padding-right: 15.5px;
   background: url(${Bottom}) no-repeat right center transparent;
   border: 0;
-  outline: none;
   @media (min-width: 768px) {
     padding-right: 17.5px;
   }

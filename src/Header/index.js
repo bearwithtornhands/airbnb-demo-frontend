@@ -6,9 +6,9 @@ import Nav from "./Nav";
 
 const Header = styled.header`
   box-shadow: 0px 0.5px 0px rgba(72, 72, 72, 0.3);
-  margin: 0 0 40px;
+  margin-bottom: 40px;
   @media (min-width: 768px) {
-    margin: 0 0 48px;
+    margin-bottom: 48px;
   }
 `;
 

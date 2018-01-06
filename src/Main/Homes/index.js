@@ -18,19 +18,18 @@ const Card = styled.div`
   font-size: 12px;
   line-height: 15px;
 
-  margin: 0 0 16px;
+  margin-bottom: 16px;
   @media (min-width: 768px) {
     font-size: 15px;
     line-height: 19px;
 
-    margin: 0;
+    margin-bottom: 0;
   }
 `;
 
 const ImageLink = styled.a`
   display: block;
-
-  margin: 0 0 8px;
+  margin-bottom: 8px;
 `;
 
 const Image = styled.img`
@@ -52,10 +51,10 @@ const Link = styled.a`
   text-overflow: ellipsis;
 
   display: block;
-  margin: 0 0 4px;
+  margin-bottom: 4px;
   overflow: hidden;
   @media (min-width: 768px) {
-    margin: 0 0 2px;
+    margin-bottom: 2px;
   }
 `;
 

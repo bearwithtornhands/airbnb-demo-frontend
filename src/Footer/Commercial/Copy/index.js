@@ -11,7 +11,7 @@ const Copy = styled.p`
   align-items: center;
   margin: 0 0 11px;
   @media (min-width: 768px) {
-    margin: 0;
+    margin-bottom: 0;
   }
 `;
 

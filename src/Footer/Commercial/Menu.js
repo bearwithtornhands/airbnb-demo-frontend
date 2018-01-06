@@ -5,8 +5,9 @@ const Menu = styled.nav`
   display: flex;
   align-items: center;
   margin: 0 12px 0 0;
+  margin-right: 12px;
   @media (min-width: 768px) {
-    margin: 0 24px 0 0;
+    margin-right: 24px;
   }
 `;
 
@@ -15,12 +16,12 @@ const Link = styled.a`
   line-height: 16px;
   color: #636363;
 
-  margin: 0 12px 0 0;
+  margin-right: 12px;
   &:last-child {
-    margin: 0;
+    margin-right: 0;
   }
   @media (min-width: 768px) {
-    margin: 0 16px 0 0;
+    margin-right: 16px;
   }
 `;
 

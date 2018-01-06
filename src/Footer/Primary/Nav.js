@@ -12,9 +12,7 @@ const Nav = styled.nav`
   }
 `;
 
-const NavColumn = styled.div`
-  margin: 0;
-`;
+const NavColumn = styled.div``;
 
 const Title = styled.h6`
   font-size: 12px;
@@ -27,7 +25,7 @@ const Title = styled.h6`
     font-size: 15px;
     line-height: 19px;
 
-    margin: 0 0 16px;
+    margin-bottom: 16px;
   }
 `;
 
@@ -37,12 +35,12 @@ const Link = styled.a`
   color: #636363;
 
   display: block;
-  margin: 0 0 11px;
+  margin-bottom: 11px;
   @media (min-width: 768px) {
     font-size: 15px;
     line-height: 19px;
 
-    margin: 0 0 8px;
+    margin-bottom: 8px;
   }
 `;
 

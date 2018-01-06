@@ -17,7 +17,7 @@ const Link = styled.a`
   height: 16px;
   margin-right: 8px;
   &:last-child {
-    margin: 0;
+    margin-right: 0;
   }
   @media (min-width: 768px) {
     width: 24px;

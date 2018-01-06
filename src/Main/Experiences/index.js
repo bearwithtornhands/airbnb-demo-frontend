@@ -19,19 +19,19 @@ const Card = styled.div`
   font-size: 13px;
   line-height: 16px;
 
-  margin: 0 0 16px;
+  margin-bottom: 16px;
   @media (min-width: 768px) {
     font-size: 15px;
     line-height: 19px;
   }
   @media (min-width: 1200px) {
-    margin: 0;
+    margin-bottom: 0;
   }
 `;
 
 const ImageLink = styled.a`
   display: block;
-  margin: 0 0 8px;
+  margin-bottom: 8px;
 `;
 
 const Image = styled.img`
@@ -49,7 +49,7 @@ const Link = styled.a`
   color: #383838;
 
   display: block;
-  margin: 0 0 5px;
+  margin-bottom: 5px;
   b {
     font-weight: bold;
   }
