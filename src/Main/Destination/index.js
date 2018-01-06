@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { H2, Section, SliderTrack, SliderRight } from "../defaults";
+import { H2, Section, SliderTrack, SliderRight } from "../styled";
 import destImg1 from "./dest-1.png";
 import destImg2 from "./dest-2.png";
 import destImg3 from "./dest-3.png";

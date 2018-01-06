@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { H2, Section } from "../defaults";
+import { H2, Section } from "../styled";
 import categoryImage1 from "./category-1.jpg";
 import categoryImage2 from "./category-2.jpg";
 import categoryImage3 from "./category-3.jpg";

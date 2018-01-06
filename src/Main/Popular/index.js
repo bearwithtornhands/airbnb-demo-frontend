@@ -7,7 +7,7 @@ import {
   HeadingLink,
   SliderTrack,
   SliderRight
-} from "../defaults";
+} from "../styled";
 import popularImg1 from "./popular-1.png";
 import popularImg2 from "./popular-2.png";
 import popularImg3 from "./popular-3.png";

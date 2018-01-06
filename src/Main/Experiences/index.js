@@ -8,7 +8,7 @@ import {
   SliderTrack,
   SliderRight,
   Review
-} from "../defaults";
+} from "../styled";
 import ReviewStatus from "../ReviewStatus";
 import expImg1 from "./exp-1.png";
 import expImg2 from "./exp-2.png";
