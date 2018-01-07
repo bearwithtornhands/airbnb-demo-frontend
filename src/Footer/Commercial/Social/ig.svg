@@ -1,0 +1,25 @@
+<svg width="10" height="11" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g transform="translate(1034 -1285)">
+    <path fill="#FFF" d="M-1034 1285h10v11h-10z"/>
+    <clipPath id="a" clip-rule="evenodd">
+      <path d="M-2061-985h1124v2321h-1124V-985z" fill="#FFF"/>
+    </clipPath>
+    <g clip-path="url(#a)">
+      <path d="M-2061-985h1124v2321h-1124V-985z" fill="#FFF"/>
+      <use xlink:href="#path0_fill" transform="translate(-2061 935)" fill="#FFF" filter="url(#filter0_d)"/>
+      <use xlink:href="#path1_fill" transform="translate(-1033.84 1285.6)" fill="#484848"/>
+    </g>
+  </g>
+  <defs>
+    <filter id="filter0_d" filterUnits="userSpaceOnUse" x="-2061" y="934" width="1124" height="402" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 0"/>
+      <feOffset dy="-.5"/>
+      <feColorMatrix values="0 0 0 0 0.282353 0 0 0 0 0.282353 0 0 0 0 0.282353 0 0 0 0.3 0"/>
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow"/>
+      <feBlend in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    <path id="path0_fill" fill-rule="evenodd" d="M0 0h1124v401H0V0z"/>
+    <path id="path1_fill" fill-rule="evenodd" d="M8.27478.234131C8.42322.085083 8.62976 0 8.83997 0c.21081 0 .41735.085083.56579.234131.14905.148437.23413.35498.23413.565918 0 .210081-.08508.416621-.23413.565791-.14917.14832-.35498.23414-.56579.23414-.21021 0-.41675-.08582-.56519-.23414-.14905-.14917-.23486-.35559-.23486-.565791 0-.210938.08569-.417481.23486-.565918zM0 6.40002c0 2.11731 1.72266 3.83968 3.83997 3.83968s3.84008-1.72237 3.84008-3.83968c0-2.11743-1.72265-3.83996-3.84008-3.83996C1.72253 2.56006 0 4.28259 0 6.40002z"/>
+  </defs>
+</svg>
