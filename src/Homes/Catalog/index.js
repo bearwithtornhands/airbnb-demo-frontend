@@ -1,20 +1,8 @@
 import React from "react";
-import {
-  Section,
-  Heading,
-  HeadingH2,
-  HeadingLink,
-  SliderTrack,
-  SliderRight
-} from "../../UI";
-import Card from "../../Homes/Card";
+import Card from "../Card";
 import homeImg1 from "./home-1.png";
 import homeImg2 from "./home-2.png";
 import homeImg3 from "./home-3.png";
-
-const ButtonRight = SliderRight.extend`
-  top: 102px;
-`;
 
 const homesData = [
   {
@@ -46,22 +34,11 @@ const homesData = [
 export default () => {
   var homesList = homesData.map(function(item, index) {
     return (
-      <div key={index} className="col-xs-6 col-md-4">
+      <div key={index} className="col-xs-12 col-md-6">
         {Card(item)}
       </div>
     );
   });
 
-  return (
-    <Section>
-      <Heading>
-        <HeadingH2>Homes</HeadingH2>
-        <HeadingLink href="/homes">See all</HeadingLink>
-      </Heading>
-      <SliderTrack>
-        <div className="row">{homesList}</div>
-        <ButtonRight type="button" />
-      </SliderTrack>
-    </Section>
-  );
+  return <div className="row">{homesList}</div>;
 };

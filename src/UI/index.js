@@ -2,6 +2,19 @@ import styled from "styled-components";
 import rightSmall from "../assets/right-small.svg";
 import right from "../assets/right.svg";
 
+export const Wrapper = styled.div`
+  max-width: 982px;
+  margin: auto;
+  padding: 0 8px;
+`;
+
+export const Main = styled.main`
+  margin: 0 0 40px;
+  @media (min-width: 768px) {
+    margin: 0 0 64px;
+  }
+`;
+
 export const H2 = styled.h2`
   font-size: 24px;
   line-height: 31px;

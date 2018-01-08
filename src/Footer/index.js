@@ -1,13 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { Wrapper } from "../UI";
 import Primary from "./Primary";
 import Commercial from "./Commercial";
-
-const Wrapper = styled.div`
-  max-width: 982px;
-  margin: auto;
-  padding: 0 8px;
-`;
 
 const Footer = styled.footer`
   background: #ffffff;

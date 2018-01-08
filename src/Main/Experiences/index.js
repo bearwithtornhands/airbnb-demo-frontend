@@ -8,8 +8,8 @@ import {
   SliderTrack,
   SliderRight,
   Review
-} from "../styled";
-import ReviewStatus from "../ReviewStatus";
+} from "../../UI";
+import ReviewStatus from "../../UI/ReviewStatus";
 import expImg1 from "./exp-1.png";
 import expImg2 from "./exp-2.png";
 import expImg3 from "./exp-3.png";
