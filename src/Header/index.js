@@ -7,9 +7,13 @@ import Nav from "./Nav";
 
 const Header = styled.header`
   box-shadow: 0px 0.5px 0px rgba(72, 72, 72, 0.3);
-  margin-bottom: 40px;
-  @media (min-width: 768px) {
-    margin-bottom: 48px;
+  @media (min-width: 1200px) {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
   }
 `;
 

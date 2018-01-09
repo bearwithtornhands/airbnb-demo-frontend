@@ -9,9 +9,10 @@ export const Wrapper = styled.div`
 `;
 
 export const Main = styled.main`
-  margin: 0 0 40px;
+  margin-bottom: 40px;
   @media (min-width: 768px) {
-    margin: 0 0 64px;
+    padding-top: 80px;
+    margin-bottom: 64px;
   }
 `;
 
@@ -30,9 +31,9 @@ export const H2 = styled.h2`
 `;
 
 export const Section = styled.section`
-  margin: 0 0 40px;
+  margin: 40px 0;
   @media (min-width: 768px) {
-    margin: 0 0 48px;
+    margin: 48px 0;
   }
 `;
 
