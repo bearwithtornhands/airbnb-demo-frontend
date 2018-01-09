@@ -11,8 +11,10 @@ export const Wrapper = styled.div`
 export const Main = styled.main`
   margin-bottom: 40px;
   @media (min-width: 768px) {
-    padding-top: 80px;
     margin-bottom: 64px;
+  }
+  @media (min-width: 1200px) {
+    padding-top: 80px;
   }
 `;
 
