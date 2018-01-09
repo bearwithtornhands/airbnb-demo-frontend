@@ -88,7 +88,7 @@ export default () => {
     <Section>
       <Heading>
         <HeadingH2>Popular reservations around the world</HeadingH2>
-        <HeadingLink href="#url">See all</HeadingLink>
+        <HeadingLink to="/">See all</HeadingLink>
       </Heading>
       <SliderTrack>
         <div className="row">

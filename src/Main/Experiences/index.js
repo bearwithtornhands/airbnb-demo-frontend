@@ -66,7 +66,7 @@ export default () => {
     <Section>
       <Heading>
         <HeadingH2>Experiences</HeadingH2>
-        <HeadingLink href="#url">See all</HeadingLink>
+        <HeadingLink to="/">See all</HeadingLink>
       </Heading>
       <SliderTrack>
         <div className="row">

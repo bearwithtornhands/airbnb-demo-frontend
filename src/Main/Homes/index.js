@@ -56,7 +56,7 @@ export default () => {
     <Section>
       <Heading>
         <HeadingH2>Homes</HeadingH2>
-        <HeadingLink href="/homes">See all</HeadingLink>
+        <HeadingLink to="/homes">See all</HeadingLink>
       </Heading>
       <SliderTrack>
         <div className="row">{homesList}</div>

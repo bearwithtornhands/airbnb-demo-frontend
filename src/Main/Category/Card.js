@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-const Link = styled.a`
+const StyledLink = styled(Link)`
   color: #383838;
   display: block;
   margin-bottom: 16px;
@@ -63,11 +64,11 @@ const Title = styled.h6`
 
 export default props => {
   return (
-    <Link href={props.url}>
+    <StyledLink to={props.url}>
       <ImageWrap>
         <Image src={props.image} alt={props.title} />
       </ImageWrap>
       <Title>{props.title}</Title>
-    </Link>
+    </StyledLink>
   );
 };

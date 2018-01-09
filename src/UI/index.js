@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import rightSmall from "../assets/right-small.svg";
 import right from "../assets/right.svg";
@@ -56,7 +57,7 @@ export const HeadingH2 = H2.extend`
   }
 `;
 
-export const HeadingLink = styled.a`
+export const HeadingLink = styled(Link)`
   font-size: 12px;
   line-height: 24px;
   color: #383838;

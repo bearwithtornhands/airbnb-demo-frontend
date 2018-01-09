@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import logoImg from "./logo.svg";
 import Bottom from "./bottom.svg";
@@ -13,7 +14,7 @@ const Logo = styled.div`
   }
 `;
 
-const Link = styled.a`
+const StyledLink = styled(Link)`
   display: none;
   @media (min-width: 1200px) {
     display: block;
@@ -38,9 +39,9 @@ const Image = styled.img``;
 export default () => {
   return (
     <Logo>
-      <Link href="/">
+      <StyledLink to="/">
         <Image src={logoImg} alt="logo" />
-      </Link>
+      </StyledLink>
       <Button type="button">
         <Image src={logoImg} alt="logo" />
       </Button>
