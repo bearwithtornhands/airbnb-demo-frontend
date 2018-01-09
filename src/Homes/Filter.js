@@ -14,6 +14,7 @@ const FilterWrap = styled.div`
     left: 0;
     right: 0;
     margin-bottom: 0;
+    z-index: 1;
   }
 `;
 
