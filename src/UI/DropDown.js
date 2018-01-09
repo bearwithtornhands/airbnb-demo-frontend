@@ -45,6 +45,15 @@ const Content = styled.div`
   z-index: 1;
 `;
 
+const Smoke = styled.div`
+  position: fixed;
+  top: 136px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+`;
+
 class DropDown extends Component {
   constructor(props) {
     super(props);
@@ -76,6 +85,7 @@ class DropDown extends Component {
         <Toggler id={id} type="button" onClick={this.handleClick} open={isOpen}>
           {title}
         </Toggler>
+        {isOpen && <Smoke />}
         {isOpen && <Content>{content}</Content>}
       </DropDownWrap>
     );
