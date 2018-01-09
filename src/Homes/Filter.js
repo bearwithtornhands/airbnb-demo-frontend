@@ -40,6 +40,7 @@ class Filter extends Component {
           <FilterList>
             <DropDown
               id="1"
+              type="date"
               title="Dates"
               titleActive="Check in — Check out"
               open={this.state.id === "1" && this.state.isOpen}
@@ -47,6 +48,7 @@ class Filter extends Component {
             />
             <DropDown
               id="2"
+              type="text"
               title="More filters"
               open={this.state.id === "2" && this.state.isOpen}
               onTogglerClick={this.handleFilterChange}

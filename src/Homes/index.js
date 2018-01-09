@@ -7,8 +7,8 @@ import HomesMap from "./HomesMap";
 export default () => {
   return (
     <Main>
-      <HomesMap />
       <Filter />
+      <HomesMap />
       <Wrapper>
         <Catalog />
       </Wrapper>

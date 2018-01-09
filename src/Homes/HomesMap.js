@@ -11,6 +11,7 @@ const HomesMapWrap = styled.div`
     top: 136px;
     right: 0;
     bottom: 0;
+    z-index: -1;
   }
 `;
 

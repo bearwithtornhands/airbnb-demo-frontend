@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import DateSelect from "./DateSelect";
 import styled from "styled-components";
 
 const DropDownWrap = styled.div`
@@ -41,18 +42,25 @@ const Content = styled.div`
   border: 1px solid rgba(72, 72, 72, 0.2);
   box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.08);
   border-radius: 4px;
+  z-index: 1;
 `;
 
 class DropDown extends Component {
   constructor(props) {
     super(props);
-    // this.state = { isOpen: false };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
     this.props.onTogglerClick(this.props.id, this.props.open);
-    // this.setState({ isOpen: !this.state.isOpen });
+  }
+
+  getContent() {
+    if (this.props.type === "date") {
+      return <DateSelect />;
+    }
+
+    return <p>text</p>;
   }
 
   render() {
@@ -61,13 +69,14 @@ class DropDown extends Component {
     const title = isOpen
       ? this.props.titleActive || this.props.title
       : this.props.title;
+    var content = this.getContent();
 
     return (
       <DropDownWrap>
         <Toggler id={id} type="button" onClick={this.handleClick} open={isOpen}>
           {title}
         </Toggler>
-        {isOpen && <Content>dd content</Content>}
+        {isOpen && <Content>{content}</Content>}
       </DropDownWrap>
     );
   }
