@@ -24,7 +24,7 @@ class HomesMap extends Component {
     return (
       <HomesMapWrap>
         <GoogleMap
-          key={"AIzaSyDOeq-g19KTxtyknIn2wj_qow-PiK-_sCQ"}
+          bootstrapURLKeys={{key: "AIzaSyDOeq-g19KTxtyknIn2wj_qow-PiK-_sCQ", language: 'ru'}}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         />

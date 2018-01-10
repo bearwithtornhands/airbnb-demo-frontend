@@ -1,0 +1,150 @@
+.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+  border-color: #008489;
+  background-color: #008489;
+  color: white;
+  border-radius: 0;
+}
+.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):not(.DayPicker-Day--start):not(.DayPicker-Day--end) {
+  background-color: rgba(0, 132, 137, 0.1);
+  border-color: #9cd9d9;
+  color: inherit;
+  position: relative;
+}
+.DayPicker-Day--start,
+.DayPicker-Day--end {
+  z-index: 1;
+}
+.DayPicker:not(.DayPicker--interactionDisabled)
+  .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
+  background-color: rgba(0, 132, 137, 0.1);
+  border-radius: 0;
+}
+
+.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {
+  background-color: #008489;
+}
+
+.DayPicker-Caption {
+  display: block;
+  padding: 0;
+  margin: 0 0 8px;
+  text-align: center;
+}
+
+.DayPicker-Caption > div {
+  font-size: 18px;
+  line-height: 23px;
+  font-weight: bold;
+}
+
+.DayPicker-Month {
+  display: block;
+  margin: 0 auto 16px;
+}
+
+.DayPicker-Month:last-child {
+  margin-bottom: 0;
+}
+
+.DayPicker-Weekdays {
+  display: none;
+  margin: 0 0 4px;
+}
+
+.DayPicker-Weekday {
+  font-size: 12px;
+  line-height: 15px;
+  color: #636363;
+
+  width: 43px;
+  padding: 0;
+}
+.DayPicker-WeekdaysRow {
+  display: flex;
+  width: 100%;
+}
+
+.DayPicker-Body {
+  display: block;
+  margin: 1px 0 0 1px;
+}
+.DayPicker-Week {
+  display: flex;
+}
+.DayPicker-Day {
+  font-size: 12px;
+  line-height: 15px;
+
+  display: block;
+  width: 44px;
+  padding: 12px 0 15px;
+  margin: -1px 0 0 -1px;
+  border: 1px solid #d5d5d5;
+}
+
+.DayPicker-Day--today {
+  color: inherit;
+  font-weight: normal;
+}
+
+.DayPicker-NavButton {
+  display: none;
+  top: 0;
+  left: auto;
+  right: auto;
+  width: 40px;
+  height: 30px;
+  border: 1px solid rgba(72, 72, 72, 0.3);
+  border-radius: 2px;
+}
+.DayPicker-NavButton--prev,
+.DayPicker-NavButton--next {
+  margin: 0;
+}
+.DayPicker-NavButton--prev {
+  left: 0;
+  background-image: url(prev.svg);
+}
+.DayPicker-NavButton--next {
+  right: 0;
+  background-image: url(next.svg);
+}
+.DayPicker-wrapper {
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .DayPicker-Caption {
+    margin: 0 0 16px;
+  }
+  .DayPicker-Caption > div {
+    line-height: 30px;
+  }
+  .DayPicker-Weekdays {
+    display: block;
+  }
+  .DayPicker-Weekday {
+    width: 39px;
+  }
+  .DayPicker-Month {
+    margin: 0;
+  }
+  .DayPicker-Month + .DayPicker-Month {
+    margin-left: 36px;
+  }
+  .DayPicker-Day {
+    font-size: 14px;
+    line-height: 18px;
+
+    width: 40px;
+    padding: 10px 0;
+  }
+  .DayPicker-NavButton {
+    display: block;
+  }
+
+  .DayPicker-Months {
+    flex-wrap: nowrap;
+    margin-bottom: 8px;
+  }
+}
