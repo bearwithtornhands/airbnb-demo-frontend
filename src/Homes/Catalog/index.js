@@ -33,9 +33,10 @@ const homesData = [
   }
 ];
 
-const CatalogWrap = styled.div`
+const Section = styled.div`
+  padding-top: 81px;
   @media (min-width: 1200px) {
-    padding: 80px 330px 0 0;
+    padding-right: 330px;
   }
 `;
 
@@ -53,20 +54,27 @@ class Catalog extends Component {
     const homesList = homesData.map(function(item, index) {
       return (
         <div key={index} className="col-xs-12 col-md-6">
-          {Card(item)}
+          <Card
+            url={item.url}
+            image={item.image}
+            title={item.title}
+            descr={item.descr}
+            price={item.price}
+            superhost={item.superhost}
+          />
         </div>
       );
     });
 
     return (
-      <CatalogWrap>
+      <Section>
         <div className="row">{homesList}</div>
         <Pagination />
         <Text>
           Enter dates to see full pricing. Additional fees apply. Taxes may be
           added.
         </Text>
-      </CatalogWrap>
+      </Section>
     );
   }
 }

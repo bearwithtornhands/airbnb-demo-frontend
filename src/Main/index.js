@@ -5,17 +5,21 @@ import Experiences from "./Experiences";
 import Homes from "./Homes";
 import Popular from "./Popular";
 import Destination from "./Destination";
+import Footer from "../Footer";
 
 export default () => {
   return (
-    <Main>
-      <Wrapper>
-        <Category />
-        <Experiences />
-        <Homes />
-        <Popular />
-        <Destination />
-      </Wrapper>
-    </Main>
+    <div>
+      <Main>
+        <Wrapper>
+          <Category />
+          <Experiences />
+          <Homes />
+          <Popular />
+          <Destination />
+        </Wrapper>
+      </Main>
+      <Footer />
+    </div>
   );
 };

@@ -6,10 +6,9 @@ import {
   HeadingH2,
   HeadingLink,
   SliderTrack,
-  SliderRight,
-  Review
+  SliderRight
 } from "../../UI";
-import ReviewStatus from "../../UI/ReviewStatus";
+import Review from "../../UI/Review";
 import expImg1 from "./exp-1.png";
 import expImg2 from "./exp-2.png";
 import expImg3 from "./exp-3.png";
@@ -55,6 +54,16 @@ const Link = styled.a`
   }
 `;
 
+const Info = styled.div`
+  font-size: 12px;
+  line-height: 15px;
+  white-space: nowrap;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+`;
+
 const Price = styled.b``;
 
 const ButtonRight = SliderRight.extend`
@@ -78,10 +87,10 @@ export default () => {
               <Link href="#url">
                 <Price>$29</Price> Forest therapy
               </Link>
-              <Review>
-                <ReviewStatus />
+              <Info>
+                <Review />
                 <span>44 reviews</span>
-              </Review>
+              </Info>
             </Card>
           </div>
           <div className="col-xs-6 col-md-4 col-xl-3">
@@ -92,10 +101,10 @@ export default () => {
               <Link href="#url">
                 <Price>$69</Price> Whale watching
               </Link>
-              <Review>
-                <ReviewStatus />
+              <Info>
+                <Review />
                 <span>46 reviews</span>
-              </Review>
+              </Info>
             </Card>
           </div>
           <div className="col-xs-6 col-md-4 col-xl-3">
@@ -109,10 +118,10 @@ export default () => {
               <Link href="#url">
                 <Price>$69</Price> Table Mountain Summit, Cable Car Down
               </Link>
-              <Review>
-                <ReviewStatus />
+              <Info>
+                <Review />
                 <span>44 reviews</span>
-              </Review>
+              </Info>
             </Card>
           </div>
           <div className="col-xs-6 col-md-4 col-xl-3">
@@ -123,10 +132,10 @@ export default () => {
               <Link href="#url">
                 <Price>$50</Price> Salsa Night
               </Link>
-              <Review>
-                <ReviewStatus />
+              <Info>
+                <Review />
                 <span>45 reviews</span>
-              </Review>
+              </Info>
             </Card>
           </div>
         </div>

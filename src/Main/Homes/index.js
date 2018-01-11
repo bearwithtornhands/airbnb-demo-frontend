@@ -44,10 +44,17 @@ const homesData = [
 ];
 
 export default () => {
-  var homesList = homesData.map(function(item, index) {
+  var list = homesData.map(function(item, index) {
     return (
       <div key={index} className="col-xs-6 col-md-4">
-        {Card(item)}
+        <Card
+          url={item.url}
+          image={item.image}
+          title={item.title}
+          descr={item.descr}
+          price={item.price}
+          superhost={item.superhost}
+        />
       </div>
     );
   });
@@ -59,7 +66,7 @@ export default () => {
         <HeadingLink to="/homes">See all</HeadingLink>
       </Heading>
       <SliderTrack>
-        <div className="row">{homesList}</div>
+        <div className="row">{list}</div>
         <ButtonRight type="button" />
       </SliderTrack>
     </Section>

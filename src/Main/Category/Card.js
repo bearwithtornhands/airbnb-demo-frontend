@@ -54,8 +54,11 @@ const Title = styled.h6`
     font-size: 17px;
 
     flex: 1;
-    border: 0;
-    border-radius: 0;
+    border: 1px solid rgba(72, 72, 72, 0.2);
+    border-left: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 0;
     background: transparent;
     box-shadow: none;
     padding: 26px 24px;

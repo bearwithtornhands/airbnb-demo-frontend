@@ -27,6 +27,10 @@ const Select = styled.select`
     margin-bottom: 16px;
   }
   @media (min-width: 1200px) {
+    font-size: 18px;
+    line-height: 23px;
+
+    padding: 11px 47px 12px 15px;
     background-position: right 15px center;
   }
 `;

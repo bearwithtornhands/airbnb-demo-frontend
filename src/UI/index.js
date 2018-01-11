@@ -10,12 +10,9 @@ export const Wrapper = styled.div`
 `;
 
 export const Main = styled.main`
-  padding-bottom: 40px;
+  padding: 80px 0 40px;
   @media (min-width: 768px) {
     padding-bottom: 64px;
-  }
-  @media (min-width: 1200px) {
-    padding-top: 80px;
   }
 `;
 
@@ -90,14 +87,4 @@ export const SliderRight = styled.button`
   @media (min-width: 1200px) {
     display: block;
   }
-`;
-
-export const Review = styled.div`
-  font-size: 12px;
-  line-height: 15px;
-  white-space: nowrap;
-
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
 `;

@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { Review } from "../UI";
-import ReviewStatus from "../UI/ReviewStatus";
+import Review from "../UI/Review";
 
-const Card = styled.div`
+const Card = styled.a`
   font-size: 12px;
   line-height: 15px;
+  color: #383838;
 
+  display: block;
   margin-bottom: 24px;
   @media (min-width: 768px) {
     font-size: 15px;
@@ -16,7 +17,7 @@ const Card = styled.div`
   }
 `;
 
-const ImageLink = styled.a`
+const Preview = styled.div`
   display: block;
   margin-bottom: 8px;
 `;
@@ -31,7 +32,7 @@ const Image = styled.img`
   }
 `;
 
-const Link = styled.a`
+const Title = styled.h5`
   font-size: 13px;
   line-height: 16px;
   font-weight: bold;
@@ -40,7 +41,7 @@ const Link = styled.a`
   text-overflow: ellipsis;
 
   display: block;
-  margin-bottom: 4px;
+  margin: 0 0 4px;
   overflow: hidden;
   @media (min-width: 768px) {
     margin-bottom: 2px;
@@ -53,20 +54,30 @@ const Text = styled.p`
   margin: 0 0 6px;
 `;
 
+const Info = styled.div`
+  font-size: 12px;
+  line-height: 15px;
+  white-space: nowrap;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+`;
+
 export default props => {
   return (
-    <Card>
-      <ImageLink href={props.url}>
+    <Card href={props.url}>
+      <Preview>
         <Image src={props.image} alt={props.title} />
-      </ImageLink>
-      <Link href={props.url}>
+      </Preview>
+      <Title>
         ${props.price} {props.title}{" "}
-      </Link>
+      </Title>
       <Text>{props.descr}</Text>
-      <Review>
-        <ReviewStatus />
+      <Info>
+        <Review />
         <span>{props.superhost} · Superhost</span>
-      </Review>
+      </Info>
     </Card>
   );
 };

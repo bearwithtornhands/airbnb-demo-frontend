@@ -14,7 +14,6 @@ const Menu = styled.nav`
 `;
 
 const Link = styled.a`
-  font-weight: 300;
   color: #383838;
   text-align: center;
 

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import GoogleMap from "google-map-react";
 
-const HomesMapWrap = styled.div`
+const Section = styled.div`
   display: none;
   @media (min-width: 1200px) {
     display: block;
@@ -14,7 +14,7 @@ const HomesMapWrap = styled.div`
   }
 `;
 
-class HomesMap extends Component {
+class Map extends Component {
   static defaultProps = {
     center: { lat: 59.95, lng: 30.33 },
     zoom: 11
@@ -22,15 +22,18 @@ class HomesMap extends Component {
 
   render() {
     return (
-      <HomesMapWrap>
+      <Section>
         <GoogleMap
-          bootstrapURLKeys={{key: "AIzaSyDOeq-g19KTxtyknIn2wj_qow-PiK-_sCQ", language: 'ru'}}
+          bootstrapURLKeys={{
+            key: "AIzaSyDOeq-g19KTxtyknIn2wj_qow-PiK-_sCQ",
+            language: "ru"
+          }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         />
-      </HomesMapWrap>
+      </Section>
     );
   }
 }
 
-export default HomesMap;
+export default Map;

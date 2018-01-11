@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import DateSelect from "../DateSelect";
 import DateHead from "./DateHead";
 import closeIcon from "./close.svg";
 
-const DropDownWrap = styled.div`
+const Section = styled.div`
   position: relative;
   margin-right: 12px;
   &:last-child {
@@ -110,6 +109,7 @@ const Save = styled.button`
   background-color: #ff5a5f;
   padding: 12px;
   border-radius: 4px;
+  cursor: pointer;
   @media (min-width: 768px) {
     font-size: 16px;
     line-height: 64px;
@@ -134,6 +134,7 @@ const Close = styled.button`
   left: 0;
   background-color: transparent;
   border: 0;
+  cursor: pointer;
   @media (min-width: 768px) {
     font-size: 16px;
     line-height: 64px;
@@ -151,28 +152,9 @@ const Icon = styled.img`
 `;
 
 class DropDown extends Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
+  handleClick = () => {
     this.props.onTogglerClick(this.props.ID, this.props.isOpen);
-  }
-
-  getContent() {
-    if (this.props.contentType === "date") {
-      return (
-        <DateSelect
-          numOfMonthOnMobile={12}
-          numOfMonthOnTablet={1}
-          numOfMonthOnDesktop={2}
-        />
-      );
-    }
-
-    return <p>text</p>;
-  }
+  };
 
   render() {
     const ID = this.props.ID;
@@ -180,13 +162,12 @@ class DropDown extends Component {
     const title = isOpen
       ? this.props.titleActive || this.props.titleDefault
       : this.props.titleDefault;
-    var content = this.getContent();
 
     return (
-      <DropDownWrap>
+      <Section>
         <Toggler
-          ID={ID}
           type="button"
+          ID={ID}
           onClick={this.handleClick}
           isOpen={isOpen}
         >
@@ -196,13 +177,13 @@ class DropDown extends Component {
           <Content>
             <Head>
               <Title>{this.props.titleDefault}</Title>
-              {this.props.contentType === "date" && <DateHead />}
+              {/* {this.props.contentType === "date" && <DateHead />} */}
             </Head>
-            <Scroll>{content}</Scroll>
+            <Scroll>{this.props.children}</Scroll>
             <Tools>
               <Close
                 type="button"
-                ID=""
+                ID={null}
                 isOpen={this.props.isOpen}
                 onClick={this.handleClick}
               >
@@ -211,7 +192,7 @@ class DropDown extends Component {
               </Close>
               <Save
                 type="button"
-                ID=""
+                ID={null}
                 isOpen={this.props.isOpen}
                 onClick={this.handleClick}
               >
@@ -220,7 +201,7 @@ class DropDown extends Component {
             </Tools>
           </Content>
         )}
-      </DropDownWrap>
+      </Section>
     );
   }
 }

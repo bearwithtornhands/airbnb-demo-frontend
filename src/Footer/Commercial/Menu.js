@@ -21,6 +21,9 @@ const Link = styled.a`
     margin-right: 0;
   }
   @media (min-width: 768px) {
+    font-size: 14px;
+    line-height: 19px;
+
     margin-right: 16px;
   }
 `;

@@ -16,16 +16,7 @@ const Reset = styled.button`
   top: 0;
   right: 0;
   @media (min-width: 768px) {
-    font-size: 16px;
-    line-height: 64px;
-    color: #ff5a5f;
-
-    width: 110px;
-    top: auto;
-    left: 0;
-    bottom: 0;
-    margin: 0 auto;
-    padding: 0;
+    display: none;
   }
 `;
 

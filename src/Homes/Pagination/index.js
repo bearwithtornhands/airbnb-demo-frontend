@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import right from "./right.svg";
 
 const Pagination = styled.div`
   font-size: 16px;
@@ -13,7 +14,7 @@ const Pagination = styled.div`
 
 const Pages = styled.div`
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: center;
   margin-bottom: 15px;
 `;
@@ -62,6 +63,14 @@ const Info = styled.p`
   margin: 0;
 `;
 
+const Next = Button.extend`
+  border-radius: 100%;
+  width: 32px;
+  height: 32px;
+  border-color: #008489;
+  background: url(${right}) no-repeat left 13px center transparent;
+`;
+
 export default props => {
   return (
     <Pagination>
@@ -73,6 +82,7 @@ export default props => {
         <Button type="button">3</Button>
         <Dots />
         <Button type="button">17</Button>
+        <Next />
       </Pages>
       <Info>1 – 18 of 300+ Rentals</Info>
     </Pagination>
