@@ -23,11 +23,11 @@ const categoryData = [
   }
 ];
 
-export default () => {
-  var categoryList = categoryData.map(function(item, index) {
+export default props => {
+  const list = categoryData.map(function(item, index) {
     return (
       <div key={index} className="col-xs-6 col-md-4">
-        {Card(item)}
+        <Card url={item.url} image={item.image} title={item.title} />
       </div>
     );
   });
@@ -35,7 +35,7 @@ export default () => {
   return (
     <Section>
       <H2>Explore Airbnb</H2>
-      <div className="row">{categoryList}</div>
+      <div className="row">{list}</div>
     </Section>
   );
 };

@@ -53,9 +53,6 @@ const Dots = styled.span`
   color: #0f7276;
 
   margin: 0 16px 0 0;
-  &:before {
-    content: "...";
-  }
 `;
 
 const Info = styled.p`
@@ -80,7 +77,7 @@ export default props => {
         </Button>
         <Button type="button">2</Button>
         <Button type="button">3</Button>
-        <Dots />
+        <Dots>...</Dots>
         <Button type="button">17</Button>
         <Next />
       </Pages>
