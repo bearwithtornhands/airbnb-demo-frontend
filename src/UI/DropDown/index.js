@@ -153,11 +153,10 @@ const Icon = styled.img`
 
 class DropDown extends Component {
   handleClick = () => {
-    this.props.onTogglerClick(this.props.ID, this.props.isOpen);
+    this.props.onTogglerClick(this.props.id, this.props.isOpen);
   };
 
   render() {
-    const ID = this.props.ID;
     const isOpen = this.props.isOpen;
     const title = isOpen
       ? this.props.titleActive || this.props.titleDefault
@@ -165,26 +164,21 @@ class DropDown extends Component {
 
     return (
       <Section>
-        <Toggler
-          type="button"
-          ID={ID}
-          onClick={this.handleClick}
-          isOpen={isOpen}
-        >
+        <Toggler type="button" onClick={this.handleClick} isOpen={isOpen}>
           {title}
         </Toggler>
         {isOpen && (
           <Content>
             <Head>
               <Title>{this.props.titleDefault}</Title>
-              {/* {this.props.contentType === "date" && <DateHead />} */}
+              {this.props.id === "date" && <DateHead />}
             </Head>
             <Scroll>{this.props.children}</Scroll>
             <Tools>
               <Close
                 type="button"
-                ID={null}
-                isOpen={this.props.isOpen}
+                id={null}
+                isOpen={false}
                 onClick={this.handleClick}
               >
                 <Icon src={closeIcon} alt="Close" />
@@ -192,8 +186,8 @@ class DropDown extends Component {
               </Close>
               <Save
                 type="button"
-                ID={null}
-                isOpen={this.props.isOpen}
+                id={null}
+                isOpen={false}
                 onClick={this.handleClick}
               >
                 Save

@@ -61,10 +61,10 @@ class Filter extends Component {
           <Wrapper>
             <List>
               <DropDown
-                ID="1"
+                id="date"
                 titleDefault="Dates"
                 titleActive="Check in — Check out"
-                isOpen={this.state.id === "1" && this.state.isOpen}
+                isOpen={this.state.id === "date" && this.state.isOpen}
                 onTogglerClick={this.handleFilterChange}
               >
                 <DateSelect
@@ -74,9 +74,9 @@ class Filter extends Component {
                 />
               </DropDown>
               <DropDown
-                ID="2"
+                id="more"
                 titleDefault="More filters"
-                isOpen={this.state.id === "2" && this.state.isOpen}
+                isOpen={this.state.id === "more" && this.state.isOpen}
                 onTogglerClick={this.handleFilterChange}
               >
                 <p>text</p>

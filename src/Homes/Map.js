@@ -25,8 +25,7 @@ class Map extends Component {
       <Section>
         <GoogleMap
           bootstrapURLKeys={{
-            key: "AIzaSyDOeq-g19KTxtyknIn2wj_qow-PiK-_sCQ",
-            language: "ru"
+            key: process.env.REACT_APP_GOOGLE_MAP_KEY
           }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
