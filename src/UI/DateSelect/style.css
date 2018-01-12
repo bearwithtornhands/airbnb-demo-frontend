@@ -103,11 +103,11 @@
 }
 .DayPicker-NavButton--prev {
   left: 0;
-  background-image: url(prev.svg);
+  background-image: url(./prev.svg);
 }
 .DayPicker-NavButton--next {
   right: 0;
-  background-image: url(next.svg);
+  background-image: url(./next.svg);
 }
 .DayPicker-wrapper {
   padding: 0;

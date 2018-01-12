@@ -47,14 +47,34 @@ const List = styled.div`
 class Filter extends Component {
   constructor(props) {
     super(props);
-    this.state = { id: null, isOpen: false };
+    this.state = { id: null, isOpen: false, date: { from: null, to: null } };
   }
 
   handleFilterChange = (id, isOpen) => {
     this.setState({ id: id, isOpen: !isOpen });
   };
 
+  handleCheckTitle = range => {
+    console.log(range.from);
+    this.setState({ date: { from: range.from, to: range.to } });
+  };
+
+  formatDate(date) {
+    const day = date.getDate().toString();
+    const dayFormat = day.length === 1 ? "0" + day : day;
+    const month = (date.getMonth() + 1).toString();
+    const monthFormat = month.length === 1 ? "0" + month : month;
+    const year = date
+      .getFullYear()
+      .toString()
+      .substring(2);
+
+    return dayFormat + "." + monthFormat + "." + year;
+  }
+
   render() {
+    const range = this.state.date;
+
     return (
       <StyledBody fixed={this.state.isOpen}>
         <Section>
@@ -63,7 +83,11 @@ class Filter extends Component {
               <DropDown
                 id="date"
                 titleDefault="Dates"
-                titleActive="Check in — Check out"
+                titleActive={
+                  (range.from ? this.formatDate(range.from) : "Check in") +
+                  " – " +
+                  (range.to ? this.formatDate(range.to) : "Check out")
+                }
                 isOpen={this.state.id === "date" && this.state.isOpen}
                 onTogglerClick={this.handleFilterChange}
               >
@@ -71,6 +95,7 @@ class Filter extends Component {
                   numOfMonthOnMobile={12}
                   numOfMonthOnTablet={1}
                   numOfMonthOnDesktop={2}
+                  onDateChange={this.handleCheckTitle}
                 />
               </DropDown>
               <DropDown
