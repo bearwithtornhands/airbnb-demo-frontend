@@ -45,12 +45,8 @@ const Button = styled.button`
 `;
 
 class Booler extends Component {
-  state = {
-    checked: false
-  };
-
   handleClick = () => {
-    this.setState(prevState => ({ checked: !prevState.checked }));
+    this.props.onBoolerChange(this.props.checked);
   };
 
   render() {
@@ -58,7 +54,7 @@ class Booler extends Component {
       <Button
         type="button"
         onClick={this.handleClick}
-        checked={this.state.checked}
+        checked={this.props.checked}
       />
     );
   }

@@ -5,6 +5,7 @@ import dateFns from "date-fns";
 import DropDown from "../UI/DropDown";
 import { Wrapper } from "../UI";
 import DateSelect from "../UI/DateSelect";
+import InstantBook from "./InstantBook";
 
 const StyledBody = styled(Body)`
   position: ${props => (props.fixed ? "fixed" : "static")};
@@ -48,15 +49,24 @@ const List = styled.div`
 class Filter extends Component {
   constructor(props) {
     super(props);
-    this.state = { id: null, isOpen: false, date: { from: null, to: null } };
+    this.state = {
+      id: null,
+      isOpen: false,
+      date: { from: null, to: null },
+      book: false
+    };
   }
 
   handleFilterChange = (id, isOpen) => {
     this.setState({ id: id, isOpen: !isOpen });
   };
 
-  handleCheckTitle = range => {
+  handleDateChange = range => {
     this.setState({ date: { from: range.from, to: range.to } });
+  };
+
+  handleBookChange = value => {
+    this.setState({ book: !value });
   };
 
   getDateTitle = () => {
@@ -91,7 +101,18 @@ class Filter extends Component {
                   numOfMonthOnMobile={12}
                   numOfMonthOnTablet={1}
                   numOfMonthOnDesktop={2}
-                  onDateChange={this.handleCheckTitle}
+                  onDateClick={this.handleDateChange}
+                />
+              </DropDown>
+              <DropDown
+                id="book"
+                title="Instant book"
+                isOpen={this.state.id === "book" && this.state.isOpen}
+                onTogglerClick={this.handleFilterChange}
+              >
+                <InstantBook
+                  onBookChange={this.handleBookChange}
+                  checked={this.state.book}
                 />
               </DropDown>
               <DropDown
