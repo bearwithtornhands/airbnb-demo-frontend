@@ -158,7 +158,7 @@ class DropDown extends Component {
 
   render() {
     const isOpen = this.props.isOpen;
-    const title = isOpen ? this.props.titleActive : this.props.titleDefault;
+    const title = this.props.title;
 
     return (
       <Section>

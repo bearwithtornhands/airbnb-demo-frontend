@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import Body from "react-body-classname";
 import styled from "styled-components";
+import Body from "react-body-classname";
+import dateFns from "date-fns";
 import DropDown from "../UI/DropDown";
 import { Wrapper } from "../UI";
 import DateSelect from "../UI/DateSelect";
@@ -58,22 +59,23 @@ class Filter extends Component {
     this.setState({ date: { from: range.from, to: range.to } });
   };
 
-  formatDate(date) {
-    const day = date.getDate().toString();
-    const dayFormat = day.length === 1 ? "0" + day : day;
-    const month = (date.getMonth() + 1).toString();
-    const monthFormat = month.length === 1 ? "0" + month : month;
-    const year = date
-      .getFullYear()
-      .toString()
-      .substring(2);
+  getDateTitle = () => {
+    const state = this.state;
 
-    return dayFormat + "." + monthFormat + "." + year;
-  }
+    if (state.isOpen && state.id === "date") {
+      return "Check in – Check out";
+    } else if (state.date.from && state.date.to) {
+      return (
+        dateFns.format(state.date.from, "DD.MM.YY") +
+        " – " +
+        dateFns.format(state.date.to, "DD.MM.YY")
+      );
+    }
+
+    return "Dates";
+  };
 
   render() {
-    const range = this.state.date;
-
     return (
       <StyledBody fixed={this.state.isOpen}>
         <Section>
@@ -81,12 +83,7 @@ class Filter extends Component {
             <List>
               <DropDown
                 id="date"
-                titleDefault="Dates"
-                titleActive={
-                  (range.from ? this.formatDate(range.from) : "Check in") +
-                  " – " +
-                  (range.to ? this.formatDate(range.to) : "Check out")
-                }
+                title={this.getDateTitle()}
                 isOpen={this.state.id === "date" && this.state.isOpen}
                 onTogglerClick={this.handleFilterChange}
               >
@@ -99,7 +96,7 @@ class Filter extends Component {
               </DropDown>
               <DropDown
                 id="more"
-                titleDefault="More filters"
+                title="More filters"
                 isOpen={this.state.id === "more" && this.state.isOpen}
                 onTogglerClick={this.handleFilterChange}
               >
