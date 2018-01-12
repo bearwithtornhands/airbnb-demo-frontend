@@ -55,7 +55,6 @@ class Filter extends Component {
   };
 
   handleCheckTitle = range => {
-    console.log(range.from);
     this.setState({ date: { from: range.from, to: range.to } });
   };
 
