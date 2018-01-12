@@ -2,13 +2,13 @@ import React from "react";
 import { Main, Wrapper } from "../UI";
 import Filter from "./Filter";
 import Catalog from "./Catalog";
-import Map from "./Map";
+import Location from "./Location";
 
 export default () => {
   return (
     <Main>
       <Filter />
-      <Map />
+      <Location />
       <Wrapper>
         <Catalog />
       </Wrapper>

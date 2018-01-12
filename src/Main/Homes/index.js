@@ -44,16 +44,16 @@ const homesData = [
 ];
 
 export default () => {
-  var list = homesData.map(function(item, index) {
+  const list = homesData.map(function(homeData, homeIndex) {
     return (
-      <div key={index} className="col-xs-6 col-md-4">
+      <div key={homeIndex} className="col-xs-6 col-md-4">
         <Card
-          url={item.url}
-          image={item.image}
-          title={item.title}
-          descr={item.descr}
-          price={item.price}
-          superhost={item.superhost}
+          url={homeData.url}
+          image={homeData.image}
+          title={homeData.title}
+          descr={homeData.descr}
+          price={homeData.price}
+          superhost={homeData.superhost}
         />
       </div>
     );

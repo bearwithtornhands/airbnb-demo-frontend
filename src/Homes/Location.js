@@ -14,7 +14,7 @@ const Section = styled.div`
   }
 `;
 
-class Map extends Component {
+class Location extends Component {
   static defaultProps = {
     center: { lat: 59.95, lng: 30.33 },
     zoom: 11
@@ -35,4 +35,4 @@ class Map extends Component {
   }
 }
 
-export default Map;
+export default Location;

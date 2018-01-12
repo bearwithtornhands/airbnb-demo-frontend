@@ -17,16 +17,12 @@ const Card = styled.a`
   }
 `;
 
-const Preview = styled.div`
-  display: block;
-  margin-bottom: 8px;
-`;
-
 const Image = styled.img`
   display: block;
   width: 100%;
   height: 156px;
   object-fit: cover;
+  margin-bottom: 8px;
   @media (min-width: 768px) {
     height: 204px;
   }
@@ -67,11 +63,9 @@ const Info = styled.div`
 export default props => {
   return (
     <Card href={props.url}>
-      <Preview>
-        <Image src={props.image} alt={props.title} />
-      </Preview>
+      <Image src={props.image} alt={props.title} />
       <Title>
-        ${props.price} {props.title}{" "}
+        ${props.price} {props.title}
       </Title>
       <Text>{props.descr}</Text>
       <Info>

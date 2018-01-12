@@ -20,8 +20,8 @@ const Pages = styled.div`
 `;
 
 const Button = styled.button`
-  font-size: 16px;
-  line-height: 21px;
+  font: normal normal 16px/21px "Circular", "Helvetica Neue", "Helvetica",
+    "Arial", sans-serif;
   color: #0f7276;
   text-align: center;
 
