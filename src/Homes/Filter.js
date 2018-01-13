@@ -69,6 +69,7 @@ class Filter extends Component {
     this.state = {
       id: null,
       date: { from: null, to: null },
+      prevDate: { from: null, to: null },
       book: false
     };
   }
@@ -79,7 +80,9 @@ class Filter extends Component {
 
   handleCancel = () => {
     if (this.state.id === "date") {
-      this.setState({ date: { from: null, to: null } });
+      this.setState({
+        date: { from: this.state.prevDate.from, to: this.state.prevDate.to }
+      });
     } else if (this.state.id === "book") {
       this.setState({ book: false });
     }
@@ -92,6 +95,11 @@ class Filter extends Component {
       this.setState({ id: null });
     } else {
       this.setState({ id: id });
+      if (id === "date") {
+        this.setState({
+          prevDate: { from: this.state.date.from, to: this.state.date.to }
+        });
+      }
     }
   };
 

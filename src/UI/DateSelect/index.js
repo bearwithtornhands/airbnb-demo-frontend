@@ -28,7 +28,7 @@ class DateSelect extends React.Component {
 
   handleDayClick = day => {
     const range = DateUtils.addDayToRange(day, this.state);
-    this.setState(range);
+    this.setState({ from: range.from, to: range.to });
     this.props.onDateChange(range);
   };
 
