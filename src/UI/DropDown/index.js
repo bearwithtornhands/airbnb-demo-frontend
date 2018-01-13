@@ -156,6 +156,12 @@ class DropDown extends Component {
     this.props.onTogglerClick(this.props.id, this.props.isOpen);
   };
 
+  getDropDownTitle = () => {
+    if (this.props.id === "date") return "Dates";
+
+    return this.props.title;
+  };
+
   render() {
     const isOpen = this.props.isOpen;
     const title = this.props.title;
@@ -168,7 +174,7 @@ class DropDown extends Component {
         {isOpen && (
           <Content>
             <Head>
-              <Title>{this.props.titleDefault}</Title>
+              <Title>{this.getDropDownTitle()}</Title>
               {this.props.id === "date" && <DateHead />}
             </Head>
             <Scroll>{this.props.children}</Scroll>

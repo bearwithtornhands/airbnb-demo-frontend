@@ -25,7 +25,7 @@ class DateSelect extends React.Component {
     super(props);
     this.handleDayClick = this.handleDayClick.bind(this);
     this.handleResetClick = this.handleResetClick.bind(this);
-    this.state = { from: undefined, to: undefined };
+    this.state = { from: null, to: null };
   }
 
   handleDayClick(day) {
@@ -35,7 +35,8 @@ class DateSelect extends React.Component {
   }
 
   handleResetClick() {
-    this.setState({ from: undefined, to: undefined });
+    this.setState({ from: null, to: null });
+    this.props.onDateClick({ from: null, to: null });
   }
 
   getNumberOfMonths() {
