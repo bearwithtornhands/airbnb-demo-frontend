@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import ClickOutside from "react-click-outside";
 import DateHead from "./DateHead";
 import closeIcon from "./close.svg";
 
@@ -31,7 +32,7 @@ const Toggler = styled.button`
   }
 `;
 
-const Content = styled.div`
+const Content = styled(ClickOutside)`
   display: flex;
   flex-flow: column nowrap;
   position: fixed;
@@ -162,6 +163,10 @@ class DropDown extends Component {
     return this.props.title;
   };
 
+  handleClickOutside = event => {
+    this.props.onClickOutside(event.target);
+  };
+
   render() {
     const isOpen = this.props.isOpen;
     const title = this.props.title;
@@ -172,7 +177,7 @@ class DropDown extends Component {
           {title}
         </Toggler>
         {isOpen && (
-          <Content>
+          <Content onClickOutside={this.handleClickOutside}>
             <Head>
               <Title>{this.getDropDownTitle()}</Title>
               {this.props.id === "date" && <DateHead />}

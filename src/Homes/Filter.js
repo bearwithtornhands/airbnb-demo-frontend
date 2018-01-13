@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import Body from "react-body-classname";
 import dateFns from "date-fns";
+// import ClickOutside from "react-click-outside";
 import DropDown from "../UI/DropDown";
 import { Wrapper } from "../UI";
 import DateSelect from "../UI/DateSelect";
@@ -57,6 +58,12 @@ class Filter extends Component {
     };
   }
 
+  closeDropDown = target => {
+    if (target.tagName === "BUTTON") return;
+
+    this.setState({ id: null, isOpen: false });
+  };
+
   handleFilterChange = (id, isOpen) => {
     this.setState({ id: id, isOpen: !isOpen });
   };
@@ -96,6 +103,7 @@ class Filter extends Component {
                 title={this.getDateTitle()}
                 isOpen={this.state.id === "date" && this.state.isOpen}
                 onTogglerClick={this.handleFilterChange}
+                onClickOutside={this.closeDropDown}
               >
                 <DateSelect
                   numOfMonthOnMobile={12}
@@ -109,6 +117,7 @@ class Filter extends Component {
                 title="Instant book"
                 isOpen={this.state.id === "book" && this.state.isOpen}
                 onTogglerClick={this.handleFilterChange}
+                onClickOutside={this.closeDropDown}
               >
                 <InstantBook
                   onBookChange={this.handleBookChange}
@@ -120,6 +129,7 @@ class Filter extends Component {
                 title="More filters"
                 isOpen={this.state.id === "more" && this.state.isOpen}
                 onTogglerClick={this.handleFilterChange}
+                onClickOutside={this.closeDropDown}
               >
                 <p>text</p>
               </DropDown>
