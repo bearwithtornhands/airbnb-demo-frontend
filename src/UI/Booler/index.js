@@ -10,14 +10,16 @@ const Button = styled.button`
   height: 40px;
   padding: 0;
   border-radius: 20px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: ${props =>
-    props.checked ? "#008489" : "rgba(72, 72, 72, 0.3)"};
-  background-color: ${props =>
-    props.checked ? "#008489" : "rgba(72, 72, 72, 0.08)"};
+  border: 1px solid rgba(72, 72, 72, 0.3);
+  background-color: rgba(72, 72, 72, 0.08);
   outline: none;
   cursor: pointer;
+  ${props =>
+    props.checked &&
+    `
+      border-color: #008489;
+      background-color: #008489;
+    `};
   &:focus {
     box-shadow: 0 0 6px rgba(0, 132, 137, 0.5);
   }
@@ -26,21 +28,22 @@ const Button = styled.button`
 
     position: absolute;
     top: -1px;
-    left: ${props => (props.checked ? "auto" : "-1px")};
-    right: ${props => (props.checked ? "-1px" : "auto")};
+    left: -1px;
+    right: auto;
     bottom: -1px;
     display: block;
     width: 40px;
     border-radius: 100%;
-    border-width: 1px;
-    border-style: solid;
-    border-color: ${props =>
-      props.checked ? "#008489" : "rgba(72, 72, 72, 0.3)"};
-    background-color: white;
-    background-image: ${props =>
-      props.checked ? "url(" + on + ")" : "url(" + off + ")"};
-    background-repeat: no-repeat;
-    background-position: center center;
+    border: 1px solid rgba(72, 72, 72, 0.3);
+    background: url(${off}) no-repeat center center white;
+    ${props =>
+      props.checked &&
+      `
+        left: auto;
+        right: -1px;
+        border-color: #008489;
+        background-image: url(${on});
+    `};
   }
 `;
 

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import Body from "react-body-classname";
-import dateFns from "date-fns";
-// import ClickOutside from "react-click-outside";
+import format from "date-fns/format";
 import DropDown from "../UI/DropDown";
 import { Wrapper } from "../UI";
 import DateSelect from "../UI/DateSelect";
 import InstantBook from "./InstantBook";
+import Booler from "../UI/Booler";
 
 const StyledBody = styled(Body)`
   position: ${props => (props.fixed ? "fixed" : "static")};
@@ -15,18 +15,19 @@ const StyledBody = styled(Body)`
   right: 0;
   @media (min-width: 768px) {
     position: relative;
-    &:before {
-      content: "";
+  }
+`;
 
-      display: ${props => (props.fixed ? "block" : "none")};
-      position: absolute;
-      top: 136px;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(255, 255, 255, 0.8);
-      z-index: 1;
-    }
+const Smoke = styled.div`
+  @media (min-width: 768px) {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: calc(100vh - 136px);
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 1;
   }
 `;
 
@@ -47,89 +48,103 @@ const List = styled.div`
   align-items: flex-start;
 `;
 
+const getDateTitle = (id, range) => {
+  const from = format(range.from, "DD.MM.YY");
+  const to = format(range.to, "DD.MM.YY");
+
+  if (id === "date") {
+    return (
+      (range.from ? from : "Check in") + " – " + (range.to ? to : "Check out")
+    );
+  } else if (range.from && range.to) {
+    return from + " – " + to;
+  } else {
+    return "Dates";
+  }
+};
+
 class Filter extends Component {
   constructor(props) {
     super(props);
     this.state = {
       id: null,
-      isOpen: false,
       date: { from: null, to: null },
       book: false
     };
   }
 
-  closeDropDown = target => {
-    if (target.tagName === "BUTTON") return;
-
-    this.setState({ id: null, isOpen: false });
+  closeDropDown = () => {
+    this.setState({ id: null });
   };
 
-  handleFilterChange = (id, isOpen) => {
-    this.setState({ id: id, isOpen: !isOpen });
+  handleCancel = () => {
+    if (this.state.id === "date") {
+      this.setState({ date: { from: null, to: null } });
+    } else if (this.state.id === "book") {
+      this.setState({ book: false });
+    }
+
+    this.setState({ id: null });
+  };
+
+  handleFilterChange = id => {
+    if (this.state.id === id) {
+      this.setState({ id: null });
+    } else {
+      this.setState({ id: id });
+    }
   };
 
   handleDateChange = range => {
     this.setState({ date: { from: range.from, to: range.to } });
   };
 
-  handleBookChange = value => {
-    this.setState({ book: !value });
-  };
-
-  getDateTitle = () => {
-    const state = this.state;
-
-    if (state.isOpen && state.id === "date") {
-      return "Check in – Check out";
-    } else if (state.date.from && state.date.to) {
-      return (
-        dateFns.format(state.date.from, "DD.MM.YY") +
-        " – " +
-        dateFns.format(state.date.to, "DD.MM.YY")
-      );
-    }
-
-    return "Dates";
+  handleBookChange = checked => {
+    this.setState({ book: !checked });
   };
 
   render() {
     return (
-      <StyledBody fixed={this.state.isOpen}>
+      <StyledBody fixed={this.state.id}>
         <Section>
+          {this.state.id && <Smoke onClick={this.handleCancel} />}
           <Wrapper>
             <List>
               <DropDown
                 id="date"
-                title={this.getDateTitle()}
-                isOpen={this.state.id === "date" && this.state.isOpen}
+                title={getDateTitle(this.state.id, this.state.date)}
+                isOpen={this.state.id === "date"}
                 onTogglerClick={this.handleFilterChange}
-                onClickOutside={this.closeDropDown}
+                onCancelClick={this.handleCancel}
               >
                 <DateSelect
                   numOfMonthOnMobile={12}
                   numOfMonthOnTablet={1}
                   numOfMonthOnDesktop={2}
-                  onDateClick={this.handleDateChange}
+                  range={this.state.date}
+                  onDateChange={this.handleDateChange}
                 />
               </DropDown>
               <DropDown
                 id="book"
                 title="Instant book"
-                isOpen={this.state.id === "book" && this.state.isOpen}
+                isOpen={this.state.id === "book"}
                 onTogglerClick={this.handleFilterChange}
-                onClickOutside={this.closeDropDown}
+                onCancelClick={this.handleCancel}
               >
-                <InstantBook
-                  onBookChange={this.handleBookChange}
-                  checked={this.state.book}
-                />
+                <InstantBook>
+                  <Booler
+                    onBoolerChange={this.handleBookChange}
+                    checked={this.state.book}
+                  />
+                </InstantBook>
               </DropDown>
               <DropDown
                 id="more"
                 title="More filters"
-                isOpen={this.state.id === "more" && this.state.isOpen}
+                isOpen={this.state.id === "more"}
                 onTogglerClick={this.handleFilterChange}
-                onClickOutside={this.closeDropDown}
+                onCancelClick={this.handleCancel}
               >
                 <p>text</p>
               </DropDown>

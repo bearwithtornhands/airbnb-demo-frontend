@@ -4,11 +4,11 @@ import right from "./right.svg";
 
 const Pagination = styled.div`
   font-size: 16px;
-  line-height: 21px;
+  line-height: 19px;
 
   margin: 16px 0 24px;
   @media (min-width: 768px) {
-    margin: 8px 0 40px;
+    margin: 8px 0 39px;
   }
 `;
 
@@ -20,7 +20,7 @@ const Pages = styled.div`
 `;
 
 const Button = styled.button`
-  font: normal normal 16px/21px "Circular", "Helvetica Neue", "Helvetica",
+  font: normal normal 16px/19px "Circular", "Helvetica Neue", "Helvetica",
     "Arial", sans-serif;
   color: #0f7276;
   text-align: center;
@@ -28,13 +28,16 @@ const Button = styled.button`
   width: 32px;
   height: 32px;
   padding: 5px 0 6px;
-  margin-right: 16px;
+  margin: 0 8px;
   border-radius: 100%;
   border: 1px solid transparent;
   background-color: transparent;
   outline: none;
   &:focus {
     box-shadow: 0 0 6px rgba(0, 132, 137, 0.5);
+  }
+  &:first-child {
+    margin-left: 0;
   }
   &:last-child {
     margin-right: 0;
@@ -49,10 +52,10 @@ const Button = styled.button`
 
 const Dots = styled.span`
   font-size: 16px;
-  line-height: 20px;
+  line-height: 19px;
   color: #0f7276;
 
-  margin: 0 16px 0 0;
+  margin: 0 8px;
 `;
 
 const Info = styled.p`
@@ -65,6 +68,7 @@ const Next = Button.extend`
   width: 32px;
   height: 32px;
   border-color: #008489;
+  margin-left: 16px;
   background: url(${right}) no-repeat left 13px center transparent;
 `;
 

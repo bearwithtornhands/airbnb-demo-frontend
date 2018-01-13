@@ -1,6 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
-import Booler from "../UI/Booler";
 
 const Section = styled.div`
   display: flex;
@@ -36,27 +35,14 @@ const Text = styled.p`
   margin: 0;
 `;
 
-class InstantBook extends Component {
-  handleBoolerChange = value => {
-    this.props.onBookChange(value);
-  };
-
-  render() {
-    return (
-      <Section>
-        <Content>
-          <Title>Instant book</Title>
-          <Text>Listing you can book without waiting form host approval.</Text>
-        </Content>
-        <Tools>
-          <Booler
-            onBoolerChange={this.handleBoolerChange}
-            checked={this.props.checked}
-          />
-        </Tools>
-      </Section>
-    );
-  }
-}
-
-export default InstantBook;
+export default props => {
+  return (
+    <Section>
+      <Content>
+        <Title>Instant book</Title>
+        <Text>Listing you can book without waiting form host approval.</Text>
+      </Content>
+      <Tools>{props.children}</Tools>
+    </Section>
+  );
+};

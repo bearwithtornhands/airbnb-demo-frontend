@@ -41,7 +41,7 @@ const Section = styled.div`
 `;
 
 const Text = styled.p`
-  fon-size: 16px;
+  font-size: 16px;
   line-height: 19px;
   color: #636363;
   text-align: center;

@@ -23,21 +23,19 @@ const Reset = styled.button`
 class DateSelect extends React.Component {
   constructor(props) {
     super(props);
-    this.handleDayClick = this.handleDayClick.bind(this);
-    this.handleResetClick = this.handleResetClick.bind(this);
-    this.state = { from: null, to: null };
+    this.state = { from: this.props.range.from, to: this.props.range.to };
   }
 
-  handleDayClick(day) {
+  handleDayClick = day => {
     const range = DateUtils.addDayToRange(day, this.state);
     this.setState(range);
-    this.props.onDateClick(range);
-  }
+    this.props.onDateChange(range);
+  };
 
-  handleResetClick() {
+  handleResetClick = () => {
     this.setState({ from: null, to: null });
-    this.props.onDateClick({ from: null, to: null });
-  }
+    this.props.onDateChange({ from: null, to: null });
+  };
 
   getNumberOfMonths() {
     const windowWidth = window.innerWidth;

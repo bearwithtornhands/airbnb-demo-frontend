@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import ClickOutside from "react-click-outside";
 import DateHead from "./DateHead";
 import closeIcon from "./close.svg";
 
@@ -15,12 +14,12 @@ const Section = styled.div`
 const Toggler = styled.button`
   font-family: "Circular", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 14px;
-  line-height: 18px;
+  line-height: 16px;
   color: ${props => (props.isOpen ? "white" : "#383838")};
 
   display: inline-block;
   vertical-align: top;
-  padding: 6px 15px;
+  padding: 7px 15px;
   border: 1px solid
     ${props => (props.isOpen ? "#008489" : "rgba(72, 72, 72, 0.2)")};
   border-radius: 4px;
@@ -32,7 +31,7 @@ const Toggler = styled.button`
   }
 `;
 
-const Content = styled(ClickOutside)`
+const Content = styled.div`
   display: flex;
   flex-flow: column nowrap;
   position: fixed;
@@ -154,7 +153,11 @@ const Icon = styled.img`
 
 class DropDown extends Component {
   handleClick = () => {
-    this.props.onTogglerClick(this.props.id, this.props.isOpen);
+    this.props.onTogglerClick(this.props.id);
+  };
+
+  handleCancel = () => {
+    this.props.onCancelClick();
   };
 
   getDropDownTitle = () => {
@@ -177,28 +180,18 @@ class DropDown extends Component {
           {title}
         </Toggler>
         {isOpen && (
-          <Content onClickOutside={this.handleClickOutside}>
+          <Content>
             <Head>
               <Title>{this.getDropDownTitle()}</Title>
               {this.props.id === "date" && <DateHead />}
             </Head>
             <Scroll>{this.props.children}</Scroll>
             <Tools>
-              <Close
-                type="button"
-                id={null}
-                isOpen={false}
-                onClick={this.handleClick}
-              >
+              <Close type="button" onClick={this.handleCancel}>
                 <Icon src={closeIcon} alt="Close" />
                 Cancel
               </Close>
-              <Save
-                type="button"
-                id={null}
-                isOpen={false}
-                onClick={this.handleClick}
-              >
+              <Save type="button" onClick={this.handleClick}>
                 Save
               </Save>
             </Tools>
