@@ -7,6 +7,7 @@ import { Wrapper } from "../UI";
 import DateSelect from "../UI/DateSelect";
 import InstantBook from "./InstantBook";
 import Booler from "../UI/Booler";
+import Guests from "./Guests";
 
 const StyledBody = styled(Body)`
   position: ${props => (props.fixed ? "fixed" : "static")};
@@ -69,37 +70,29 @@ class Filter extends Component {
     this.state = {
       id: null,
       date: { from: null, to: null },
-      prevDate: { from: null, to: null },
-      book: false
+      book: false,
+      guest: { adult: 0, children: 0, infant: 0 },
+      hist: null
     };
   }
 
-  closeDropDown = () => {
-    this.setState({ id: null });
-  };
-
   handleCancel = () => {
-    if (this.state.id === "date") {
-      this.setState({
-        date: { from: this.state.prevDate.from, to: this.state.prevDate.to }
-      });
-    } else if (this.state.id === "book") {
-      this.setState({ book: false });
-    }
+    const prevState = {};
+    prevState[this.state.id] = this.state.hist;
 
+    this.setState(prevState);
     this.setState({ id: null });
   };
 
   handleFilterChange = id => {
+    const prevState = { hist: null };
+    prevState.hist = this.state[id];
+
     if (this.state.id === id) {
       this.setState({ id: null });
     } else {
+      this.setState(prevState);
       this.setState({ id: id });
-      if (id === "date") {
-        this.setState({
-          prevDate: { from: this.state.date.from, to: this.state.date.to }
-        });
-      }
     }
   };
 
@@ -109,6 +102,18 @@ class Filter extends Component {
 
   handleBookChange = checked => {
     this.setState({ book: !checked });
+  };
+
+  handleGuestsChange = (name, count) => {
+    const temp = {
+      adult: this.state.guest.adult,
+      children: this.state.guest.children,
+      infant: this.state.guest.infant
+    };
+
+    temp[name] = count;
+
+    this.setState({ guest: temp });
   };
 
   render() {
@@ -131,6 +136,20 @@ class Filter extends Component {
                   numOfMonthOnDesktop={2}
                   range={this.state.date}
                   onDateChange={this.handleDateChange}
+                />
+              </DropDown>
+              <DropDown
+                id="guest"
+                title="Guests"
+                isOpen={this.state.id === "guest"}
+                onTogglerClick={this.handleFilterChange}
+                onCancelClick={this.handleCancel}
+              >
+                <Guests
+                  adult={this.state.guest.adult}
+                  children={this.state.guest.children}
+                  infant={this.state.guest.infant}
+                  onGuestsChange={this.handleGuestsChange}
                 />
               </DropDown>
               <DropDown
