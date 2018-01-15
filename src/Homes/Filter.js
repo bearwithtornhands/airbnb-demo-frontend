@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import Body from "react-body-classname";
 import format from "date-fns/format";
-import DropDown from "../UI/DropDown";
 import { Wrapper } from "../UI";
+import DropDown from "../UI/DropDown";
 import DateSelect from "../UI/DateSelect";
-import InstantBook from "./InstantBook";
 import Booler from "../UI/Booler";
+import InstantBook from "./InstantBook";
 import Guests from "./Guests";
+import Price from "./Price";
 
 const StyledBody = styled(Body)`
   position: ${props => (props.fixed ? "fixed" : "static")};
@@ -105,15 +106,15 @@ class Filter extends Component {
   };
 
   handleGuestsChange = (name, count) => {
-    const temp = {
+    const guestState = {
       adult: this.state.guest.adult,
       children: this.state.guest.children,
       infant: this.state.guest.infant
     };
 
-    temp[name] = count;
+    guestState[name] = count;
 
-    this.setState({ guest: temp });
+    this.setState({ guest: guestState });
   };
 
   render() {
@@ -165,6 +166,15 @@ class Filter extends Component {
                     checked={this.state.book}
                   />
                 </InstantBook>
+              </DropDown>
+              <DropDown
+                id="price"
+                title="Price"
+                isOpen={this.state.id === "price"}
+                onTogglerClick={this.handleFilterChange}
+                onCancelClick={this.handleCancel}
+              >
+                <Price />
               </DropDown>
               <DropDown
                 id="more"

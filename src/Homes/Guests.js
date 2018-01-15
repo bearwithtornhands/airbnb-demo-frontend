@@ -12,10 +12,12 @@ const Age = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 274px;
   margin-bottom: 24px;
   &:last-child {
     margin-bottom: 0;
+  }
+  @media (min-width: 768px) {
+    width: 274px;
   }
 `;
 
