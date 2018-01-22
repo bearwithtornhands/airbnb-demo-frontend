@@ -20,7 +20,7 @@ const StyledBody = styled(Body)`
   }
 `;
 
-const Smoke = styled.div`
+const Overlay = styled.div`
   @media (min-width: 768px) {
     display: block;
     position: absolute;
@@ -55,45 +55,41 @@ const getDateTitle = (id, range) => {
   const to = format(range.to, "DD.MM.YY");
 
   if (id === "date") {
-    return (
-      (range.from ? from : "Check in") + " – " + (range.to ? to : "Check out")
-    );
+    return `${range.from ? from : "Check in"} – ${range.to ? to : "Check out"}`;
   } else if (range.from && range.to) {
-    return from + " – " + to;
+    return `${from} – ${to}`;
   } else {
     return "Dates";
   }
 };
 
 class Filter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      id: null,
-      date: { from: null, to: null },
-      book: false,
-      guest: { adult: 0, children: 0, infant: 0 },
-      hist: null
-    };
-  }
-
-  handleCancel = () => {
-    const prevState = {};
-    prevState[this.state.id] = this.state.hist;
-
-    this.setState(prevState);
-    this.setState({ id: null });
+  state = {
+    name: null,
+    date: { from: null, to: null },
+    book: false,
+    guest: { adults: 0, children: 0, infants: 0 },
+    stateBuffer: null
   };
 
-  handleFilterChange = id => {
-    const prevState = { hist: null };
-    prevState.hist = this.state[id];
+  handleCancel = () => {
+    this.setState({ [this.state.name]: this.state.stateBuffer });
+    this.setState({ name: null });
+  };
 
-    if (this.state.id === id) {
-      this.setState({ id: null });
+  handleSave = () => {
+    this.setState({ name: null });
+  };
+
+  handleFilterChange = dropDownName => {
+    if (this.state.name === dropDownName) {
+      this.setState({ [this.state.name]: this.state.stateBuffer });
+      this.setState({ name: null });
     } else {
-      this.setState(prevState);
-      this.setState({ id: id });
+      this.setState({
+        stateBuffer: this.state[dropDownName]
+      });
+      this.setState({ name: dropDownName });
     }
   };
 
@@ -107,9 +103,9 @@ class Filter extends Component {
 
   handleGuestsChange = (name, count) => {
     const guestState = {
-      adult: this.state.guest.adult,
+      adults: this.state.guest.adults,
       children: this.state.guest.children,
-      infant: this.state.guest.infant
+      infants: this.state.guest.infants
     };
 
     guestState[name] = count;
@@ -119,17 +115,18 @@ class Filter extends Component {
 
   render() {
     return (
-      <StyledBody fixed={this.state.id}>
+      <StyledBody fixed={this.state.name}>
         <Section>
-          {this.state.id && <Smoke onClick={this.handleCancel} />}
+          {this.state.name && <Overlay onClick={this.handleCancel} />}
           <Wrapper>
             <List>
               <DropDown
-                id="date"
-                title={getDateTitle(this.state.id, this.state.date)}
-                isOpen={this.state.id === "date"}
+                name="date"
+                title={getDateTitle(this.state.name, this.state.date)}
+                isOpen={this.state.name === "date"}
                 onTogglerClick={this.handleFilterChange}
                 onCancelClick={this.handleCancel}
+                onSaveClick={this.handleSave}
               >
                 <DateSelect
                   numOfMonthOnMobile={12}
@@ -140,25 +137,27 @@ class Filter extends Component {
                 />
               </DropDown>
               <DropDown
-                id="guest"
+                name="guest"
                 title="Guests"
-                isOpen={this.state.id === "guest"}
+                isOpen={this.state.name === "guest"}
                 onTogglerClick={this.handleFilterChange}
                 onCancelClick={this.handleCancel}
+                onSaveClick={this.handleSave}
               >
                 <Guests
-                  adult={this.state.guest.adult}
+                  adults={this.state.guest.adults}
                   children={this.state.guest.children}
-                  infant={this.state.guest.infant}
+                  infants={this.state.guest.infants}
                   onGuestsChange={this.handleGuestsChange}
                 />
               </DropDown>
               <DropDown
-                id="book"
+                name="book"
                 title="Instant book"
-                isOpen={this.state.id === "book"}
+                isOpen={this.state.name === "book"}
                 onTogglerClick={this.handleFilterChange}
                 onCancelClick={this.handleCancel}
+                onSaveClick={this.handleSave}
               >
                 <InstantBook>
                   <Booler
@@ -168,20 +167,22 @@ class Filter extends Component {
                 </InstantBook>
               </DropDown>
               <DropDown
-                id="price"
+                name="price"
                 title="Price"
-                isOpen={this.state.id === "price"}
+                isOpen={this.state.name === "price"}
                 onTogglerClick={this.handleFilterChange}
                 onCancelClick={this.handleCancel}
+                onSaveClick={this.handleSave}
               >
                 <Price />
               </DropDown>
               <DropDown
-                id="more"
+                name="more"
                 title="More filters"
-                isOpen={this.state.id === "more"}
+                isOpen={this.state.name === "more"}
                 onTogglerClick={this.handleFilterChange}
                 onCancelClick={this.handleCancel}
+                onSaveClick={this.handleSave}
               >
                 <p>text</p>
               </DropDown>

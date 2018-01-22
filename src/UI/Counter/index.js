@@ -40,25 +40,12 @@ const Image = styled.img``;
 const Count = styled.div``;
 
 class Counter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      count: this.props.count
-    };
-  }
-
   increment = () => {
-    const nextCount = this.state.count + 1;
-
-    this.setState({ count: nextCount });
-    this.props.onCounterChange(this.props.id, nextCount);
+    this.props.onCounterChange(this.props.id, this.props.count + 1);
   };
 
   decrement = () => {
-    const nextCount = this.state.count - 1;
-
-    this.setState({ count: nextCount });
-    this.props.onCounterChange(this.props.id, nextCount);
+    this.props.onCounterChange(this.props.id, this.props.count - 1);
   };
 
   render() {
@@ -66,15 +53,15 @@ class Counter extends Component {
       <Section>
         <Button
           type="button"
-          disabled={this.state.count === 0}
+          disabled={this.props.count === 0}
           onClick={this.decrement}
         >
           <Image src={minus} alt="Minus" />
         </Button>
-        <Count>{this.state.count}</Count>
+        <Count>{this.props.count}</Count>
         <Button
           type="button"
-          disabled={this.state.count === 99}
+          disabled={this.props.count === 99}
           onClick={this.increment}
         >
           <Image src={plus} alt="Plus" />

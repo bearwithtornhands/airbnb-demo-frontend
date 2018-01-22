@@ -21,10 +21,7 @@ const Reset = styled.button`
 `;
 
 class DateSelect extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { from: this.props.range.from, to: this.props.range.to };
-  }
+  state = { from: this.props.range.from, to: this.props.range.to };
 
   handleDayClick = day => {
     const range = DateUtils.addDayToRange(day, this.state);

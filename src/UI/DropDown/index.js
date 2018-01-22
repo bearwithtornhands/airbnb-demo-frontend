@@ -153,21 +153,21 @@ const Icon = styled.img`
 
 class DropDown extends Component {
   handleClick = () => {
-    this.props.onTogglerClick(this.props.id);
+    this.props.onTogglerClick(this.props.name);
   };
 
   handleCancel = () => {
     this.props.onCancelClick();
   };
 
-  getDropDownTitle = () => {
-    if (this.props.id === "date") return "Dates";
-
-    return this.props.title;
+  handleSave = () => {
+    this.props.onSaveClick();
   };
 
-  handleClickOutside = event => {
-    this.props.onClickOutside(event.target);
+  getDropDownTitle = () => {
+    if (this.props.name === "date") return "Dates";
+
+    return this.props.title;
   };
 
   render() {
@@ -183,7 +183,7 @@ class DropDown extends Component {
           <Content>
             <Head>
               <Title>{this.getDropDownTitle()}</Title>
-              {this.props.id === "date" && <DateHead />}
+              {this.props.name === "date" && <DateHead />}
             </Head>
             <Scroll>{this.props.children}</Scroll>
             <Tools>
@@ -191,7 +191,7 @@ class DropDown extends Component {
                 <Icon src={closeIcon} alt="Close" />
                 Cancel
               </Close>
-              <Save type="button" onClick={this.handleClick}>
+              <Save type="button" onClick={this.handleSave}>
                 Save
               </Save>
             </Tools>

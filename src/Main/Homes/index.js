@@ -1,4 +1,5 @@
 import React from "react";
+import Shortid from "shortid";
 import {
   Section,
   Heading,
@@ -44,9 +45,9 @@ const homesData = [
 ];
 
 export default () => {
-  const list = homesData.map(function(home, index) {
+  const list = homesData.map(home => {
     return (
-      <div key={index} className="col-xs-6 col-md-4">
+      <div key={Shortid.generate()} className="col-xs-6 col-md-4">
         <Card
           url={home.url}
           image={home.image}

@@ -5,6 +5,7 @@ import Counter from "../UI/Counter";
 const List = styled.div`
   @media (min-width: 768px) {
     margin-bottom: 16px;
+    width: 274px;
   }
 `;
 
@@ -15,9 +16,6 @@ const Age = styled.div`
   margin-bottom: 24px;
   &:last-child {
     margin-bottom: 0;
-  }
-  @media (min-width: 768px) {
-    width: 274px;
   }
 `;
 
@@ -65,8 +63,8 @@ class Guests extends Component {
             <Title>Adults</Title>
           </Descr>
           <Counter
-            id="adult"
-            count={this.props.adult}
+            id="adults"
+            count={this.props.adults}
             onCounterChange={this.handleCounterChange}
           />
         </Age>
@@ -87,8 +85,8 @@ class Guests extends Component {
             <Text>Under 2</Text>
           </Descr>
           <Counter
-            id="infant"
-            count={this.props.infant}
+            id="infants"
+            count={this.props.infants}
             onCounterChange={this.handleCounterChange}
           />
         </Age>

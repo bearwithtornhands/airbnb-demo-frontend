@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Shortid from "shortid";
 import styled from "styled-components";
 import Card from "../Card";
 import Pagination from "../Pagination";
@@ -53,7 +54,7 @@ class Catalog extends Component {
   render() {
     const homesList = homesData.map(function(item, index) {
       return (
-        <div key={index} className="col-xs-12 col-md-6">
+        <div key={Shortid.generate()} className="col-xs-12 col-md-6">
           <Card
             url={item.url}
             image={item.image}
