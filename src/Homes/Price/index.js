@@ -46,12 +46,22 @@ const Text = styled.p`
 `;
 
 class Price extends Component {
+  handleChange = params => {
+    const price = { from: params.values[0], to: params.values[1] };
+    this.props.onPriceChange(price);
+  };
+
   render() {
     return (
       <Section>
         <Title>$10 — $1000+</Title>
         <Text>The average nightly price is $75</Text>
-        <Rheostat min={10} max={10000} values={[1, 10000]} />
+        <Rheostat
+          min={this.props.min}
+          max={this.props.max}
+          values={[this.props.price.from, this.props.price.to]}
+          onValuesUpdated={this.handleChange}
+        />
       </Section>
     );
   }

@@ -71,6 +71,7 @@ class Filter extends Component {
     book: false,
     guest: { adults: 0, children: 0, infants: 0 },
     types: { home: false, private: false, shared: false },
+    price: { from: 10, to: 1000 },
     stateBuffer: null
   };
 
@@ -84,8 +85,8 @@ class Filter extends Component {
   };
 
   handleFilterChange = dropDownName => {
+    this.setState({ [this.state.name]: this.state.stateBuffer });
     if (this.state.name === dropDownName) {
-      this.setState({ [this.state.name]: this.state.stateBuffer });
       this.setState({ name: null });
     } else {
       this.setState({
@@ -125,6 +126,10 @@ class Filter extends Component {
     roomsState[name] = checked;
 
     this.setState({ types: roomsState });
+  };
+
+  handlePriceChange = price => {
+    this.setState({ price: price });
   };
 
   render() {
@@ -203,7 +208,12 @@ class Filter extends Component {
                 onCancelClick={this.handleCancel}
                 onSaveClick={this.handleSave}
               >
-                <Price />
+                <Price
+                  min={10}
+                  max={1000}
+                  price={this.state.price}
+                  onPriceChange={this.handlePriceChange}
+                />
               </DropDown>
               <DropDown
                 name="more"
