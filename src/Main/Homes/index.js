@@ -1,5 +1,4 @@
 import React from "react";
-import Shortid from "shortid";
 import {
   Section,
   Heading,
@@ -19,6 +18,7 @@ const ButtonRight = SliderRight.extend`
 
 const homesData = [
   {
+    id: "1",
     url: "#url",
     image: homeImg1,
     title: "La Salentina, see, nature, & relax",
@@ -27,6 +27,7 @@ const homesData = [
     superhost: 97
   },
   {
+    id: "2",
     url: "#url",
     image: homeImg2,
     title: "Yout private 3 bedr. riad and exclusive chanels in park",
@@ -35,6 +36,7 @@ const homesData = [
     superhost: 161
   },
   {
+    id: "3",
     url: "#url",
     image: homeImg3,
     title: "Dreamy Tropical Tree House",
@@ -47,7 +49,7 @@ const homesData = [
 export default () => {
   const list = homesData.map(home => {
     return (
-      <div key={Shortid.generate()} className="col-xs-6 col-md-4">
+      <div key={home.id} className="col-xs-6 col-md-4">
         <Card
           url={home.url}
           image={home.image}

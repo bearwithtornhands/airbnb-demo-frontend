@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Shortid from "shortid";
 import styled from "styled-components";
 import Card from "../Card";
 import Pagination from "../Pagination";
@@ -9,6 +8,7 @@ import homeImg3 from "./home-3.png";
 
 const homesData = [
   {
+    id: "1",
     url: "#url",
     image: homeImg1,
     title: "La Salentina, see, nature, & relax",
@@ -17,6 +17,7 @@ const homesData = [
     superhost: 97
   },
   {
+    id: "2",
     url: "#url",
     image: homeImg2,
     title: "Yout private 3 bedr. riad and exclusive chanels in park",
@@ -25,6 +26,7 @@ const homesData = [
     superhost: 161
   },
   {
+    id: "3",
     url: "#url",
     image: homeImg3,
     title: "Dreamy Tropical Tree House",
@@ -52,16 +54,16 @@ const Text = styled.p`
 
 class Catalog extends Component {
   render() {
-    const homesList = homesData.map(function(item, index) {
+    const homesList = homesData.map(home => {
       return (
-        <div key={Shortid.generate()} className="col-xs-12 col-md-6">
+        <div key={home.id} className="col-xs-12 col-md-6">
           <Card
-            url={item.url}
-            image={item.image}
-            title={item.title}
-            descr={item.descr}
-            price={item.price}
-            superhost={item.superhost}
+            url={home.url}
+            image={home.image}
+            title={home.title}
+            descr={home.descr}
+            price={home.price}
+            superhost={home.superhost}
           />
         </div>
       );
