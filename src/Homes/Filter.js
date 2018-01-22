@@ -9,6 +9,7 @@ import Booler from "../UI/Booler";
 import InstantBook from "./InstantBook";
 import Guests from "./Guests";
 import Price from "./Price";
+import Rooms from "./Rooms";
 
 const StyledBody = styled(Body)`
   position: ${props => (props.fixed ? "fixed" : "static")};
@@ -69,6 +70,7 @@ class Filter extends Component {
     date: { from: null, to: null },
     book: false,
     guest: { adults: 0, children: 0, infants: 0 },
+    types: { home: false, private: false, shared: false },
     stateBuffer: null
   };
 
@@ -98,7 +100,7 @@ class Filter extends Component {
   };
 
   handleBookChange = checked => {
-    this.setState({ book: !checked });
+    this.setState({ book: checked });
   };
 
   handleGuestsChange = (name, count) => {
@@ -111,6 +113,18 @@ class Filter extends Component {
     guestState[name] = count;
 
     this.setState({ guest: guestState });
+  };
+
+  handleRoomsChange = (name, checked) => {
+    const roomsState = {
+      home: this.state.types.home,
+      private: this.state.types.private,
+      shared: this.state.types.shared
+    };
+
+    roomsState[name] = checked;
+
+    this.setState({ types: roomsState });
   };
 
   render() {
@@ -165,6 +179,21 @@ class Filter extends Component {
                     checked={this.state.book}
                   />
                 </InstantBook>
+              </DropDown>
+              <DropDown
+                name="types"
+                title="Room type"
+                isOpen={this.state.name === "types"}
+                onTogglerClick={this.handleFilterChange}
+                onCancelClick={this.handleCancel}
+                onSaveClick={this.handleSave}
+              >
+                <Rooms
+                  home={this.state.types.home}
+                  private={this.state.types.private}
+                  shared={this.state.types.shared}
+                  onRoomsChange={this.handleRoomsChange}
+                />
               </DropDown>
               <DropDown
                 name="price"

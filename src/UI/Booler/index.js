@@ -49,7 +49,7 @@ const Button = styled.button`
 
 class Booler extends Component {
   handleClick = () => {
-    this.props.onBoolerChange(this.props.checked);
+    this.props.onBoolerChange(!this.props.checked);
   };
 
   render() {

@@ -5,7 +5,6 @@ import Counter from "../UI/Counter";
 const List = styled.div`
   @media (min-width: 768px) {
     margin-bottom: 16px;
-    width: 274px;
   }
 `;
 
