@@ -69,14 +69,17 @@ class Filter extends Component {
     isActive: null,
     date: { from: null, to: null },
     book: false,
-    guest: { adults: 0, children: 0, infants: 0 },
+    guests: { adults: 0, children: 0, infants: 0 },
     types: { home: false, private: false, shared: false },
     price: { from: 10, to: 1000 },
     stateBuffer: null
   };
 
   handleCancel = () => {
-    this.setState({ [this.state.isActive]: this.state.stateBuffer, isActive: null });
+    this.setState({
+      [this.state.isActive]: this.state.stateBuffer,
+      isActive: null
+    });
   };
 
   handleSave = () => {
@@ -104,27 +107,15 @@ class Filter extends Component {
   };
 
   handleGuestsChange = (name, count) => {
-    const guestState = {
-      adults: this.state.guest.adults,
-      children: this.state.guest.children,
-      infants: this.state.guest.infants
-    };
-
-    guestState[name] = count;
-
-    this.setState({ guest: guestState });
+    this.setState({
+      guests: { ...this.state.guests, [name]: count }
+    });
   };
 
   handleRoomsChange = (name, checked) => {
-    const roomsState = {
-      home: this.state.types.home,
-      private: this.state.types.private,
-      shared: this.state.types.shared
-    };
-
-    roomsState[name] = checked;
-
-    this.setState({ types: roomsState });
+    this.setState({
+      types: { ...this.state.guests, [name]: checked }
+    });
   };
 
   handlePriceChange = price => {
@@ -155,17 +146,17 @@ class Filter extends Component {
                 />
               </DropDown>
               <DropDown
-                name="guest"
+                name="guests"
                 title="Guests"
-                isOpen={this.state.isActive === "guest"}
+                isOpen={this.state.isActive === "guests"}
                 onTogglerClick={this.handleFilterChange}
                 onCancelClick={this.handleCancel}
                 onSaveClick={this.handleSave}
               >
                 <Guests
-                  adults={this.state.guest.adults}
-                  children={this.state.guest.children}
-                  infants={this.state.guest.infants}
+                  adults={this.state.guests.adults}
+                  children={this.state.guests.children}
+                  infants={this.state.guests.infants}
                   onGuestsChange={this.handleGuestsChange}
                 />
               </DropDown>
