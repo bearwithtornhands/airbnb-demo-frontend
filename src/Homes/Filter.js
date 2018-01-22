@@ -51,11 +51,11 @@ const List = styled.div`
   align-items: flex-start;
 `;
 
-const getDateTitle = (id, range) => {
+const getDateTitle = (isActive, range) => {
   const from = format(range.from, "DD.MM.YY");
   const to = format(range.to, "DD.MM.YY");
 
-  if (id === "date") {
+  if (isActive === "date") {
     return `${range.from ? from : "Check in"} – ${range.to ? to : "Check out"}`;
   } else if (range.from && range.to) {
     return `${from} – ${to}`;
@@ -66,7 +66,7 @@ const getDateTitle = (id, range) => {
 
 class Filter extends Component {
   state = {
-    name: null,
+    isActive: null,
     date: { from: null, to: null },
     book: false,
     guest: { adults: 0, children: 0, infants: 0 },
@@ -76,23 +76,22 @@ class Filter extends Component {
   };
 
   handleCancel = () => {
-    this.setState({ [this.state.name]: this.state.stateBuffer });
-    this.setState({ name: null });
+    this.setState({ [this.state.isActive]: this.state.stateBuffer, isActive: null });
   };
 
   handleSave = () => {
-    this.setState({ name: null });
+    this.setState({ isActive: null });
   };
 
   handleFilterChange = dropDownName => {
-    this.setState({ [this.state.name]: this.state.stateBuffer });
-    if (this.state.name === dropDownName) {
-      this.setState({ name: null });
+    this.setState({ [this.state.isActive]: this.state.stateBuffer });
+    if (this.state.isActive === dropDownName) {
+      this.setState({ isActive: null });
     } else {
       this.setState({
-        stateBuffer: this.state[dropDownName]
+        stateBuffer: this.state[dropDownName],
+        isActive: dropDownName
       });
-      this.setState({ name: dropDownName });
     }
   };
 
@@ -134,15 +133,15 @@ class Filter extends Component {
 
   render() {
     return (
-      <StyledBody fixed={this.state.name}>
+      <StyledBody fixed={this.state.isActive}>
         <Section>
-          {this.state.name && <Overlay onClick={this.handleCancel} />}
+          {this.state.isActive && <Overlay onClick={this.handleCancel} />}
           <Wrapper>
             <List>
               <DropDown
                 name="date"
-                title={getDateTitle(this.state.name, this.state.date)}
-                isOpen={this.state.name === "date"}
+                title={getDateTitle(this.state.isActive, this.state.date)}
+                isOpen={this.state.isActive === "date"}
                 onTogglerClick={this.handleFilterChange}
                 onCancelClick={this.handleCancel}
                 onSaveClick={this.handleSave}
@@ -158,7 +157,7 @@ class Filter extends Component {
               <DropDown
                 name="guest"
                 title="Guests"
-                isOpen={this.state.name === "guest"}
+                isOpen={this.state.isActive === "guest"}
                 onTogglerClick={this.handleFilterChange}
                 onCancelClick={this.handleCancel}
                 onSaveClick={this.handleSave}
@@ -173,7 +172,7 @@ class Filter extends Component {
               <DropDown
                 name="book"
                 title="Instant book"
-                isOpen={this.state.name === "book"}
+                isOpen={this.state.isActive === "book"}
                 onTogglerClick={this.handleFilterChange}
                 onCancelClick={this.handleCancel}
                 onSaveClick={this.handleSave}
@@ -188,7 +187,7 @@ class Filter extends Component {
               <DropDown
                 name="types"
                 title="Room type"
-                isOpen={this.state.name === "types"}
+                isOpen={this.state.isActive === "types"}
                 onTogglerClick={this.handleFilterChange}
                 onCancelClick={this.handleCancel}
                 onSaveClick={this.handleSave}
@@ -203,7 +202,7 @@ class Filter extends Component {
               <DropDown
                 name="price"
                 title="Price"
-                isOpen={this.state.name === "price"}
+                isOpen={this.state.isActive === "price"}
                 onTogglerClick={this.handleFilterChange}
                 onCancelClick={this.handleCancel}
                 onSaveClick={this.handleSave}
@@ -218,7 +217,7 @@ class Filter extends Component {
               <DropDown
                 name="more"
                 title="More filters"
-                isOpen={this.state.name === "more"}
+                isOpen={this.state.isActive === "more"}
                 onTogglerClick={this.handleFilterChange}
                 onCancelClick={this.handleCancel}
                 onSaveClick={this.handleSave}
