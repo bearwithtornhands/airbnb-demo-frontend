@@ -114,7 +114,7 @@ class Filter extends Component {
 
   handleRoomsChange = (name, checked) => {
     this.setState({
-      types: { ...this.state.guests, [name]: checked }
+      types: { ...this.state.types, [name]: checked }
     });
   };
 
