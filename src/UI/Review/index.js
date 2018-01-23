@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import Star from "./star.svg";
+import React from 'react';
+import styled from 'styled-components';
+import Star from './star.svg';
 
 const List = styled.div`
   display: flex;
@@ -17,14 +17,12 @@ const Icon = styled.span`
   }
 `;
 
-export default () => {
-  return (
-    <List>
-      <Icon />
-      <Icon />
-      <Icon />
-      <Icon />
-      <Icon />
-    </List>
-  );
-};
+export default () => (
+  <List>
+    <Icon />
+    <Icon />
+    <Icon />
+    <Icon />
+    <Icon />
+  </List>
+);

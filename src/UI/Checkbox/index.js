@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import checked from "./check-on.svg";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import checked from './check-on.svg';
 
 const Button = styled.button`
-  font-family: "Circular", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: 'Circular', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   text-align: left;
 
   display: flex;
@@ -14,7 +14,7 @@ const Button = styled.button`
   padding: 0;
   outline: none;
   &:before {
-    content: "";
+    content: '';
 
     width: 24px;
     height: 24px;
@@ -23,7 +23,7 @@ const Button = styled.button`
     border-radius: 4px;
     margin-right: 12px;
     ${props =>
-      props.isActive &&
+    props.isActive &&
       `
       border-color: #008489;
       background-color: #008489;
@@ -48,11 +48,7 @@ class Checkbox extends Component {
 
   render() {
     return (
-      <Button
-        type="button"
-        isActive={this.props.checked}
-        onClick={this.handleClick}
-      >
+      <Button type="button" isActive={this.props.checked} onClick={this.handleClick}>
         <Content>{this.props.children}</Content>
       </Button>
     );

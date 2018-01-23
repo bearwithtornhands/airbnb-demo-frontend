@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import rightSmall from "../assets/right-small.svg";
-import right from "../assets/right.svg";
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import rightSmall from '../assets/right-small.svg';
+import right from '../assets/right.svg';
 
 export const Wrapper = styled.div`
   max-width: 982px;

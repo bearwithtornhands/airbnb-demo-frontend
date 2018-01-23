@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import fb from "./fb.svg";
-import tw from "./tw.svg";
-import ig from "./ig.svg";
+import React from 'react';
+import styled from 'styled-components';
+import fb from './fb.svg';
+import tw from './tw.svg';
+import ig from './ig.svg';
 
 const Social = styled.div`
   display: flex;
@@ -47,18 +47,16 @@ const ImageIg = styled.img`
   }
 `;
 
-export default () => {
-  return (
-    <Social>
-      <Link href="#url">
-        <ImageFb src={fb} alt="Facebook" />
-      </Link>
-      <Link href="#url">
-        <ImageTw src={tw} alt="Twitter" />
-      </Link>
-      <Link href="#url">
-        <ImageIg src={ig} alt="Instagramm" />
-      </Link>
-    </Social>
-  );
-};
+export default () => (
+  <Social>
+    <Link href="#url">
+      <ImageFb src={fb} alt="Facebook" />
+    </Link>
+    <Link href="#url">
+      <ImageTw src={tw} alt="Twitter" />
+    </Link>
+    <Link href="#url">
+      <ImageIg src={ig} alt="Instagramm" />
+    </Link>
+  </Social>
+);

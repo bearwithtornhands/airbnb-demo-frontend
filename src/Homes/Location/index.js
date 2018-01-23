@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import GoogleMap from "google-map-react";
-import pin from "./pin.svg";
+import React from 'react';
+import styled from 'styled-components';
+import GoogleMap from 'google-map-react';
+import pin from './pin.svg';
 
-const Section = styled.div``;
+const Location = styled.div``;
 
 const Aside = styled.div`
   display: none;
@@ -46,30 +46,19 @@ const Image = styled.img`
   transform: translate(-50%, -50%);
 `;
 
-class Location extends Component {
-  static defaultProps = {
-    center: { lat: 59.95, lng: 30.33 },
-    zoom: 11
-  };
-
-  render() {
-    return (
-      <Section>
-        <Aside>
-          <GoogleMap
-            bootstrapURLKeys={{
-              key: process.env.REACT_APP_GOOGLE_MAP_KEY
-            }}
-            defaultCenter={this.props.center}
-            defaultZoom={this.props.zoom}
-          />
-        </Aside>
-        <Button>
-          <Image src={pin} alt="GoogleMap" />
-        </Button>
-      </Section>
-    );
-  }
-}
-
-export default Location;
+export default () => (
+  <Location>
+    <Aside>
+      <GoogleMap
+        bootstrapURLKeys={{
+          key: process.env.REACT_APP_GOOGLE_MAP_KEY,
+        }}
+        defaultCenter={{ lat: 59.95, lng: 30.33 }}
+        defaultZoom={11}
+      />
+    </Aside>
+    <Button>
+      <Image src={pin} alt="GoogleMap" />
+    </Button>
+  </Location>
+);

@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import logoImg from "./logo.svg";
-import Bottom from "./bottom.svg";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import logoImg from './logo.svg';
+import Bottom from './bottom.svg';
 
 const Logo = styled.div`
   margin-right: 8px;
@@ -36,15 +36,13 @@ const Button = styled.button`
 
 const Image = styled.img``;
 
-export default () => {
-  return (
-    <Logo>
-      <StyledLink to="/">
-        <Image src={logoImg} alt="logo" />
-      </StyledLink>
-      <Button type="button">
-        <Image src={logoImg} alt="logo" />
-      </Button>
-    </Logo>
-  );
-};
+export default () => (
+  <Logo>
+    <StyledLink to="/">
+      <Image src={logoImg} alt="logo" />
+    </StyledLink>
+    <Button type="button">
+      <Image src={logoImg} alt="logo" />
+    </Button>
+  </Logo>
+);

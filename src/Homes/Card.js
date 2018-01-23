@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import Review from "../UI/Review";
+import React from 'react';
+import styled from 'styled-components';
+import Review from '../UI/Review';
 
 const Card = styled.a`
   font-size: 12px;
@@ -60,18 +60,16 @@ const Info = styled.div`
   align-items: baseline;
 `;
 
-export default props => {
-  return (
-    <Card href={props.url}>
-      <Image src={props.image} alt={props.title} />
-      <Title>
+export default props => (
+  <Card href={props.url}>
+    <Image src={props.image} alt={props.title} />
+    <Title>
         ${props.price} {props.title}
-      </Title>
-      <Text>{props.descr}</Text>
-      <Info>
-        <Review />
-        <span>{props.superhost} · Superhost</span>
-      </Info>
-    </Card>
-  );
-};
+    </Title>
+    <Text>{props.descr}</Text>
+    <Info>
+      <Review />
+      <span>{props.superhost} · Superhost</span>
+    </Info>
+  </Card>
+);

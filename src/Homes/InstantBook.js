@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Section = styled.div`
   display: flex;
@@ -35,14 +35,12 @@ const Text = styled.p`
   margin: 0;
 `;
 
-export default props => {
-  return (
-    <Section>
-      <Content>
-        <Title>Instant book</Title>
-        <Text>Listing you can book without waiting form host approval.</Text>
-      </Content>
-      <Tools>{props.children}</Tools>
-    </Section>
-  );
-};
+export default props => (
+  <Section>
+    <Content>
+      <Title>Instant book</Title>
+      <Text>Listing you can book without waiting form host approval.</Text>
+    </Content>
+    <Tools>{props.children}</Tools>
+  </Section>
+);

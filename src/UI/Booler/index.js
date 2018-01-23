@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import off from "./check-off.svg";
-import on from "./check-on.svg";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import off from './check-off.svg';
+import on from './check-on.svg';
 
 const Button = styled.button`
   display: block;
@@ -24,7 +24,7 @@ const Button = styled.button`
     box-shadow: 0 0 6px rgba(0, 132, 137, 0.5);
   }
   &:after {
-    content: "";
+    content: '';
 
     position: absolute;
     top: -1px;
@@ -37,7 +37,7 @@ const Button = styled.button`
     border: 1px solid rgba(72, 72, 72, 0.3);
     background: url(${off}) no-repeat center center white;
     ${props =>
-      props.checked &&
+    props.checked &&
       `
         left: auto;
         right: -1px;
@@ -53,13 +53,7 @@ class Booler extends Component {
   };
 
   render() {
-    return (
-      <Button
-        type="button"
-        onClick={this.handleClick}
-        checked={this.props.checked}
-      />
-    );
+    return <Button type="button" onClick={this.handleClick} checked={this.props.checked} />;
   }
 }
 

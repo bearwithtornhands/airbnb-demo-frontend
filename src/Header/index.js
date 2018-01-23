@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { Wrapper } from "../UI";
-import Logo from "./Logo";
-import Search from "./Search";
-import Nav from "./Nav";
+import React from 'react';
+import styled from 'styled-components';
+import { Wrapper } from '../UI';
+import Logo from './Logo';
+import Search from './Search';
+import Nav from './Nav';
 
 const Header = styled.header`
   background-color: white;
@@ -25,16 +25,14 @@ const HeaderInner = styled.div`
   }
 `;
 
-export default () => {
-  return (
-    <Header>
-      <Wrapper>
-        <HeaderInner>
-          <Logo />
-          <Search />
-          <Nav />
-        </HeaderInner>
-      </Wrapper>
-    </Header>
-  );
-};
+export default () => (
+  <Header>
+    <Wrapper>
+      <HeaderInner>
+        <Logo />
+        <Search />
+        <Nav />
+      </HeaderInner>
+    </Wrapper>
+  </Header>
+);

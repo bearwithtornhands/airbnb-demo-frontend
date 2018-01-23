@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import Counter from "../UI/Counter";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import Counter from '../UI/Counter';
 
 const List = styled.div`
   @media (min-width: 768px) {
@@ -73,8 +73,8 @@ class Guests extends Component {
             <Text>Ages 2 — 12</Text>
           </Descr>
           <Counter
-            id="children"
-            count={this.props.children}
+            id="childs"
+            count={this.props.childs}
             onCounterChange={this.handleCounterChange}
           />
         </Age>

@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import Rheostat from "rheostat";
-import "./style.css";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import Rheostat from 'rheostat';
+import './style.css';
 
 const Section = styled.div``;
 
@@ -46,7 +46,7 @@ const Text = styled.p`
 `;
 
 class Price extends Component {
-  handleChange = params => {
+  handleChange = (params) => {
     const price = { from: params.values[0], to: params.values[1] };
     this.props.onPriceChange(price);
   };

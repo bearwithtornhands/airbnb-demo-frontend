@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import Menu from "./Menu";
-import Social from "./Social";
-import Copy from "./Copy";
+import React from 'react';
+import styled from 'styled-components';
+import Menu from './Menu';
+import Social from './Social';
+import Copy from './Copy';
 
 const Commercial = styled.div`
   @media (min-width: 768px) {
@@ -17,14 +17,12 @@ const Side = styled.div`
   align-items: center;
 `;
 
-export default () => {
-  return (
-    <Commercial>
-      <Copy />
-      <Side>
-        <Menu />
-        <Social />
-      </Side>
-    </Commercial>
-  );
-};
+export default () => (
+  <Commercial>
+    <Copy />
+    <Side>
+      <Menu />
+      <Social />
+    </Side>
+  </Commercial>
+);

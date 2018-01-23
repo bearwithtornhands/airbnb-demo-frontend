@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import searchImg from "./search.svg";
+import React from 'react';
+import styled from 'styled-components';
+import searchImg from './search.svg';
 
 const Search = styled.div`
   width: 100%;
@@ -13,8 +13,7 @@ const Search = styled.div`
 const Form = styled.form``;
 
 const Input = styled.input`
-  font: normal normal 14px/24px "Circular", "Helvetica Neue", "Helvetica",
-    "Arial", sans-serif;
+  font: normal normal 14px/24px 'Circular', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   color: #383838;
   outline: none;
   width: 100%;
@@ -35,12 +34,10 @@ const Input = styled.input`
   }
 `;
 
-export default () => {
-  return (
-    <Search>
-      <Form action="">
-        <Input type="text" placeholder="Try “Miami”" />
-      </Form>
-    </Search>
-  );
-};
+export default () => (
+  <Search>
+    <Form action="">
+      <Input type="text" placeholder="Try “Miami”" />
+    </Form>
+  </Search>
+);

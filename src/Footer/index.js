@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import { Wrapper } from "../UI";
-import Primary from "./Primary";
-import Commercial from "./Commercial";
+import React from 'react';
+import styled from 'styled-components';
+import { Wrapper } from '../UI';
+import Primary from './Primary';
+import Commercial from './Commercial';
 
 const Footer = styled.footer`
   background: #ffffff;
@@ -29,14 +29,12 @@ const Hr = styled.hr`
   }
 `;
 
-export default () => {
-  return (
-    <Footer>
-      <Wrapper>
-        <Primary />
-        <Hr />
-        <Commercial />
-      </Wrapper>
-    </Footer>
-  );
-};
+export default () => (
+  <Footer>
+    <Wrapper>
+      <Primary />
+      <Hr />
+      <Commercial />
+    </Wrapper>
+  </Footer>
+);

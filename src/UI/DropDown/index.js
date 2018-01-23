@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import DateHead from "./DateHead";
-import closeIcon from "./close.svg";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import DateHead from './DateHead';
+import closeIcon from './close.svg';
 
 const Section = styled.div`
   position: relative;
@@ -12,18 +12,17 @@ const Section = styled.div`
 `;
 
 const Toggler = styled.button`
-  font-family: "Circular", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: 'Circular', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   line-height: 16px;
-  color: ${props => (props.isOpen ? "white" : "#383838")};
+  color: ${props => (props.isOpen ? 'white' : '#383838')};
 
   display: inline-block;
   vertical-align: top;
   padding: 7px 15px;
-  border: 1px solid
-    ${props => (props.isOpen ? "#008489" : "rgba(72, 72, 72, 0.2)")};
+  border: 1px solid ${props => (props.isOpen ? '#008489' : 'rgba(72, 72, 72, 0.2)')};
   border-radius: 4px;
-  background-color: ${props => (props.isOpen ? "#008489" : "white")};
+  background-color: ${props => (props.isOpen ? '#008489' : 'white')};
   cursor: pointer;
   outline: none;
   &:focus {
@@ -100,8 +99,7 @@ const Tools = styled.div`
 `;
 
 const Save = styled.button`
-  font: normal bold 18px/23px "Circular", "Helvetica Neue", "Helvetica", "Arial",
-    sans-serif;
+  font: normal bold 18px/23px 'Circular', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   color: white;
 
   display: block;
@@ -125,8 +123,7 @@ const Save = styled.button`
 `;
 
 const Close = styled.button`
-  font: normal normal 0px/0px "Circular", "Helvetica Neue", "Helvetica", "Arial",
-    sans-serif;
+  font: normal normal 0px/0px 'Circular', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   color: #636363;
 
   padding: 16px 8px;
@@ -153,6 +150,12 @@ const Icon = styled.img`
 `;
 
 class DropDown extends Component {
+  getDropDownTitle = () => {
+    if (this.props.name === 'date') return 'Dates';
+
+    return this.props.title;
+  };
+
   handleClick = () => {
     this.props.onTogglerClick(this.props.name);
   };
@@ -165,15 +168,8 @@ class DropDown extends Component {
     this.props.onSaveClick();
   };
 
-  getDropDownTitle = () => {
-    if (this.props.name === "date") return "Dates";
-
-    return this.props.title;
-  };
-
   render() {
-    const isOpen = this.props.isOpen;
-    const title = this.props.title;
+    const { isOpen, title } = this.props;
 
     return (
       <Section>
@@ -184,7 +180,7 @@ class DropDown extends Component {
           <Content>
             <Head>
               <Title>{this.getDropDownTitle()}</Title>
-              {this.props.name === "date" && <DateHead />}
+              {this.props.name === 'date' && <DateHead />}
             </Head>
             <Scroll>{this.props.children}</Scroll>
             <Tools>

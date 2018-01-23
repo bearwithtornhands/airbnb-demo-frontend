@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import right from "./right.svg";
+import React from 'react';
+import styled from 'styled-components';
+import right from './right.svg';
 
 const Pagination = styled.div`
   font-size: 16px;
@@ -20,8 +20,7 @@ const Pages = styled.div`
 `;
 
 const Button = styled.button`
-  font: normal normal 16px/19px "Circular", "Helvetica Neue", "Helvetica",
-    "Arial", sans-serif;
+  font: normal normal 16px/19px 'Circular', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   color: #0f7276;
   text-align: center;
 
@@ -72,20 +71,18 @@ const Next = Button.extend`
   background: url(${right}) no-repeat left 13px center transparent;
 `;
 
-export default props => {
-  return (
-    <Pagination>
-      <Pages>
-        <Button type="button" active>
-          1
-        </Button>
-        <Button type="button">2</Button>
-        <Button type="button">3</Button>
-        <Dots>...</Dots>
-        <Button type="button">17</Button>
-        <Next />
-      </Pages>
-      <Info>1 – 18 of 300+ Rentals</Info>
-    </Pagination>
-  );
-};
+export default () => (
+  <Pagination>
+    <Pages>
+      <Button type="button" active>
+        1
+      </Button>
+      <Button type="button">2</Button>
+      <Button type="button">3</Button>
+      <Dots>...</Dots>
+      <Button type="button">17</Button>
+      <Next />
+    </Pages>
+    <Info>1 – 18 of 300+ Rentals</Info>
+  </Pagination>
+);

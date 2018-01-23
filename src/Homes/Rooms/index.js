@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import Checkbox from "../../UI/Checkbox";
-import iconHome from "./home.svg";
-import iconPrivate from "./private.svg";
-import iconShared from "./shared.svg";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import Checkbox from '../../UI/Checkbox';
+import iconHome from './home.svg';
+import iconPrivate from './private.svg';
+import iconShared from './shared.svg';
 
 const Section = styled.div``;
 
@@ -64,11 +64,7 @@ class Rooms extends Component {
     return (
       <Section>
         <Type>
-          <Checkbox
-            name="home"
-            checked={this.props.home}
-            onCheckboxChange={this.handleRoomsChange}
-          >
+          <Checkbox name="home" checked={this.props.home} onCheckboxChange={this.handleRoomsChange}>
             <Title>Entire home</Title>
             <Text>Have a place to yourself</Text>
           </Checkbox>

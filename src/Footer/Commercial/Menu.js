@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Menu = styled.nav`
   display: flex;
@@ -28,12 +28,10 @@ const Link = styled.a`
   }
 `;
 
-export default () => {
-  return (
-    <Menu>
-      <Link href="#url">Terms</Link>
-      <Link href="#url">Privacy</Link>
-      <Link href="#url">Site map</Link>
-    </Menu>
-  );
-};
+export default () => (
+  <Menu>
+    <Link href="#url">Terms</Link>
+    <Link href="#url">Privacy</Link>
+    <Link href="#url">Site map</Link>
+  </Menu>
+);
