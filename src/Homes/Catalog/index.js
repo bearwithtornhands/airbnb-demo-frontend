@@ -8,7 +8,7 @@ import homeImg3 from "./home-3.png";
 
 const homesData = [
   {
-    id: "1",
+    id: 1,
     url: "#url",
     image: homeImg1,
     title: "La Salentina, see, nature, & relax",
@@ -17,7 +17,7 @@ const homesData = [
     superhost: 97
   },
   {
-    id: "2",
+    id: 2,
     url: "#url",
     image: homeImg2,
     title: "Yout private 3 bedr. riad and exclusive chanels in park",
@@ -26,7 +26,7 @@ const homesData = [
     superhost: 161
   },
   {
-    id: "3",
+    id: 3,
     url: "#url",
     image: homeImg3,
     title: "Dreamy Tropical Tree House",

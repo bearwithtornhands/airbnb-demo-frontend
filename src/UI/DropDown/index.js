@@ -158,7 +158,7 @@ class DropDown extends Component {
   };
 
   handleCancel = () => {
-    this.props.onCancelClick();
+    this.props.onCancelClick(this.props.name);
   };
 
   handleSave = () => {
