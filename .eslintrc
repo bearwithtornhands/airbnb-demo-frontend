@@ -5,7 +5,7 @@
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/prop-types": [0],
-    "no-used-vars": "error",
+    "no-unused-vars": "error",
     "no-var": "error",
     "fp/no-let": "error"
   },
