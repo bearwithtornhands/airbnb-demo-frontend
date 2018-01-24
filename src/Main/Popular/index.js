@@ -1,17 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import {
-  Section,
-  Heading,
-  HeadingH2,
-  HeadingLink,
-  SliderTrack,
-  SliderRight
-} from "../styled";
-import popularImg1 from "./popular-1.png";
-import popularImg2 from "./popular-2.png";
-import popularImg3 from "./popular-3.png";
-import popularImg4 from "./popular-4.png";
+import React from 'react';
+import styled from 'styled-components';
+import { Section, Heading, HeadingH2, HeadingLink, SliderTrack, SliderRight } from '../../UI';
+import popularImg1 from './popular-1.png';
+import popularImg2 from './popular-2.png';
+import popularImg3 from './popular-3.png';
+import popularImg4 from './popular-4.png';
 
 const Card = styled.div`
   font-size: 12px;
@@ -83,58 +76,56 @@ const ButtonRight = SliderRight.extend`
   top: 82px;
 `;
 
-export default () => {
-  return (
-    <Section>
-      <Heading>
-        <HeadingH2>Popular reservations around the world</HeadingH2>
-        <HeadingLink href="#url">See all</HeadingLink>
-      </Heading>
-      <SliderTrack>
-        <div className="row">
-          <div className="col-xs-6 col-md-4 col-xl-3">
-            <Card>
-              <ImageLink href="#url">
-                <Image src={popularImg1} alt="Chumley’s" />
-              </ImageLink>
-              <Tag>Speakeasy</Tag>
-              <Link href="#url">Chumley’s</Link>
-              <Text>About $60 per person</Text>
-            </Card>
-          </div>
-          <div className="col-xs-6 col-md-4 col-xl-3">
-            <Card>
-              <ImageLink href="#url">
-                <Image src={popularImg2} alt="Hanjan" />
-              </ImageLink>
-              <Tag>Korean gastropub</Tag>
-              <Link href="#url">Hanjan</Link>
-              <Text>About $50 per person</Text>
-            </Card>
-          </div>
-          <div className="col-xs-6 col-md-4 col-xl-3">
-            <Card>
-              <ImageLink href="#url">
-                <Image src={popularImg3} alt="Prime Meats" />
-              </ImageLink>
-              <Tag>German american</Tag>
-              <Link href="#url">Prime Meats</Link>
-              <Text>About $55 per person</Text>
-            </Card>
-          </div>
-          <div className="col-xs-6 col-md-4 col-xl-3">
-            <Card>
-              <ImageLink href="#url">
-                <Image src={popularImg4} alt="Seaprice" />
-              </ImageLink>
-              <Tag>Fine seafood</Tag>
-              <Link href="#url">Seaprice</Link>
-              <Text>About $70 per person</Text>
-            </Card>
-          </div>
+export default () => (
+  <Section>
+    <Heading>
+      <HeadingH2>Popular reservations around the world</HeadingH2>
+      <HeadingLink to="/">See all</HeadingLink>
+    </Heading>
+    <SliderTrack>
+      <div className="row">
+        <div className="col-xs-6 col-md-4 col-xl-3">
+          <Card>
+            <ImageLink href="#url">
+              <Image src={popularImg1} alt="Chumley’s" />
+            </ImageLink>
+            <Tag>Speakeasy</Tag>
+            <Link href="#url">Chumley’s</Link>
+            <Text>About $60 per person</Text>
+          </Card>
         </div>
-        <ButtonRight type="button" />
-      </SliderTrack>
-    </Section>
-  );
-};
+        <div className="col-xs-6 col-md-4 col-xl-3">
+          <Card>
+            <ImageLink href="#url">
+              <Image src={popularImg2} alt="Hanjan" />
+            </ImageLink>
+            <Tag>Korean gastropub</Tag>
+            <Link href="#url">Hanjan</Link>
+            <Text>About $50 per person</Text>
+          </Card>
+        </div>
+        <div className="col-xs-6 col-md-4 col-xl-3">
+          <Card>
+            <ImageLink href="#url">
+              <Image src={popularImg3} alt="Prime Meats" />
+            </ImageLink>
+            <Tag>German american</Tag>
+            <Link href="#url">Prime Meats</Link>
+            <Text>About $55 per person</Text>
+          </Card>
+        </div>
+        <div className="col-xs-6 col-md-4 col-xl-3">
+          <Card>
+            <ImageLink href="#url">
+              <Image src={popularImg4} alt="Seaprice" />
+            </ImageLink>
+            <Tag>Fine seafood</Tag>
+            <Link href="#url">Seaprice</Link>
+            <Text>About $70 per person</Text>
+          </Card>
+        </div>
+      </div>
+      <ButtonRight type="button" />
+    </SliderTrack>
+  </Section>
+);

@@ -1,6 +1,20 @@
-import styled from "styled-components";
-import rightSmall from "../assets/right-small.svg";
-import right from "../assets/right.svg";
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import rightSmall from '../assets/right-small.svg';
+import right from '../assets/right.svg';
+
+export const Wrapper = styled.div`
+  max-width: 982px;
+  margin: auto;
+  padding: 0 8px;
+`;
+
+export const Main = styled.main`
+  padding: 80px 0 40px;
+  @media (min-width: 768px) {
+    padding-bottom: 64px;
+  }
+`;
 
 export const H2 = styled.h2`
   font-size: 24px;
@@ -17,9 +31,9 @@ export const H2 = styled.h2`
 `;
 
 export const Section = styled.section`
-  margin: 0 0 40px;
+  margin: 40px 0;
   @media (min-width: 768px) {
-    margin: 0 0 48px;
+    margin: 48px 0;
   }
 `;
 
@@ -40,7 +54,7 @@ export const HeadingH2 = H2.extend`
   }
 `;
 
-export const HeadingLink = styled.a`
+export const HeadingLink = styled(Link)`
   font-size: 12px;
   line-height: 24px;
   color: #383838;
@@ -73,14 +87,4 @@ export const SliderRight = styled.button`
   @media (min-width: 1200px) {
     display: block;
   }
-`;
-
-export const Review = styled.div`
-  font-size: 12px;
-  line-height: 15px;
-  white-space: nowrap;
-
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
 `;

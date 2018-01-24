@@ -1,130 +1,66 @@
-import React from "react";
-import styled from "styled-components";
-import {
-  Section,
-  Heading,
-  HeadingH2,
-  HeadingLink,
-  SliderTrack,
-  SliderRight,
-  Review
-} from "../styled";
-import ReviewStatus from "../ReviewStatus";
-import homeImg1 from "./home-1.png";
-import homeImg2 from "./home-2.png";
-import homeImg3 from "./home-3.png";
-
-const Card = styled.div`
-  font-size: 12px;
-  line-height: 15px;
-
-  margin-bottom: 16px;
-  @media (min-width: 768px) {
-    font-size: 15px;
-    line-height: 19px;
-
-    margin-bottom: 0;
-  }
-`;
-
-const ImageLink = styled.a`
-  display: block;
-  margin-bottom: 8px;
-`;
-
-const Image = styled.img`
-  display: block;
-  width: 100%;
-  height: 156px;
-  object-fit: cover;
-  @media (min-width: 768px) {
-    height: 204px;
-  }
-`;
-
-const Link = styled.a`
-  font-size: 13px;
-  line-height: 16px;
-  font-weight: bold;
-  color: #383838;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-
-  display: block;
-  margin-bottom: 4px;
-  overflow: hidden;
-  @media (min-width: 768px) {
-    margin-bottom: 2px;
-  }
-`;
-
-const Text = styled.p`
-  font-weight: 300;
-
-  margin: 0 0 6px;
-`;
+import React from 'react';
+import { Section, Heading, HeadingH2, HeadingLink, SliderTrack, SliderRight } from '../../UI';
+import Card from '../../Homes/Card';
+import homeImg1 from './home-1.png';
+import homeImg2 from './home-2.png';
+import homeImg3 from './home-3.png';
 
 const ButtonRight = SliderRight.extend`
   top: 102px;
 `;
 
+const homesData = [
+  {
+    id: 1,
+    url: '#url',
+    image: homeImg1,
+    title: 'La Salentina, see, nature, & relax',
+    descr: 'Entrie house · 9 bed',
+    price: 82,
+    superhost: 97,
+  },
+  {
+    id: 2,
+    url: '#url',
+    image: homeImg2,
+    title: 'Yout private 3 bedr. riad and exclusive chanels in park',
+    descr: 'Entrie house · 5 bed',
+    price: 55,
+    superhost: 161,
+  },
+  {
+    id: 3,
+    url: '#url',
+    image: homeImg3,
+    title: 'Dreamy Tropical Tree House',
+    descr: 'Entrie house · 9 bed',
+    price: 300,
+    superhost: 364,
+  },
+];
+
 export default () => {
+  const list = homesData.map(home => (
+    <div key={home.id} className="col-xs-6 col-md-4">
+      <Card
+        url={home.url}
+        image={home.image}
+        title={home.title}
+        descr={home.descr}
+        price={home.price}
+        superhost={home.superhost}
+      />
+    </div>
+  ));
+
   return (
     <Section>
       <Heading>
         <HeadingH2>Homes</HeadingH2>
-        <HeadingLink href="#url">See all</HeadingLink>
+        <HeadingLink to="/homes">See all</HeadingLink>
       </Heading>
       <SliderTrack>
-        <div className="row">
-          <div className="col-xs-6 col-md-4">
-            <Card>
-              <ImageLink href="#url">
-                <Image
-                  src={homeImg1}
-                  alt="La Salentina, see, nature, & relax"
-                />
-              </ImageLink>
-              <Link href="#url">$82 La Salentina, see, nature, & relax</Link>
-              <Text>Entrie house · 9 bed</Text>
-              <Review>
-                <ReviewStatus />
-                <span>97 · Superhost</span>
-              </Review>
-            </Card>
-          </div>
-          <div className="col-xs-6 col-md-4">
-            <Card>
-              <ImageLink href="#url">
-                <Image
-                  src={homeImg2}
-                  alt="Your private 3 bedr.riad and exclusive bonus with stars"
-                />
-              </ImageLink>
-              <Link href="#url">
-                $82 Your private 3 bedr.riad and exclusive bonus with stars
-              </Link>
-              <Text>Entrie house · 5 bed</Text>
-              <Review>
-                <ReviewStatus />
-                <span>161 · Superhost</span>
-              </Review>
-            </Card>
-          </div>
-          <div className="col-xs-6 col-md-4">
-            <Card>
-              <ImageLink href="#url">
-                <Image src={homeImg3} alt="Dreamy Tropical Tree House" />
-              </ImageLink>
-              <Link href="#url">$200 Dreamy Tropical Tree House</Link>
-              <Text>Entrie house · 1 bed</Text>
-              <Review>
-                <ReviewStatus />
-                <span>364 · Superhost</span>
-              </Review>
-            </Card>
-          </div>
-        </div>
+        <div className="row">{list}</div>
         <ButtonRight type="button" />
       </SliderTrack>
     </Section>

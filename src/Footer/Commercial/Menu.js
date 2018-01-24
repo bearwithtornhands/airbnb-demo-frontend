@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Menu = styled.nav`
   display: flex;
@@ -21,16 +21,17 @@ const Link = styled.a`
     margin-right: 0;
   }
   @media (min-width: 768px) {
+    font-size: 14px;
+    line-height: 19px;
+
     margin-right: 16px;
   }
 `;
 
-export default () => {
-  return (
-    <Menu>
-      <Link href="#url">Terms</Link>
-      <Link href="#url">Privacy</Link>
-      <Link href="#url">Site map</Link>
-    </Menu>
-  );
-};
+export default () => (
+  <Menu>
+    <Link href="#url">Terms</Link>
+    <Link href="#url">Privacy</Link>
+    <Link href="#url">Site map</Link>
+  </Menu>
+);

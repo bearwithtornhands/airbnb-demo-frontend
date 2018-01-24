@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import Logo from "./logo.svg";
+import React from 'react';
+import styled from 'styled-components';
+import Logo from './logo.svg';
 
 const Copy = styled.p`
   font-size: 12px;
@@ -11,6 +11,9 @@ const Copy = styled.p`
   align-items: center;
   margin: 0 0 11px;
   @media (min-width: 768px) {
+    font-size: 14px;
+    line-height: 19px;
+
     margin-bottom: 0;
   }
 `;
@@ -26,11 +29,9 @@ const Image = styled.img`
 
 const Text = styled.span``;
 
-export default () => {
-  return (
-    <Copy>
-      <Image src={Logo} alt="Airbnb" />
-      <Text>© Airbnb Inc.</Text>
-    </Copy>
-  );
-};
+export default () => (
+  <Copy>
+    <Image src={Logo} alt="Airbnb" />
+    <Text>© Airbnb Inc.</Text>
+  </Copy>
+);

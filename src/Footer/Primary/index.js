@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import LocationParams from "./LocationParams";
-import Nav from "./Nav";
+import React from 'react';
+import styled from 'styled-components';
+import LocationParams from './LocationParams';
+import Nav from './Nav';
 
 const Primary = styled.div`
   @media (min-width: 768px) {
@@ -10,11 +10,9 @@ const Primary = styled.div`
   }
 `;
 
-export default () => {
-  return (
-    <Primary>
-      <LocationParams />
-      <Nav />
-    </Primary>
-  );
-};
+export default () => (
+  <Primary>
+    <LocationParams />
+    <Nav />
+  </Primary>
+);

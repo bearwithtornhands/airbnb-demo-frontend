@@ -1,0 +1,8 @@
+<svg width="12" height="13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <use xlink:href="#path0_fill" transform="rotate(45 .47119308 1.90917477)" fill="#484848"/>
+  <use xlink:href="#path1_fill" transform="rotate(45 4.9966883 12.83469825)" fill="#484848"/>
+  <defs>
+    <path id="path0_fill" d="M0 1.28C0 .573076.573076 0 1.28 0h12.8c.7069 0 1.28.573076 1.28 1.28 0 .70692-.5731 1.28-1.28 1.28H1.28C.573076 2.56 0 1.98692 0 1.28z"/>
+    <path id="path1_fill" d="M0 1.28C0 .573076.573076 0 1.28 0c.70692 0 1.28.573076 1.28 1.28v12.8c0 .7069-.57308 1.28-1.28 1.28-.706924 0-1.28-.5731-1.28-1.28V1.28z"/>
+  </defs>
+</svg>

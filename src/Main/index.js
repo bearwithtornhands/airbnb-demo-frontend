@@ -1,34 +1,23 @@
-import React from "react";
-import styled from "styled-components";
-import Category from "./Category";
-import Experiences from "./Experiences";
-import Homes from "./Homes";
-import Popular from "./Popular";
-import Destination from "./Destination";
+import React from 'react';
+import { Main, Wrapper } from '../UI';
+import Explore from './Explore';
+import Experiences from './Experiences';
+import Homes from './Homes';
+import Popular from './Popular';
+import Destination from './Destination';
+import Footer from '../Footer';
 
-const Wrapper = styled.div`
-  max-width: 982px;
-  margin: auto;
-  padding: 0 8px;
-`;
-
-const Main = styled.main`
-  margin: 0 0 40px;
-  @media (min-width: 768px) {
-    margin: 0 0 64px;
-  }
-`;
-
-export default () => {
-  return (
+export default () => (
+  <div>
     <Main>
       <Wrapper>
-        <Category />
+        <Explore />
         <Experiences />
         <Homes />
         <Popular />
         <Destination />
       </Wrapper>
     </Main>
-  );
-};
+    <Footer />
+  </div>
+);

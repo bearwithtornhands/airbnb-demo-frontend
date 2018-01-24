@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import bottom from "./bottom.svg";
+import React from 'react';
+import styled from 'styled-components';
+import bottom from './bottom.svg';
 
 const Select = styled.select`
   font-size: 12px;
@@ -27,6 +27,10 @@ const Select = styled.select`
     margin-bottom: 16px;
   }
   @media (min-width: 1200px) {
+    font-size: 18px;
+    line-height: 23px;
+
+    padding: 11px 47px 12px 15px;
     background-position: right 15px center;
   }
 `;
@@ -45,23 +49,21 @@ const LocationParams = styled.div`
   }
 `;
 
-export default () => {
-  return (
-    <LocationParams>
-      <div className="row">
-        <div className="col-xs-6 col-md-12">
-          <Select>
-            <Option value="0">English</Option>
-            <Option value="1">Russia</Option>
-          </Select>
-        </div>
-        <div className="col-xs-6 col-md-12">
-          <Select>
-            <Option value="0">United States dollar</Option>
-            <Option value="1">Canada dollar</Option>
-          </Select>
-        </div>
+export default () => (
+  <LocationParams>
+    <div className="row">
+      <div className="col-xs-6 col-md-12">
+        <Select>
+          <Option value="0">English</Option>
+          <Option value="1">Russia</Option>
+        </Select>
       </div>
-    </LocationParams>
-  );
-};
+      <div className="col-xs-6 col-md-12">
+        <Select>
+          <Option value="0">United States dollar</Option>
+          <Option value="1">Canada dollar</Option>
+        </Select>
+      </div>
+    </div>
+  </LocationParams>
+);

@@ -1,11 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { H2, Section } from "../styled";
-import categoryImage1 from "./category-1.jpg";
-import categoryImage2 from "./category-2.jpg";
-import categoryImage3 from "./category-3.jpg";
+import { Link } from "react-router-dom";
 
-const Link = styled.a`
+const StyledLink = styled(Link)`
   color: #383838;
   display: block;
   margin-bottom: 16px;
@@ -57,44 +54,24 @@ const Title = styled.h6`
     font-size: 17px;
 
     flex: 1;
-    border: 0;
-    border-radius: 0;
+    border: 1px solid rgba(72, 72, 72, 0.2);
+    border-left: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 0;
     background: transparent;
     box-shadow: none;
     padding: 26px 24px;
   }
 `;
 
-export default () => {
+export default props => {
   return (
-    <Section>
-      <H2>Explore Airbnb</H2>
-      <div className="row">
-        <div className="col-xs-6 col-md-4">
-          <Link href="#url">
-            <ImageWrap>
-              <Image src={categoryImage1} alt="Homes" />
-            </ImageWrap>
-            <Title>Homes</Title>
-          </Link>
-        </div>
-        <div className="col-xs-6 col-md-4">
-          <Link href="#url">
-            <ImageWrap>
-              <Image src={categoryImage2} alt="Experiences" />
-            </ImageWrap>
-            <Title>Experiences</Title>
-          </Link>
-        </div>
-        <div className="col-xs-6 col-md-4">
-          <Link href="#url">
-            <ImageWrap>
-              <Image src={categoryImage3} alt="Restaurants" />
-            </ImageWrap>
-            <Title>Restaurants</Title>
-          </Link>
-        </div>
-      </div>
-    </Section>
+    <StyledLink to={props.url}>
+      <ImageWrap>
+        <Image src={props.image} alt={props.title} />
+      </ImageWrap>
+      <Title>{props.title}</Title>
+    </StyledLink>
   );
 };
