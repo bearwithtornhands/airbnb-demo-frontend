@@ -1,11 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
-import DayPicker, { DateUtils } from 'react-day-picker';
-import 'react-day-picker/lib/style.css';
-import './style.css';
+import React from "react";
+import styled from "styled-components";
+import DayPicker, { DateUtils } from "react-day-picker";
+import "react-day-picker/lib/style.css";
+import "./style.css";
 
 const Reset = styled.button`
-  font: normal normal 14px/18px 'Circular', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font: normal normal 14px/18px "Circular", "Helvetica Neue", "Helvetica",
+    "Arial", sans-serif;
   color: #0f7276;
 
   padding: 16px 8px 14px;
@@ -20,8 +21,6 @@ const Reset = styled.button`
 `;
 
 class DateSelect extends React.Component {
-  state = { from: this.props.range.from, to: this.props.range.to };
-
   getNumberOfMonths() {
     const windowWidth = window.innerWidth;
 
@@ -34,19 +33,17 @@ class DateSelect extends React.Component {
     return this.props.numOfMonthOnMobile;
   }
 
-  handleDayClick = (day) => {
-    const range = DateUtils.addDayToRange(day, this.state);
-    this.setState(range);
+  handleDayClick = day => {
+    const range = DateUtils.addDayToRange(day, this.props.range);
     this.props.onDateChange(range);
   };
 
   handleResetClick = () => {
-    this.setState({ from: null, to: null });
     this.props.onDateChange({ from: null, to: null });
   };
 
   render() {
-    const { from, to } = this.state;
+    const { from, to } = this.props.range;
     const modifiers = { start: from, end: to };
     const numberOfMonths = this.getNumberOfMonths();
 
