@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import Body from 'react-body-classname';
-import format from 'date-fns/format';
-import { Wrapper } from '../UI';
-import DropDown from '../UI/DropDown';
-import DateSelect from '../UI/DateSelect';
-import Booler from '../UI/Booler';
-import InstantBook from './InstantBook';
-import Guests from './Guests';
-import Price from './Price';
-import Rooms from './Rooms';
+import React, { Component } from "react";
+import styled from "styled-components";
+import Body from "react-body-classname";
+import format from "date-fns/format";
+import { Wrapper } from "../UI";
+import DropDown from "../UI/DropDown";
+import DateSelect from "../UI/DateSelect";
+import Booler from "../UI/Booler";
+import InstantBook from "./InstantBook";
+import Guests from "./Guests";
+import Price from "./Price";
+import Rooms from "./Rooms";
 
 const StyledBody = styled(Body)`
-  position: ${props => (props.fixed ? 'fixed' : 'static')};
+  position: ${props => (props.fixed ? "fixed" : "static")};
   top: 0;
   left: 0;
   right: 0;
@@ -52,16 +52,16 @@ const List = styled.div`
 `;
 
 const getDateTitle = (active, range) => {
-  const from = format(range.from, 'DD.MM.YY');
-  const to = format(range.to, 'DD.MM.YY');
+  const from = format(range.from, "DD.MM.YY");
+  const to = format(range.to, "DD.MM.YY");
 
-  if (active === 'date') {
-    return `${range.from ? from : 'Check in'} – ${range.to ? to : 'Check out'}`;
+  if (active === "date") {
+    return `${range.from ? from : "Check in"} – ${range.to ? to : "Check out"}`;
   } else if (range.from && range.to) {
     return `${from} – ${to}`;
   }
 
-  return 'Dates';
+  return "Dates";
 };
 
 export default class Filter extends Component {
@@ -72,60 +72,68 @@ export default class Filter extends Component {
     guests: { adults: 0, childs: 0, infants: 0 },
     types: { home: false, private: false, shared: false },
     price: { from: 10, to: 1000 },
-    buffer: null,
-  };
-
-  handleCancel = (dropDownName) => {
-    this.setState({
-      [dropDownName]: this.state.buffer,
-      active: null,
-    });
+    buffer: null
   };
 
   handleSave = () => {
     this.setState({ active: null });
   };
 
-  handleOverlayClick = () => {
+  handleCancel = dropDownName => {
     this.setState({
-      [this.state.active]: this.state.buffer,
       active: null,
+      ...this.state.buffer
     });
   };
 
-  handleFilterChange = (dropDownName) => {
-    this.setState({ [this.state.active]: this.state.buffer });
-    if (this.state.active === dropDownName) {
-      this.setState({ active: null });
+  handleOverlayClick = () => {
+    this.setState({
+      active: null,
+      ...this.state.buffer
+    });
+  };
+
+  handleTogglerClick = dropDownName => {
+    if (this.state.active) {
+      this.setState({ ...this.state.buffer });
     } else {
+      const currentState = { ...this.state };
+      delete currentState.active;
+      delete currentState.buffer;
+
       this.setState({
-        buffer: this.state[dropDownName],
-        active: dropDownName,
+        buffer: currentState
       });
+    }
+
+    if (this.state.active === dropDownName) {
+      this.setState({ active: null, buffer: null });
+    } else {
+      this.setState({ active: dropDownName });
     }
   };
 
-  handleDateChange = (range) => {
+  handleDateChange = range => {
     this.setState({ date: { from: range.from, to: range.to } });
   };
 
-  handleBookChange = (checked) => {
+  handleBookChange = checked => {
     this.setState({ book: checked });
   };
 
   handleGuestsChange = (name, count) => {
     this.setState({
-      guests: { ...this.state.guests, [name]: count },
+      guests: { ...this.state.guests, [name]: count }
     });
   };
 
   handleRoomsChange = (name, checked) => {
     this.setState({
-      types: { ...this.state.types, [name]: checked },
+      types: { ...this.state.types, [name]: checked }
     });
   };
 
-  handlePriceChange = (price) => {
+  handlePriceChange = price => {
     this.setState({ price });
   };
 
@@ -139,8 +147,8 @@ export default class Filter extends Component {
               <DropDown
                 name="date"
                 title={getDateTitle(this.state.active, this.state.date)}
-                isOpen={this.state.active === 'date'}
-                onTogglerClick={this.handleFilterChange}
+                isOpen={this.state.active === "date"}
+                onTogglerClick={this.handleTogglerClick}
                 onCancelClick={this.handleCancel}
                 onSaveClick={this.handleSave}
               >
@@ -155,8 +163,8 @@ export default class Filter extends Component {
               <DropDown
                 name="guests"
                 title="Guests"
-                isOpen={this.state.active === 'guests'}
-                onTogglerClick={this.handleFilterChange}
+                isOpen={this.state.active === "guests"}
+                onTogglerClick={this.handleTogglerClick}
                 onCancelClick={this.handleCancel}
                 onSaveClick={this.handleSave}
               >
@@ -170,20 +178,23 @@ export default class Filter extends Component {
               <DropDown
                 name="book"
                 title="Instant book"
-                isOpen={this.state.active === 'book'}
-                onTogglerClick={this.handleFilterChange}
+                isOpen={this.state.active === "book"}
+                onTogglerClick={this.handleTogglerClick}
                 onCancelClick={this.handleCancel}
                 onSaveClick={this.handleSave}
               >
                 <InstantBook>
-                  <Booler onBoolerChange={this.handleBookChange} checked={this.state.book} />
+                  <Booler
+                    onBoolerChange={this.handleBookChange}
+                    checked={this.state.book}
+                  />
                 </InstantBook>
               </DropDown>
               <DropDown
                 name="types"
                 title="Room type"
-                isOpen={this.state.active === 'types'}
-                onTogglerClick={this.handleFilterChange}
+                isOpen={this.state.active === "types"}
+                onTogglerClick={this.handleTogglerClick}
                 onCancelClick={this.handleCancel}
                 onSaveClick={this.handleSave}
               >
@@ -197,8 +208,8 @@ export default class Filter extends Component {
               <DropDown
                 name="price"
                 title="Price"
-                isOpen={this.state.active === 'price'}
-                onTogglerClick={this.handleFilterChange}
+                isOpen={this.state.active === "price"}
+                onTogglerClick={this.handleTogglerClick}
                 onCancelClick={this.handleCancel}
                 onSaveClick={this.handleSave}
               >
@@ -212,8 +223,8 @@ export default class Filter extends Component {
               <DropDown
                 name="more"
                 title="More filters"
-                isOpen={this.state.active === 'more'}
-                onTogglerClick={this.handleFilterChange}
+                isOpen={this.state.active === "more"}
+                onTogglerClick={this.handleTogglerClick}
                 onCancelClick={this.handleCancel}
                 onSaveClick={this.handleSave}
               >
