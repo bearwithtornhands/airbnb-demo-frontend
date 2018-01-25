@@ -1,24 +1,7 @@
 import React from "react";
-import styled from "styled-components";
 import DayPicker, { DateUtils } from "react-day-picker";
 import "react-day-picker/lib/style.css";
 import "./style.css";
-
-const Reset = styled.button`
-  font: normal normal 14px/18px "Circular", "Helvetica Neue", "Helvetica",
-    "Arial", sans-serif;
-  color: #0f7276;
-
-  padding: 16px 8px 14px;
-  background-color: transparent;
-  border: 0;
-  position: absolute;
-  top: 0;
-  right: 0;
-  @media (min-width: 768px) {
-    display: none;
-  }
-`;
 
 class DateSelect extends React.Component {
   getNumberOfMonths() {
@@ -38,28 +21,19 @@ class DateSelect extends React.Component {
     this.props.onDateChange(range);
   };
 
-  handleResetClick = () => {
-    this.props.onDateChange({ from: null, to: null });
-  };
-
   render() {
     const { from, to } = this.props.range;
     const modifiers = { start: from, end: to };
     const numberOfMonths = this.getNumberOfMonths();
 
     return (
-      <div className="DateRange">
-        <Reset type="button" onClick={this.handleResetClick}>
-          Reset
-        </Reset>
-        <DayPicker
-          className="Selectable"
-          numberOfMonths={numberOfMonths}
-          selectedDays={[from, { from, to }]}
-          modifiers={modifiers}
-          onDayClick={this.handleDayClick}
-        />
-      </div>
+      <DayPicker
+        className="Selectable"
+        numberOfMonths={numberOfMonths}
+        selectedDays={[from, { from, to }]}
+        modifiers={modifiers}
+        onDayClick={this.handleDayClick}
+      />
     );
   }
 }

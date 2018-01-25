@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import off from './check-off.svg';
-import on from './check-on.svg';
+import React, { Component } from "react";
+import styled from "styled-components";
+import off from "./check-off.svg";
+import on from "./check-on.svg";
 
 const Button = styled.button`
   display: block;
@@ -24,7 +24,7 @@ const Button = styled.button`
     box-shadow: 0 0 6px rgba(0, 132, 137, 0.5);
   }
   &:after {
-    content: '';
+    content: "";
 
     position: absolute;
     top: -1px;
@@ -37,7 +37,7 @@ const Button = styled.button`
     border: 1px solid rgba(72, 72, 72, 0.3);
     background: url(${off}) no-repeat center center white;
     ${props =>
-    props.checked &&
+      props.checked &&
       `
         left: auto;
         right: -1px;
@@ -47,14 +47,40 @@ const Button = styled.button`
   }
 `;
 
-class Booler extends Component {
+const Section = styled.div`
+  display: flex;
+  align-items: center;
+
+  max-width: 384px;
+  margin-bottom: 16px;
+`;
+
+const Content = styled.div`
+  margin-right: 30px;
+`;
+
+const Tools = styled.div`
+  margin-left: auto;
+`;
+
+export default class Booler extends Component {
   handleClick = () => {
-    this.props.onBoolerChange(!this.props.checked);
+    const { name, checked } = this.props;
+    this.props.onBoolerChange(name, !checked);
   };
 
   render() {
-    return <Button type="button" onClick={this.handleClick} checked={this.props.checked} />;
+    return (
+      <Section>
+        <Content>{this.props.children}</Content>
+        <Tools>
+          <Button
+            type="button"
+            checked={this.props.checked}
+            onClick={this.handleClick}
+          />
+        </Tools>
+      </Section>
+    );
   }
 }
-
-export default Booler;

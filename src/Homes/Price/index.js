@@ -3,7 +3,11 @@ import styled from "styled-components";
 import Rheostat from "rheostat";
 import "./style.css";
 
-const Section = styled.div``;
+const Section = styled.div`
+  @media (min-width: 768px) {
+    margin-bottom: 25px;
+  }
+`;
 
 const Title = styled.h4`
   font-size: 16px;

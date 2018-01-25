@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import Counter from '../UI/Counter';
+import React, { Component } from "react";
+import styled from "styled-components";
+import Counter from "../UI/Counter";
 
 const List = styled.div`
+  max-width: 368px;
   @media (min-width: 768px) {
     margin-bottom: 16px;
   }
@@ -27,7 +28,7 @@ const Title = styled.h5`
 
   margin: 0 0 6px;
   &:last-child {
-    margin: 0;
+    margin-bottom: 0;
   }
   @media (min-width: 768px) {
     font-size: 20px;

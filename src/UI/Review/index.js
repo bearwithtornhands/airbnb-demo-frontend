@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import Star from './star.svg';
+import React from "react";
+import styled from "styled-components";
+import Star from "./star.svg";
 
 const List = styled.div`
   display: flex;

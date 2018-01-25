@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import Checkbox from '../../UI/Checkbox';
-import iconHome from './home.svg';
-import iconPrivate from './private.svg';
-import iconShared from './shared.svg';
+import React, { Component } from "react";
+import styled from "styled-components";
+import Checkbox from "../../UI/Checkbox";
+import iconHome from "./home.svg";
+import iconPrivate from "./private.svg";
+import iconShared from "./shared.svg";
 
 const Section = styled.div``;
 
@@ -23,6 +23,9 @@ const Title = styled.h5`
   font-weight: 300;
 
   margin: 0 0 3px;
+  &:last-child {
+    margin-bottom: 0;
+  }
   @media (min-width: 768px) {
     font-size: 18px;
     line-height: 21px;
@@ -64,7 +67,12 @@ class Rooms extends Component {
     return (
       <Section>
         <Type>
-          <Checkbox name="home" checked={this.props.home} onCheckboxChange={this.handleRoomsChange}>
+          <Checkbox
+            name="rooms"
+            value="home"
+            checked={this.props.home}
+            onCheckboxChange={this.handleRoomsChange}
+          >
             <Title>Entire home</Title>
             <Text>Have a place to yourself</Text>
           </Checkbox>
@@ -72,7 +80,8 @@ class Rooms extends Component {
         </Type>
         <Type>
           <Checkbox
-            name="private"
+            name="rooms"
+            value="private"
             checked={this.props.private}
             onCheckboxChange={this.handleRoomsChange}
           >
@@ -83,7 +92,8 @@ class Rooms extends Component {
         </Type>
         <Type>
           <Checkbox
-            name="shared"
+            name="rooms"
+            value="shared"
             checked={this.props.shared}
             onCheckboxChange={this.handleRoomsChange}
           >

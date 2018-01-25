@@ -43,8 +43,3 @@ body {
 a {
   text-decoration: none;
 }
-
-a:active,
-a:visited {
-  color: inherit;
-}

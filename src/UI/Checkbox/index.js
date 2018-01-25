@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import checked from './check-on.svg';
+import React, { Component } from "react";
+import nanoid from "nanoid";
+import styled from "styled-components";
+import iconChecked from "./check-on.svg";
 
-const Button = styled.button`
-  font-family: 'Circular', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+const Label = styled.label`
+  font-family: "Circular", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   text-align: left;
 
   display: flex;
@@ -14,16 +15,16 @@ const Button = styled.button`
   padding: 0;
   outline: none;
   &:before {
-    content: '';
+    content: "";
 
     width: 24px;
     height: 24px;
-    background: url(${checked}) no-repeat center center transparent;
+    background: url(${iconChecked}) no-repeat center center transparent;
     border: 1px solid rgba(72, 72, 72, 0.3);
     border-radius: 4px;
     margin-right: 12px;
     ${props =>
-    props.isActive &&
+      props.isActive &&
       `
       border-color: #008489;
       background-color: #008489;
@@ -36,21 +37,43 @@ const Button = styled.button`
   }
 `;
 
+const Input = styled.input`
+  display: none;
+`;
+
 const Content = styled.div`
   flex: 1;
-  padding-top: 2px;
+  padding-top: 2.5px;
+  @media (min-with: 768px) {
+    padding-top: 1.5px;
+  }
+  @media (min-with: 1200px) {
+    padding-top: 2.5px;
+  }
 `;
 
 class Checkbox extends Component {
-  handleClick = () => {
-    this.props.onCheckboxChange(this.props.name, !this.props.checked);
+  handleClick = event => {
+    const input = event.target;
+    this.props.onCheckboxChange(input.value, input.checked);
   };
 
   render() {
+    const code = nanoid(4);
+    const { name, value, checked, children } = this.props;
+
     return (
-      <Button type="button" isActive={this.props.checked} onClick={this.handleClick}>
-        <Content>{this.props.children}</Content>
-      </Button>
+      <Label htmlFor={code} isActive={checked}>
+        <Input
+          type="checkbox"
+          id={code}
+          name={name}
+          value={value}
+          checked={checked}
+          onChange={this.handleClick}
+        />
+        <Content>{children}</Content>
+      </Label>
     );
   }
 }

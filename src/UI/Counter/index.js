@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import plus from './plus.svg';
-import minus from './minus.svg';
+import React, { Component } from "react";
+import styled from "styled-components";
+import plus from "./plus.svg";
+import minus from "./minus.svg";
 
 const Section = styled.div`
   font-size: 18px;
@@ -51,11 +51,19 @@ class Counter extends Component {
   render() {
     return (
       <Section>
-        <Button type="button" disabled={this.props.count === 0} onClick={this.decrement}>
+        <Button
+          type="button"
+          disabled={this.props.count === 0}
+          onClick={this.decrement}
+        >
           <Image src={minus} alt="Minus" />
         </Button>
         <Count>{this.props.count}</Count>
-        <Button type="button" disabled={this.props.count === 99} onClick={this.increment}>
+        <Button
+          type="button"
+          disabled={this.props.count === 99}
+          onClick={this.increment}
+        >
           <Image src={plus} alt="Plus" />
         </Button>
       </Section>
