@@ -126,10 +126,16 @@ const getDateTitle = (active, range) => {
   return "Dates";
 };
 
-const getGuestsTitle = (active, guests) => {
+const getGuestsTitle = guests => {
   const guestCount = Object.values(guests).reduce((prev, next) => prev + next);
 
   return `Guests ${guestCount ? " · " + guestCount : ""}`;
+};
+
+const getTypesTitle = types => {
+  const typesCount = Object.values(types).filter(type => type);
+
+  return `Room types ${typesCount.length ? " · " + typesCount.length : ""}`;
 };
 
 export default class Filter extends Component {
@@ -234,7 +240,7 @@ export default class Filter extends Component {
             </DropDown>
             <DropDown
               name="guests"
-              title={getGuestsTitle(this.state.active, this.state.guests)}
+              title={getGuestsTitle(this.state.guests)}
               isOpen={this.state.active === "guests"}
               isActive={!_.isEqual(this.state.guests, this.defaultState.guests)}
               onTogglerClick={this.handleTogglerClick}
@@ -252,7 +258,7 @@ export default class Filter extends Component {
             <Media query="(min-width: 1200px)">
               <DropDown
                 name="types"
-                title="Room type"
+                title={getTypesTitle(this.state.types)}
                 isOpen={this.state.active === "types"}
                 isActive={!_.isEqual(this.state.types, this.defaultState.types)}
                 onTogglerClick={this.handleTogglerClick}
