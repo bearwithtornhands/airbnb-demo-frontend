@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import Counter from "../UI/Counter";
 
@@ -50,55 +50,51 @@ const Text = styled.p`
   }
 `;
 
-class Guests extends Component {
-  handleCounterChange = (name, count) => {
-    this.props.onGuestsChange(name, count);
-  };
-
-  render() {
-    return (
-      <List>
-        <Age>
-          <Descr>
-            <Title>Adults</Title>
-          </Descr>
-          <Counter
-            id="adults"
-            min={1}
-            max={10}
-            count={this.props.adults}
-            onCounterChange={this.handleCounterChange}
-          />
-        </Age>
-        <Age>
-          <Descr>
-            <Title>Children</Title>
-            <Text>Ages 2 — 12</Text>
-          </Descr>
-          <Counter
-            id="childs"
-            min={0}
-            max={10}
-            count={this.props.childs}
-            onCounterChange={this.handleCounterChange}
-          />
-        </Age>
-        <Age>
-          <Descr>
-            <Title>Infants</Title>
-            <Text>Under 2</Text>
-          </Descr>
-          <Counter
-            id="infants"
-            min={0}
-            max={10}
-            count={this.props.infants}
-            onCounterChange={this.handleCounterChange}
-          />
-        </Age>
-      </List>
-    );
-  }
-}
-
-export default Guests;
+export default props => (
+  <List>
+    <Age>
+      <Descr>
+        <Title>Adults</Title>
+      </Descr>
+      <Counter
+        id="adults"
+        min={1}
+        max={10}
+        count={props.adults}
+        onCounterChange={(id, count) =>
+          props.onGuestsChange(props.name, id, count)
+        }
+      />
+    </Age>
+    <Age>
+      <Descr>
+        <Title>Children</Title>
+        <Text>Ages 2 — 12</Text>
+      </Descr>
+      <Counter
+        id="childs"
+        min={0}
+        max={10}
+        count={props.childs}
+        onCounterChange={(id, count) =>
+          props.onGuestsChange(props.name, id, count)
+        }
+      />
+    </Age>
+    <Age>
+      <Descr>
+        <Title>Infants</Title>
+        <Text>Under 2</Text>
+      </Descr>
+      <Counter
+        id="infants"
+        min={0}
+        max={10}
+        count={props.infants}
+        onCounterChange={(id, count) =>
+          props.onGuestsChange(props.name, id, count)
+        }
+      />
+    </Age>
+  </List>
+);

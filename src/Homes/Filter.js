@@ -10,6 +10,7 @@ import Booler from "../UI/Booler";
 import Guests from "./Guests";
 import Price from "./Price";
 import Rooms from "./Rooms";
+import RoomsAndBeds from "./RoomsAndBeds";
 
 const Overlay = styled.div`
   @media (min-width: 768px) {
@@ -158,6 +159,7 @@ export default class Filter extends Component {
     guests: { adults: 1, childs: 0, infants: 0 },
     types: { home: false, private: false, shared: false },
     price: { from: 10, to: 1000 },
+    rooms: { bedrooms: 0, beds: 0, bathrooms: 0 },
     buffer: null
   };
 
@@ -208,9 +210,9 @@ export default class Filter extends Component {
     this.setState({ [name]: checked });
   };
 
-  handleGuestsChange = (name, count) => {
+  handleCountersChange = (name, id, count) => {
     this.setState({
-      guests: { ...this.state.guests, [name]: count }
+      [name]: { ...this.state[name], [id]: count }
     });
   };
 
@@ -259,10 +261,11 @@ export default class Filter extends Component {
               onResetClick={this.handleReset}
             >
               <Guests
+                name="guests"
                 adults={this.state.guests.adults}
                 childs={this.state.guests.childs}
                 infants={this.state.guests.infants}
-                onGuestsChange={this.handleGuestsChange}
+                onGuestsChange={this.handleCountersChange}
               />
             </DropDown>
             <Media query="(min-width: 1200px)">
@@ -358,9 +361,19 @@ export default class Filter extends Component {
 
                 <Separator />
               </Media>
+              <Heading>Rooms and beds</Heading>
+
+              <RoomsAndBeds
+                name="rooms"
+                bedrooms={this.state.rooms.bedrooms}
+                beds={this.state.rooms.beds}
+                bathrooms={this.state.rooms.bathrooms}
+                onBedsChange={this.handleCountersChange}
+              />
+
+              <Separator />
 
               <Heading>More options</Heading>
-
               <Media query="(max-width: 1200px)">
                 <Booler
                   name="book"
@@ -374,7 +387,6 @@ export default class Filter extends Component {
                   </Text>
                 </Booler>
               </Media>
-
               <Booler
                 name="host"
                 checked={this.state.host}
@@ -386,7 +398,6 @@ export default class Filter extends Component {
                   <Link href="/">Learn more</Link>
                 </Text>
               </Booler>
-
               <Separator />
             </DropDown>
           </List>

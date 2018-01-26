@@ -55,7 +55,7 @@ class Counter extends Component {
         <Button type="button" disabled={count === min} onClick={this.decrement}>
           <Image src={minus} alt="Minus" />
         </Button>
-        <Count>{this.props.count}</Count>
+        <Count>{`${count}+`}</Count>
         <Button type="button" disabled={count === max} onClick={this.increment}>
           <Image src={plus} alt="Plus" />
         </Button>
