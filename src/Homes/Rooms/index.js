@@ -68,6 +68,7 @@ class Rooms extends Component {
       <Section>
         <Type>
           <Checkbox
+            id="entire-home"
             name="rooms"
             value="home"
             checked={this.props.home}
@@ -80,6 +81,7 @@ class Rooms extends Component {
         </Type>
         <Type>
           <Checkbox
+            id="private-room"
             name="rooms"
             value="private"
             checked={this.props.private}
@@ -92,6 +94,7 @@ class Rooms extends Component {
         </Type>
         <Type>
           <Checkbox
+            id="shared-room"
             name="rooms"
             value="shared"
             checked={this.props.shared}

@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import nanoid from "nanoid";
+import React from "react";
 import styled from "styled-components";
 import iconChecked from "./check-on.svg";
 
@@ -52,30 +51,18 @@ const Content = styled.div`
   }
 `;
 
-class Checkbox extends Component {
-  handleClick = event => {
-    const input = event.target;
-    this.props.onCheckboxChange(input.value, input.checked);
-  };
-
-  render() {
-    const code = nanoid(4);
-    const { name, value, checked, children } = this.props;
-
-    return (
-      <Label htmlFor={code} isActive={checked}>
-        <Input
-          type="checkbox"
-          id={code}
-          name={name}
-          value={value}
-          checked={checked}
-          onChange={this.handleClick}
-        />
-        <Content>{children}</Content>
-      </Label>
-    );
-  }
-}
-
-export default Checkbox;
+export default props => (
+  <Label htmlFor={props.id} isActive={props.checked}>
+    <Input
+      type="checkbox"
+      id={props.id}
+      name={props.name}
+      value={props.value}
+      checked={props.checked}
+      onChange={event =>
+        props.onCheckboxChange(event.target.value, event.target.checked)
+      }
+    />
+    <Content>{props.children}</Content>
+  </Label>
+);

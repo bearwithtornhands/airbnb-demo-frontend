@@ -114,8 +114,8 @@ const Separator = styled.hr`
 `;
 
 const getDateTitle = (active, range) => {
-  const from = format(range.from, "DD.MM.YY");
-  const to = format(range.to, "DD.MM.YY");
+  const from = format(range.from, "DD MMM");
+  const to = format(range.to, "DD MMM");
 
   if (active === "date") {
     return `${range.from ? from : "Check in"} – ${range.to ? to : "Check out"}`;
@@ -138,6 +138,17 @@ const getTypesTitle = types => {
   return `Room types ${typesCount.length ? " · " + typesCount.length : ""}`;
 };
 
+const getPriceTitle = (active, price, defaultPrice) => {
+  if (
+    (price.from !== defaultPrice.from || price.to !== defaultPrice.to) &&
+    active !== "price"
+  ) {
+    return `$${price.from} – $${price.to}`;
+  }
+
+  return "Price";
+};
+
 export default class Filter extends Component {
   defaultState = {
     active: null,
@@ -156,7 +167,7 @@ export default class Filter extends Component {
     this.setState({ active: null });
   };
 
-  handleCancel = dropDownName => {
+  handleCancel = () => {
     this.setState({
       active: null,
       ...this.state.buffer
@@ -165,8 +176,7 @@ export default class Filter extends Component {
 
   handleReset = dropDownName => {
     this.setState({
-      [dropDownName]: this.defaultState[dropDownName],
-      buffer: null
+      [dropDownName]: this.defaultState[dropDownName]
     });
   };
 
@@ -275,7 +285,11 @@ export default class Filter extends Component {
               </DropDown>
               <DropDown
                 name="price"
-                title="Price"
+                title={getPriceTitle(
+                  this.state.active,
+                  this.state.price,
+                  this.defaultState.price
+                )}
                 isOpen={this.state.active === "price"}
                 isActive={!_.isEqual(this.state.price, this.defaultState.price)}
                 onTogglerClick={this.handleTogglerClick}
