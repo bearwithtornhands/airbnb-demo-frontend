@@ -38,15 +38,15 @@ const Toggler = styled.button`
   font-family: "Circular", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 14px;
   line-height: 16px;
-  color: ${props => (props.isOpen ? "white" : "#383838")};
+  color: ${props => (props.isActive ? "white" : "#383838")};
 
   display: inline-block;
   vertical-align: top;
   padding: 7px 15px;
   border: 1px solid
-    ${props => (props.isOpen ? "#008489" : "rgba(72, 72, 72, 0.2)")};
+    ${props => (props.isActive ? "#008489" : "rgba(72, 72, 72, 0.2)")};
   border-radius: 4px;
-  background-color: ${props => (props.isOpen ? "#008489" : "white")};
+  background-color: ${props => (props.isActive ? "#008489" : "white")};
   cursor: pointer;
   outline: none;
   &:focus {
@@ -287,11 +287,15 @@ class DropDown extends Component {
   };
 
   render() {
-    const { name, isOpen, title } = this.props;
+    const { name, title, isOpen, isActive } = this.props;
 
     return (
       <Section>
-        <Toggler type="button" onClick={this.handleClick} isOpen={isOpen}>
+        <Toggler
+          type="button"
+          onClick={this.handleClick}
+          isActive={isOpen || isActive}
+        >
           {title}
         </Toggler>
         {isOpen &&

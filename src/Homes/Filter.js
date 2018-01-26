@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import Media from "react-responsive";
 import format from "date-fns/format";
+import _ from "lodash/core";
 import { Wrapper } from "../UI";
 import DropDown from "../UI/DropDown";
 import DateSelect from "../UI/DateSelect";
@@ -128,7 +129,7 @@ const getDateTitle = (active, range) => {
 const getGuestsTitle = (active, guests) => {
   const guestCount = Object.values(guests).reduce((prev, next) => prev + next);
 
-  return `Guests ${guestCount ? " • " + guestCount : ""}`;
+  return `Guests ${guestCount ? " · " + guestCount : ""}`;
 };
 
 export default class Filter extends Component {
@@ -217,6 +218,7 @@ export default class Filter extends Component {
               name="date"
               title={getDateTitle(this.state.active, this.state.date)}
               isOpen={this.state.active === "date"}
+              isActive={!_.isEqual(this.state.date, this.defaultState.date)}
               onTogglerClick={this.handleTogglerClick}
               onCancelClick={this.handleCancel}
               onSaveClick={this.handleSave}
@@ -234,6 +236,7 @@ export default class Filter extends Component {
               name="guests"
               title={getGuestsTitle(this.state.active, this.state.guests)}
               isOpen={this.state.active === "guests"}
+              isActive={!_.isEqual(this.state.guests, this.defaultState.guests)}
               onTogglerClick={this.handleTogglerClick}
               onCancelClick={this.handleCancel}
               onSaveClick={this.handleSave}
@@ -251,6 +254,7 @@ export default class Filter extends Component {
                 name="types"
                 title="Room type"
                 isOpen={this.state.active === "types"}
+                isActive={!_.isEqual(this.state.types, this.defaultState.types)}
                 onTogglerClick={this.handleTogglerClick}
                 onCancelClick={this.handleCancel}
                 onSaveClick={this.handleSave}
@@ -267,6 +271,7 @@ export default class Filter extends Component {
                 name="price"
                 title="Price"
                 isOpen={this.state.active === "price"}
+                isActive={!_.isEqual(this.state.price, this.defaultState.price)}
                 onTogglerClick={this.handleTogglerClick}
                 onCancelClick={this.handleCancel}
                 onSaveClick={this.handleSave}
@@ -283,6 +288,7 @@ export default class Filter extends Component {
                 name="book"
                 title="Instant book"
                 isOpen={this.state.active === "book"}
+                isActive={!_.isEqual(this.state.book, this.defaultState.book)}
                 onTogglerClick={this.handleTogglerClick}
                 onCancelClick={this.handleCancel}
                 onSaveClick={this.handleSave}
