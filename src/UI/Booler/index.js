@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import off from "./check-off.svg";
 import on from "./check-on.svg";
@@ -47,7 +47,7 @@ const Button = styled.button`
   }
 `;
 
-const Section = styled.div`
+const Booler = styled.div`
   display: flex;
   align-items: center;
 
@@ -63,24 +63,15 @@ const Tools = styled.div`
   margin-left: auto;
 `;
 
-export default class Booler extends Component {
-  handleClick = () => {
-    const { name, checked } = this.props;
-    this.props.onBoolerChange(name, !checked);
-  };
-
-  render() {
-    return (
-      <Section>
-        <Content>{this.props.children}</Content>
-        <Tools>
-          <Button
-            type="button"
-            checked={this.props.checked}
-            onClick={this.handleClick}
-          />
-        </Tools>
-      </Section>
-    );
-  }
-}
+export default props => (
+  <Booler>
+    <Content>{props.children}</Content>
+    <Tools>
+      <Button
+        type="button"
+        checked={props.checked}
+        onClick={() => props.onBoolerChange(props.name, !props.checked)}
+      />
+    </Tools>
+  </Booler>
+);

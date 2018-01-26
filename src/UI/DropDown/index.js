@@ -102,10 +102,11 @@ const Title = styled.h5`
 const Scroll = styled.div`
   flex: 1;
   height: 100%;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   padding: 40px 8px;
   @media (min-width: 768px) {
-    overflow: ${props => (props.large ? "auto" : "visible")};
+    overflow-y: ${props => (props.large ? "auto" : "visible")};
     padding: ${props => (props.large ? "40px 8px" : "0")};
   }
   @media (min-width: 1200px) {

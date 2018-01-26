@@ -42,12 +42,9 @@ const Input = styled.input`
 
 const Content = styled.div`
   flex: 1;
-  padding-top: 2.5px;
-  @media (min-with: 768px) {
-    padding-top: 1.5px;
-  }
-  @media (min-with: 1200px) {
-    padding-top: 2.5px;
+  padding-top: 3px;
+  @media (min-width: 768px) {
+    padding-top: 2px;
   }
 `;
 

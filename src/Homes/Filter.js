@@ -11,6 +11,8 @@ import Guests from "./Guests";
 import Price from "./Price";
 import RoomTypes from "./RoomTypes";
 import RoomsAndBeds from "./RoomsAndBeds";
+import Amenities from "./Amenities";
+import Facilities from "./Facilities";
 
 const Overlay = styled.div`
   @media (min-width: 768px) {
@@ -160,6 +162,13 @@ export default class Filter extends Component {
     types: { home: false, private: false, shared: false },
     price: { from: 10, to: 1000 },
     rooms: { bedrooms: 0, beds: 0, bathrooms: 0 },
+    amenities: { heating: false, kitchen: false, tv: false, wifi: false },
+    facilities: {
+      elebator: false,
+      parking: false,
+      pool: false,
+      wheelchair: false
+    },
     buffer: null
   };
 
@@ -358,15 +367,12 @@ export default class Filter extends Component {
                 <Separator />
               </Media>
               <Heading>Rooms and beds</Heading>
-
               <RoomsAndBeds
                 name="rooms"
                 values={this.state.rooms}
                 onBedsChange={this.handleCountersChange}
               />
-
               <Separator />
-
               <Heading>More options</Heading>
               <Media query="(max-width: 1200px)">
                 <Booler
@@ -392,6 +398,20 @@ export default class Filter extends Component {
                   <Link href="/">Learn more</Link>
                 </Text>
               </Booler>
+              <Separator />
+              <Heading>Amenities</Heading>
+              <Amenities
+                name="amenities"
+                values={this.state.amenities}
+                onAmenitiesChange={this.handleCheckboxsChange}
+              />
+              <Separator />
+              <Heading>Amenities</Heading>
+              <Facilities
+                name="facilities"
+                values={this.state.facilities}
+                onFacilitiesChange={this.handleCheckboxsChange}
+              />
               <Separator />
             </DropDown>
           </List>
