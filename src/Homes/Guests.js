@@ -60,7 +60,7 @@ export default props => (
         id="adults"
         min={1}
         max={10}
-        count={props.adults}
+        count={props.values.adults}
         onCounterChange={(id, count) =>
           props.onGuestsChange(props.name, id, count)
         }
@@ -75,7 +75,7 @@ export default props => (
         id="childs"
         min={0}
         max={10}
-        count={props.childs}
+        count={props.values.childs}
         onCounterChange={(id, count) =>
           props.onGuestsChange(props.name, id, count)
         }
@@ -90,7 +90,7 @@ export default props => (
         id="infants"
         min={0}
         max={10}
-        count={props.infants}
+        count={props.values.infants}
         onCounterChange={(id, count) =>
           props.onGuestsChange(props.name, id, count)
         }

@@ -57,10 +57,9 @@ export default props => (
       type="checkbox"
       id={props.id}
       name={props.name}
-      value={props.value}
       checked={props.checked}
       onChange={event =>
-        props.onCheckboxChange(event.target.value, event.target.checked)
+        props.onCheckboxChange(event.target.id, event.target.checked)
       }
     />
     <Content>{props.children}</Content>

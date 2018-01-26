@@ -43,7 +43,7 @@ export default props => (
         id="bedrooms"
         min={0}
         max={10}
-        count={props.bedrooms}
+        count={props.values.bedrooms}
         onCounterChange={(id, count) =>
           props.onBedsChange(props.name, id, count)
         }
@@ -57,7 +57,7 @@ export default props => (
         id="beds"
         min={0}
         max={10}
-        count={props.beds}
+        count={props.values.beds}
         onCounterChange={(id, count) =>
           props.onBedsChange(props.name, id, count)
         }
@@ -71,7 +71,7 @@ export default props => (
         id="bathrooms"
         min={0}
         max={10}
-        count={props.bathrooms}
+        count={props.values.bathrooms}
         onCounterChange={(id, count) =>
           props.onBedsChange(props.name, id, count)
         }

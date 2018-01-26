@@ -9,7 +9,7 @@ import DateSelect from "../UI/DateSelect";
 import Booler from "../UI/Booler";
 import Guests from "./Guests";
 import Price from "./Price";
-import Rooms from "./Rooms";
+import RoomTypes from "./RoomTypes";
 import RoomsAndBeds from "./RoomsAndBeds";
 
 const Overlay = styled.div`
@@ -216,9 +216,9 @@ export default class Filter extends Component {
     });
   };
 
-  handleRoomsChange = (name, checked) => {
+  handleCheckboxsChange = (name, id, checked) => {
     this.setState({
-      types: { ...this.state.types, [name]: checked }
+      [name]: { ...this.state[name], [id]: checked }
     });
   };
 
@@ -262,9 +262,7 @@ export default class Filter extends Component {
             >
               <Guests
                 name="guests"
-                adults={this.state.guests.adults}
-                childs={this.state.guests.childs}
-                infants={this.state.guests.infants}
+                values={this.state.guests}
                 onGuestsChange={this.handleCountersChange}
               />
             </DropDown>
@@ -279,11 +277,10 @@ export default class Filter extends Component {
                 onSaveClick={this.handleSave}
                 onResetClick={this.handleReset}
               >
-                <Rooms
-                  home={this.state.types.home}
-                  private={this.state.types.private}
-                  shared={this.state.types.shared}
-                  onRoomsChange={this.handleRoomsChange}
+                <RoomTypes
+                  name="types"
+                  values={this.state.types}
+                  onTypesChange={this.handleCheckboxsChange}
                 />
               </DropDown>
               <DropDown
@@ -342,11 +339,10 @@ export default class Filter extends Component {
             >
               <Media query="(max-width: 1200px)">
                 <Heading>Room type</Heading>
-                <Rooms
-                  home={this.state.types.home}
-                  private={this.state.types.private}
-                  shared={this.state.types.shared}
-                  onRoomsChange={this.handleRoomsChange}
+                <RoomTypes
+                  name="rooms"
+                  values={this.state.types}
+                  onTypesChange={this.handleCheckboxsChange}
                 />
 
                 <Separator />
@@ -365,9 +361,7 @@ export default class Filter extends Component {
 
               <RoomsAndBeds
                 name="rooms"
-                bedrooms={this.state.rooms.bedrooms}
-                beds={this.state.rooms.beds}
-                bathrooms={this.state.rooms.bathrooms}
+                values={this.state.rooms}
                 onBedsChange={this.handleCountersChange}
               />
 
