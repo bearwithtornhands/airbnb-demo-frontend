@@ -125,13 +125,19 @@ const getDateTitle = (active, range) => {
   return "Dates";
 };
 
+const getGuestsTitle = (active, guests) => {
+  const guestCount = Object.values(guests).reduce((prev, next) => prev + next);
+
+  return `Guests ${guestCount ? " • " + guestCount : ""}`;
+};
+
 export default class Filter extends Component {
   defaultState = {
     active: null,
     date: { from: null, to: null },
     book: false,
     host: false,
-    guests: { adults: 0, childs: 0, infants: 0 },
+    guests: { adults: 1, childs: 0, infants: 0 },
     types: { home: false, private: false, shared: false },
     price: { from: 10, to: 1000 },
     buffer: null
@@ -226,7 +232,7 @@ export default class Filter extends Component {
             </DropDown>
             <DropDown
               name="guests"
-              title="Guests"
+              title={getGuestsTitle(this.state.active, this.state.guests)}
               isOpen={this.state.active === "guests"}
               onTogglerClick={this.handleTogglerClick}
               onCancelClick={this.handleCancel}

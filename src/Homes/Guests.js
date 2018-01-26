@@ -64,6 +64,8 @@ class Guests extends Component {
           </Descr>
           <Counter
             id="adults"
+            min={1}
+            max={10}
             count={this.props.adults}
             onCounterChange={this.handleCounterChange}
           />
@@ -75,6 +77,8 @@ class Guests extends Component {
           </Descr>
           <Counter
             id="childs"
+            min={0}
+            max={10}
             count={this.props.childs}
             onCounterChange={this.handleCounterChange}
           />
@@ -86,6 +90,8 @@ class Guests extends Component {
           </Descr>
           <Counter
             id="infants"
+            min={0}
+            max={10}
             count={this.props.infants}
             onCounterChange={this.handleCounterChange}
           />

@@ -49,21 +49,14 @@ class Counter extends Component {
   };
 
   render() {
+    const { count, min, max } = this.props;
     return (
       <Section>
-        <Button
-          type="button"
-          disabled={this.props.count === 0}
-          onClick={this.decrement}
-        >
+        <Button type="button" disabled={count === min} onClick={this.decrement}>
           <Image src={minus} alt="Minus" />
         </Button>
         <Count>{this.props.count}</Count>
-        <Button
-          type="button"
-          disabled={this.props.count === 99}
-          onClick={this.increment}
-        >
+        <Button type="button" disabled={count === max} onClick={this.increment}>
           <Image src={plus} alt="Plus" />
         </Button>
       </Section>
