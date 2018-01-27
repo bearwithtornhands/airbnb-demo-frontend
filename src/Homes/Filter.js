@@ -203,8 +203,43 @@ export default class Filter extends Component {
 
   handleReset = dropDownName => {
     this.setState({
-      [dropDownName]: this.defaultState[dropDownName]
+      [dropDownName]: this.defaultState[dropDownName],
+      buffer: null
     });
+  };
+
+  handleResetMore = () => {
+    const {
+      book,
+      types,
+      price,
+      host,
+      rooms,
+      amenities,
+      facilities
+    } = this.defaultState;
+    if (window.outerWidth >= 1200) {
+      this.setState({
+        ...this.state,
+        host,
+        rooms,
+        amenities,
+        facilities,
+        buffer: null
+      });
+    } else {
+      this.setState({
+        ...this.state,
+        book,
+        types,
+        price,
+        host,
+        rooms,
+        amenities,
+        facilities,
+        buffer: null
+      });
+    }
   };
 
   handleTogglerClick = dropDownName => {
@@ -346,7 +381,7 @@ export default class Filter extends Component {
               onTogglerClick={this.handleTogglerClick}
               onCancelClick={this.handleCancel}
               onSaveClick={this.handleSave}
-              onResetClick={this.handleReset}
+              onResetClick={this.handleResetMore}
             >
               <Media query="(max-width: 1200px)">
                 <Heading>Room type</Heading>

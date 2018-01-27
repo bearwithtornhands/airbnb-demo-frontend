@@ -186,7 +186,7 @@ export default class MoreFilters extends Component {
   };
 
   handleReset = () => {
-    this.props.onResetClick(this.props.name);
+    this.props.onResetClick();
   };
 
   render() {
@@ -205,7 +205,7 @@ export default class MoreFilters extends Component {
           <StyledBody fixed={isOpen}>
             <Content>
               <Head>
-                <Title>All filters</Title>
+                <Title>{`All filters(${this.props.isActive})`}</Title>
               </Head>
               <Scroll>{this.props.children}</Scroll>
               <Tools>
