@@ -70,7 +70,7 @@ export default props => (
       <Button
         type="button"
         checked={props.checked}
-        onClick={() => props.onBoolerChange(props.name, !props.checked)}
+        onClick={() => props.onChange(props.name, !props.checked)}
       />
     </Tools>
   </Booler>

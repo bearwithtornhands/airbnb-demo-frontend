@@ -28,9 +28,7 @@ export default props => (
           <Checkbox
             id="elebator"
             checked={props.values.elebator}
-            onCheckboxChange={(id, checked) =>
-              props.onFacilitiesChange(props.name, id, checked)
-            }
+            onCheckboxChange={values => props.onChange(props.name, values)}
           >
             <Title>Elebator</Title>
           </Checkbox>
@@ -41,9 +39,7 @@ export default props => (
           <Checkbox
             id="parking"
             checked={props.values.parking}
-            onCheckboxChange={(id, checked) =>
-              props.onFacilitiesChange(props.name, id, checked)
-            }
+            onCheckboxChange={values => props.onChange(props.name, values)}
           >
             <Title>Free parking on premises</Title>
           </Checkbox>
@@ -54,9 +50,7 @@ export default props => (
           <Checkbox
             id="pool"
             checked={props.values.pool}
-            onCheckboxChange={(id, checked) =>
-              props.onFacilitiesChange(props.name, id, checked)
-            }
+            onCheckboxChange={values => props.onChange(props.name, values)}
           >
             <Title>Pool</Title>
           </Checkbox>
@@ -67,9 +61,7 @@ export default props => (
           <Checkbox
             id="wheelchair"
             checked={props.values.wheelchair}
-            onCheckboxChange={(id, checked) =>
-              props.onFacilitiesChange(props.name, id, checked)
-            }
+            onCheckboxChange={values => props.onChange(props.name, values)}
           >
             <Title>Wheelchair accessible</Title>
           </Checkbox>

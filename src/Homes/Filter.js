@@ -5,6 +5,7 @@ import format from "date-fns/format";
 import _ from "lodash/core";
 import { Wrapper } from "../UI";
 import DropDown from "../UI/DropDown";
+import MoreFilters from "./MoreFilters";
 import DateSelect from "../UI/DateSelect";
 import Booler from "../UI/Booler";
 import Guests from "./Guests";
@@ -212,28 +213,11 @@ export default class Filter extends Component {
     }
   };
 
-  handleDateChange = range => {
-    this.setState({ date: { from: range.from, to: range.to } });
-  };
-
-  handleBoolerChange = (name, checked) => {
-    this.setState({ [name]: checked });
-  };
-
-  handleCountersChange = (name, id, count) => {
+  handleChange = (name, values) => {
     this.setState({
-      [name]: { ...this.state[name], [id]: count }
+      [name]:
+        typeof values === "object" ? { ...this.state[name], ...values } : values
     });
-  };
-
-  handleCheckboxsChange = (name, id, checked) => {
-    this.setState({
-      [name]: { ...this.state[name], [id]: checked }
-    });
-  };
-
-  handlePriceChange = price => {
-    this.setState({ price });
   };
 
   render() {
@@ -257,7 +241,7 @@ export default class Filter extends Component {
                 numOfMonthOnTablet={1}
                 numOfMonthOnDesktop={2}
                 range={this.state.date}
-                onDateChange={this.handleDateChange}
+                onChange={this.handleChange}
               />
             </DropDown>
             <DropDown
@@ -273,7 +257,7 @@ export default class Filter extends Component {
               <Guests
                 name="guests"
                 values={this.state.guests}
-                onGuestsChange={this.handleCountersChange}
+                onChange={this.handleChange}
               />
             </DropDown>
             <Media query="(min-width: 1200px)">
@@ -290,7 +274,7 @@ export default class Filter extends Component {
                 <RoomTypes
                   name="types"
                   values={this.state.types}
-                  onTypesChange={this.handleCheckboxsChange}
+                  onChange={this.handleChange}
                 />
               </DropDown>
               <DropDown
@@ -311,7 +295,7 @@ export default class Filter extends Component {
                   min={10}
                   max={1000}
                   price={this.state.price}
-                  onPriceChange={this.handlePriceChange}
+                  onChange={this.handleChange}
                 />
               </DropDown>
               <DropDown
@@ -327,7 +311,7 @@ export default class Filter extends Component {
                 <Booler
                   name="book"
                   checked={this.state.book}
-                  onBoolerChange={this.handleBoolerChange}
+                  onChange={this.handleChange}
                 >
                   <Title>
                     <b>Instant book</b>
@@ -338,7 +322,7 @@ export default class Filter extends Component {
                 </Booler>
               </DropDown>
             </Media>
-            <DropDown
+            <MoreFilters
               name="more"
               title="More filters"
               isOpen={this.state.active === "more"}
@@ -352,7 +336,7 @@ export default class Filter extends Component {
                 <RoomTypes
                   name="rooms"
                   values={this.state.types}
-                  onTypesChange={this.handleCheckboxsChange}
+                  onChange={this.handleChange}
                 />
 
                 <Separator />
@@ -371,7 +355,7 @@ export default class Filter extends Component {
               <RoomsAndBeds
                 name="rooms"
                 values={this.state.rooms}
-                onBedsChange={this.handleCountersChange}
+                onChange={this.handleChange}
               />
               <Separator />
               <Heading>More options</Heading>
@@ -379,7 +363,7 @@ export default class Filter extends Component {
                 <Booler
                   name="book"
                   checked={this.state.book}
-                  onBoolerChange={this.handleBoolerChange}
+                  onChange={this.handleChange}
                 >
                   <Title>Instant book</Title>
                   <Text>Secure a reservation instantly.</Text>
@@ -391,7 +375,7 @@ export default class Filter extends Component {
               <Booler
                 name="host"
                 checked={this.state.host}
-                onBoolerChange={this.handleBoolerChange}
+                onChange={this.handleChange}
               >
                 <Title>Superhost</Title>
                 <Text>Stay with recognized hosts.</Text>
@@ -404,7 +388,7 @@ export default class Filter extends Component {
                 <Amenities
                   name="amenities"
                   values={this.state.amenities}
-                  onAmenitiesChange={this.handleCheckboxsChange}
+                  onChange={this.handleChange}
                 />
               </ShowHide>
               <Separator />
@@ -412,11 +396,11 @@ export default class Filter extends Component {
                 <Facilities
                   name="facilities"
                   values={this.state.facilities}
-                  onFacilitiesChange={this.handleCheckboxsChange}
+                  onChange={this.handleChange}
                 />
               </ShowHide>
               <Separator />
-            </DropDown>
+            </MoreFilters>
           </List>
         </Wrapper>
       </Section>

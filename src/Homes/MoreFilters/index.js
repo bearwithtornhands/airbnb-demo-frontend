@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import Body from "react-body-classname";
-import DateHead from "./DateHead";
 import closeIcon from "./close.svg";
 
 const StyledBody = styled(Body)`
@@ -9,7 +8,7 @@ const StyledBody = styled(Body)`
   top: 0;
   left: 0;
   right: 0;
-  @media (min-width: 768px) {
+  @media (min-width: 1200px) {
     position: static;
   }
 `;
@@ -53,17 +52,12 @@ const Content = styled.div`
   background-color: white;
   z-index: 1;
   @media (min-width: 768px) {
-    position: absolute;
-    top: calc(100% + 8px);
+    top: calc(80px + 56px);
+  }
+  @media (min-width: 1200px) {
+    max-width: calc(100vw - (100vw - 966px)/2 - 320px);
     right: auto;
-    bottom: auto;
-
-    display: block;
-    min-width: 326px;
-    padding: 31px 25px 0 25px;
-    border: 1px solid rgba(72, 72, 72, 0.2);
-    box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.08);
-    border-radius: 4px;
+    padding: 0 16px 0 calc((100vw - 966px)/2);
   }
 `;
 
@@ -90,9 +84,8 @@ const Scroll = styled.div`
   height: 100%;
   overflow: auto;
   padding: 40px 8px;
-  @media (min-width: 768px) {
-    overflow: visible;
-    padding: 0;
+  @media (min-width: 1200px) {
+    padding: 47px 0;
   }
 `;
 
@@ -102,10 +95,13 @@ const Tools = styled.div`
   padding: 8px;
   @media (min-width: 768px) {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     box-shadow: none;
-    padding: 0;
-    margin: 0 -25px;
+    padding: 8px 0;
+    margin: 0;
+  }
+  @media (min-width: 1200px) {
+    justify-content: flex-end;
   }
 `;
 
@@ -122,14 +118,14 @@ const Save = styled.button`
   border-radius: 4px;
   cursor: pointer;
   @media (min-width: 768px) {
-    font-size: 16px;
-    line-height: 64px;
-    color: #0f7276;
-    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
+    color: white;
+    font-weight: bold;
 
-    background-color: transparent;
-    padding: 0;
-    width: 110px;
+    background-color: #008489;
+    padding: 14px 0;
+    width: 147px;
   }
 `;
 
@@ -146,12 +142,11 @@ const Close = styled.button`
   border: 0;
   cursor: pointer;
   @media (min-width: 768px) {
-    font-size: 16px;
-    line-height: 64px;
+    font-size: 18px;
+    line-height: 20px;
 
     position: static;
-    padding: 0;
-    width: 110px;
+    padding: 14px 16px;
   }
 `;
 
@@ -177,13 +172,7 @@ const Icon = styled.img`
   }
 `;
 
-class DropDown extends Component {
-  getDropDownTitle = () => {
-    if (this.props.name === "date") return "Dates";
-
-    return this.props.title;
-  };
-
+export default class MoreFilters extends Component {
   handleClick = () => {
     this.props.onTogglerClick(this.props.name);
   };
@@ -201,7 +190,7 @@ class DropDown extends Component {
   };
 
   render() {
-    const { name, title, isOpen, isActive } = this.props;
+    const { title, isOpen, isActive } = this.props;
 
     return (
       <Section>
@@ -216,20 +205,19 @@ class DropDown extends Component {
           <StyledBody fixed={isOpen}>
             <Content>
               <Head>
-                <Title>{this.getDropDownTitle()}</Title>
-                {name === "date" && <DateHead />}
+                <Title>All filters</Title>
               </Head>
               <Scroll>{this.props.children}</Scroll>
               <Tools>
                 <Reset type="button" onClick={this.handleReset}>
-                  Reset
+                  Clean all
                 </Reset>
                 <Close type="button" onClick={this.handleCancel}>
                   <Icon src={closeIcon} alt="Close" />
                   Cancel
                 </Close>
                 <Save type="button" onClick={this.handleSave}>
-                  Accept
+                  See homes
                 </Save>
               </Tools>
             </Content>
@@ -239,5 +227,3 @@ class DropDown extends Component {
     );
   }
 }
-
-export default DropDown;

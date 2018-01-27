@@ -51,8 +51,10 @@ const Text = styled.p`
 
 class Price extends Component {
   handleChange = params => {
-    const price = { from: params.values[0], to: params.values[1] };
-    this.props.onPriceChange(price);
+    this.props.onChange("price", {
+      from: params.values[0],
+      to: params.values[1]
+    });
   };
 
   render() {

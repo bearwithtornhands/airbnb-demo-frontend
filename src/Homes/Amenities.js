@@ -28,9 +28,7 @@ export default props => (
           <Checkbox
             id="heating"
             checked={props.values.heating}
-            onCheckboxChange={(id, checked) =>
-              props.onAmenitiesChange(props.name, id, checked)
-            }
+            onCheckboxChange={values => props.onChange(props.name, values)}
           >
             <Title>Heating</Title>
           </Checkbox>
@@ -41,9 +39,7 @@ export default props => (
           <Checkbox
             id="kitchen"
             checked={props.values.kitchen}
-            onCheckboxChange={(id, checked) =>
-              props.onAmenitiesChange(props.name, id, checked)
-            }
+            onCheckboxChange={values => props.onChange(props.name, values)}
           >
             <Title>Kitchen</Title>
           </Checkbox>
@@ -54,9 +50,7 @@ export default props => (
           <Checkbox
             id="tv"
             checked={props.values.tv}
-            onCheckboxChange={(id, checked) =>
-              props.onAmenitiesChange(props.name, id, checked)
-            }
+            onCheckboxChange={values => props.onChange(props.name, values)}
           >
             <Title>TV</Title>
           </Checkbox>
@@ -67,9 +61,7 @@ export default props => (
           <Checkbox
             id="wifi"
             checked={props.values.wifi}
-            onCheckboxChange={(id, checked) =>
-              props.onAmenitiesChange(props.name, id, checked)
-            }
+            onCheckboxChange={values => props.onChange(props.name, values)}
           >
             <Title>Wireless Internet</Title>
           </Checkbox>

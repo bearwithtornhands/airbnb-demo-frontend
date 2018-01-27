@@ -61,9 +61,7 @@ export default props => (
         min={1}
         max={10}
         count={props.values.adults}
-        onCounterChange={(id, count) =>
-          props.onGuestsChange(props.name, id, count)
-        }
+        onCounterChange={values => props.onChange(props.name, values)}
       />
     </Age>
     <Age>
@@ -76,9 +74,7 @@ export default props => (
         min={0}
         max={10}
         count={props.values.childs}
-        onCounterChange={(id, count) =>
-          props.onGuestsChange(props.name, id, count)
-        }
+        onCounterChange={values => props.onChange(props.name, values)}
       />
     </Age>
     <Age>
@@ -91,9 +87,7 @@ export default props => (
         min={0}
         max={10}
         count={props.values.infants}
-        onCounterChange={(id, count) =>
-          props.onGuestsChange(props.name, id, count)
-        }
+        onCounterChange={values => props.onChange(props.name, values)}
       />
     </Age>
   </List>

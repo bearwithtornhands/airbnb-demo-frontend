@@ -18,7 +18,7 @@ class DateSelect extends React.Component {
 
   handleDayClick = day => {
     const range = DateUtils.addDayToRange(day, this.props.range);
-    this.props.onDateChange(range);
+    this.props.onChange("date", { from: range.from, to: range.to });
   };
 
   render() {

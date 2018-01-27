@@ -44,9 +44,7 @@ export default props => (
         min={0}
         max={10}
         count={props.values.bedrooms}
-        onCounterChange={(id, count) =>
-          props.onBedsChange(props.name, id, count)
-        }
+        onCounterChange={values => props.onChange(props.name, values)}
       />
     </Service>
     <Service>
@@ -58,9 +56,7 @@ export default props => (
         min={0}
         max={10}
         count={props.values.beds}
-        onCounterChange={(id, count) =>
-          props.onBedsChange(props.name, id, count)
-        }
+        onCounterChange={values => props.onChange(props.name, values)}
       />
     </Service>
     <Service>
@@ -72,9 +68,7 @@ export default props => (
         min={0}
         max={10}
         count={props.values.bathrooms}
-        onCounterChange={(id, count) =>
-          props.onBedsChange(props.name, id, count)
-        }
+        onCounterChange={values => props.onChange(props.name, values)}
       />
     </Service>
   </RoomsAndBeds>
