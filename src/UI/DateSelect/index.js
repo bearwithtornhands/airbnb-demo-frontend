@@ -5,7 +5,7 @@ import "./style.css";
 
 class DateSelect extends React.Component {
   getNumberOfMonths() {
-    const windowWidth = window.innerWidth;
+    const windowWidth = window.outerWidth;
 
     if (windowWidth >= 768 && windowWidth < 1200) {
       return this.props.numOfMonthOnTablet;

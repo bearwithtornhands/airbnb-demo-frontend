@@ -154,6 +154,20 @@ const getPriceTitle = (active, price, defaultPrice) => {
   return "Price";
 };
 
+const MoreFiltersDifference = (state, defaultState) => {
+  const { active, date, guests, buffer, types, price, book } = defaultState;
+  const merger =
+    window.outerWidth >= 1200
+      ? { ...state, active, date, guests, buffer, types, price, book }
+      : { ...state, active, date, guests, buffer };
+
+  const difference = Object.keys(defaultState).filter(
+    key => !_.isEqual(defaultState[key], merger[key])
+  );
+
+  return difference.length;
+};
+
 export default class Filter extends Component {
   defaultState = {
     active: null,
@@ -221,6 +235,8 @@ export default class Filter extends Component {
   };
 
   render() {
+    const diffCount = MoreFiltersDifference(this.state, this.defaultState);
+
     return (
       <Section>
         {this.state.active && <Overlay onClick={this.handleCancel} />}
@@ -324,8 +340,9 @@ export default class Filter extends Component {
             </Media>
             <MoreFilters
               name="more"
-              title="More filters"
+              title={`More filters ${diffCount ? " · " + diffCount : ""}`}
               isOpen={this.state.active === "more"}
+              isActive={diffCount}
               onTogglerClick={this.handleTogglerClick}
               onCancelClick={this.handleCancel}
               onSaveClick={this.handleSave}
@@ -334,7 +351,7 @@ export default class Filter extends Component {
               <Media query="(max-width: 1200px)">
                 <Heading>Room type</Heading>
                 <RoomTypes
-                  name="rooms"
+                  name="types"
                   values={this.state.types}
                   onChange={this.handleChange}
                 />
@@ -346,7 +363,7 @@ export default class Filter extends Component {
                   min={10}
                   max={1000}
                   price={this.state.price}
-                  onPriceChange={this.handlePriceChange}
+                  onChange={this.handleChange}
                 />
 
                 <Separator />
