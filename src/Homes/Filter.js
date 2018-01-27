@@ -13,6 +13,7 @@ import RoomTypes from "./RoomTypes";
 import RoomsAndBeds from "./RoomsAndBeds";
 import Amenities from "./Amenities";
 import Facilities from "./Facilities";
+import ShowHide from "../UI/ShowHide";
 
 const Overlay = styled.div`
   @media (min-width: 768px) {
@@ -399,19 +400,21 @@ export default class Filter extends Component {
                 </Text>
               </Booler>
               <Separator />
-              <Heading>Amenities</Heading>
-              <Amenities
-                name="amenities"
-                values={this.state.amenities}
-                onAmenitiesChange={this.handleCheckboxsChange}
-              />
+              <ShowHide title="Amenities">
+                <Amenities
+                  name="amenities"
+                  values={this.state.amenities}
+                  onAmenitiesChange={this.handleCheckboxsChange}
+                />
+              </ShowHide>
               <Separator />
-              <Heading>Amenities</Heading>
-              <Facilities
-                name="facilities"
-                values={this.state.facilities}
-                onFacilitiesChange={this.handleCheckboxsChange}
-              />
+              <ShowHide title="Facilities">
+                <Facilities
+                  name="facilities"
+                  values={this.state.facilities}
+                  onFacilitiesChange={this.handleCheckboxsChange}
+                />
+              </ShowHide>
               <Separator />
             </DropDown>
           </List>
