@@ -97,7 +97,6 @@ const Scroll = styled.div`
 `;
 
 const Tools = styled.div`
-  background-color: white;
   box-shadow: 0px -1px 0px #d5d5d5;
   padding: 8px;
   @media (min-width: 768px) {
