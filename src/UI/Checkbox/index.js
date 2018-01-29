@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import checked from './check-on.svg';
+import React from "react";
+import styled from "styled-components";
+import iconChecked from "./check-on.svg";
 
-const Button = styled.button`
-  font-family: 'Circular', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+const Label = styled.label`
+  font-family: "Circular", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   text-align: left;
 
   display: flex;
@@ -14,16 +14,16 @@ const Button = styled.button`
   padding: 0;
   outline: none;
   &:before {
-    content: '';
+    content: "";
 
     width: 24px;
     height: 24px;
-    background: url(${checked}) no-repeat center center transparent;
+    background: url(${iconChecked}) no-repeat center center transparent;
     border: 1px solid rgba(72, 72, 72, 0.3);
     border-radius: 4px;
     margin-right: 12px;
     ${props =>
-    props.isActive &&
+      props.isActive &&
       `
       border-color: #008489;
       background-color: #008489;
@@ -36,23 +36,29 @@ const Button = styled.button`
   }
 `;
 
-const Content = styled.div`
-  flex: 1;
-  padding-top: 2px;
+const Input = styled.input`
+  display: none;
 `;
 
-class Checkbox extends Component {
-  handleClick = () => {
-    this.props.onCheckboxChange(this.props.name, !this.props.checked);
-  };
-
-  render() {
-    return (
-      <Button type="button" isActive={this.props.checked} onClick={this.handleClick}>
-        <Content>{this.props.children}</Content>
-      </Button>
-    );
+const Content = styled.div`
+  flex: 1;
+  padding-top: 3px;
+  @media (min-width: 768px) {
+    padding-top: 2px;
   }
-}
+`;
 
-export default Checkbox;
+export default props => (
+  <Label htmlFor={props.id} isActive={props.checked}>
+    <Input
+      type="checkbox"
+      id={props.id}
+      name={props.name}
+      checked={props.checked}
+      onChange={event =>
+        props.onCheckboxChange(event.target.checked)
+      }
+    />
+    <Content>{props.children}</Content>
+  </Label>
+);

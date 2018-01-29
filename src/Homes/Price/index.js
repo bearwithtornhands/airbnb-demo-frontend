@@ -1,9 +1,13 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import Rheostat from 'rheostat';
-import './style.css';
+import React, { Component } from "react";
+import styled from "styled-components";
+import Rheostat from "rheostat";
+import "./style.css";
 
-const Section = styled.div``;
+const Section = styled.div`
+  @media (min-width: 768px) {
+    margin-bottom: 25px;
+  }
+`;
 
 const Title = styled.h4`
   font-size: 16px;
@@ -46,20 +50,23 @@ const Text = styled.p`
 `;
 
 class Price extends Component {
-  handleChange = (params) => {
-    const price = { from: params.values[0], to: params.values[1] };
-    this.props.onPriceChange(price);
+  handleChange = params => {
+    this.props.onChange("price", {
+      from: params.values[0],
+      to: params.values[1]
+    });
   };
 
   render() {
+    const { min, max, price } = this.props;
     return (
       <Section>
-        <Title>$10 — $1000+</Title>
+        <Title>{`$${price.from} – $${price.to}`}</Title>
         <Text>The average nightly price is $75</Text>
         <Rheostat
-          min={this.props.min}
-          max={this.props.max}
-          values={[this.props.price.from, this.props.price.to]}
+          min={min}
+          max={max}
+          values={[price.from, price.to]}
           onValuesUpdated={this.handleChange}
         />
       </Section>

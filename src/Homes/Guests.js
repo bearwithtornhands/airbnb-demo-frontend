@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import Counter from '../UI/Counter';
+import React from "react";
+import styled from "styled-components";
+import Counter from "../UI/Counter";
 
 const List = styled.div`
+  max-width: 368px;
   @media (min-width: 768px) {
     margin-bottom: 16px;
   }
@@ -27,7 +28,7 @@ const Title = styled.h5`
 
   margin: 0 0 6px;
   &:last-child {
-    margin: 0;
+    margin-bottom: 0;
   }
   @media (min-width: 768px) {
     font-size: 20px;
@@ -49,49 +50,45 @@ const Text = styled.p`
   }
 `;
 
-class Guests extends Component {
-  handleCounterChange = (name, count) => {
-    this.props.onGuestsChange(name, count);
-  };
-
-  render() {
-    return (
-      <List>
-        <Age>
-          <Descr>
-            <Title>Adults</Title>
-          </Descr>
-          <Counter
-            id="adults"
-            count={this.props.adults}
-            onCounterChange={this.handleCounterChange}
-          />
-        </Age>
-        <Age>
-          <Descr>
-            <Title>Children</Title>
-            <Text>Ages 2 — 12</Text>
-          </Descr>
-          <Counter
-            id="childs"
-            count={this.props.childs}
-            onCounterChange={this.handleCounterChange}
-          />
-        </Age>
-        <Age>
-          <Descr>
-            <Title>Infants</Title>
-            <Text>Under 2</Text>
-          </Descr>
-          <Counter
-            id="infants"
-            count={this.props.infants}
-            onCounterChange={this.handleCounterChange}
-          />
-        </Age>
-      </List>
-    );
-  }
-}
-
-export default Guests;
+export default props => (
+  <List>
+    <Age>
+      <Descr>
+        <Title>Adults</Title>
+      </Descr>
+      <Counter
+        id="adults"
+        min={1}
+        max={10}
+        count={props.values.adults}
+        onCounterChange={value => props.onChange(props.name, {adults: value, childs: props.values.childs, infants: props.values.infants })}
+      />
+    </Age>
+    <Age>
+      <Descr>
+        <Title>Children</Title>
+        <Text>Ages 2 — 12</Text>
+      </Descr>
+      <Counter
+        id="childs"
+        min={0}
+        max={10}
+        count={props.values.childs}
+        onCounterChange={value => props.onChange(props.name, {adults: props.values.adults, childs: value, infants: props.values.infants })}
+      />
+    </Age>
+    <Age>
+      <Descr>
+        <Title>Infants</Title>
+        <Text>Under 2</Text>
+      </Descr>
+      <Counter
+        id="infants"
+        min={0}
+        max={10}
+        count={props.values.infants}
+        onCounterChange={value => props.onChange(props.name, {adults: props.values.adults, childs: props.values.childs, infants: value })}
+      />
+    </Age>
+  </List>
+);
