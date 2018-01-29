@@ -41,11 +41,11 @@ const Count = styled.div``;
 
 class Counter extends Component {
   increment = () => {
-    this.props.onCounterChange({ [this.props.id]: this.props.count + 1 });
+    this.props.onCounterChange(this.props.count + 1);
   };
 
   decrement = () => {
-    this.props.onCounterChange({ [this.props.id]: this.props.count - 1 });
+    this.props.onCounterChange(this.props.count - 1);
   };
 
   render() {

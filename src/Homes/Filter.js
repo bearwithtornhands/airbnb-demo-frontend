@@ -154,18 +154,20 @@ const getPriceTitle = (active, price, defaultPrice) => {
   return "Price";
 };
 
-const MoreFiltersDifference = (state, defaultState) => {
+const differenceOfStates = (state, defaultState) => {
   const { active, date, guests, buffer, types, price, book } = defaultState;
   const merger =
     window.outerWidth >= 1200
       ? { ...state, active, date, guests, buffer, types, price, book }
       : { ...state, active, date, guests, buffer };
 
-  const difference = Object.keys(defaultState).filter(
+  const differentFields = Object.keys(defaultState).filter(
     key => !_.isEqual(defaultState[key], merger[key])
   );
 
-  return difference.length;
+  console.log(differentFields.length);
+
+  return differentFields.length;
 };
 
 export default class Filter extends Component {
@@ -220,7 +222,6 @@ export default class Filter extends Component {
     } = this.defaultState;
     if (window.outerWidth >= 1200) {
       this.setState({
-        ...this.state,
         host,
         rooms,
         amenities,
@@ -229,7 +230,6 @@ export default class Filter extends Component {
       });
     } else {
       this.setState({
-        ...this.state,
         book,
         types,
         price,
@@ -264,13 +264,12 @@ export default class Filter extends Component {
 
   handleChange = (name, values) => {
     this.setState({
-      [name]:
-        typeof values === "object" ? { ...this.state[name], ...values } : values
+      [name]: values
     });
   };
 
   render() {
-    const diffCount = MoreFiltersDifference(this.state, this.defaultState);
+    const diffCount = differenceOfStates(this.state, this.defaultState);
 
     return (
       <Section>

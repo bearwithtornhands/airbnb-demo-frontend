@@ -28,7 +28,7 @@ export default props => (
           <Checkbox
             id="heating"
             checked={props.values.heating}
-            onCheckboxChange={values => props.onChange(props.name, values)}
+            onCheckboxChange={value => props.onChange(props.name, {heating: value, kitchen: props.values.kitchen, tv: props.values.tv, wifi: props.values.wifi})}
           >
             <Title>Heating</Title>
           </Checkbox>
@@ -39,7 +39,7 @@ export default props => (
           <Checkbox
             id="kitchen"
             checked={props.values.kitchen}
-            onCheckboxChange={values => props.onChange(props.name, values)}
+            onCheckboxChange={value => props.onChange(props.name, {heating: props.values.heating, kitchen: value, tv: props.values.tv, wifi: props.values.wifi})}
           >
             <Title>Kitchen</Title>
           </Checkbox>
@@ -50,7 +50,7 @@ export default props => (
           <Checkbox
             id="tv"
             checked={props.values.tv}
-            onCheckboxChange={values => props.onChange(props.name, values)}
+            onCheckboxChange={value => props.onChange(props.name, {heating: props.values.heating, kitchen: props.values.kitchen, tv: value, wifi: props.values.wifi})}
           >
             <Title>TV</Title>
           </Checkbox>
@@ -61,7 +61,7 @@ export default props => (
           <Checkbox
             id="wifi"
             checked={props.values.wifi}
-            onCheckboxChange={values => props.onChange(props.name, values)}
+            onCheckboxChange={value => props.onChange(props.name, {heating: props.values.heating, kitchen: props.values.kitchen, tv: props.values.tv, wifi: value})}
           >
             <Title>Wireless Internet</Title>
           </Checkbox>

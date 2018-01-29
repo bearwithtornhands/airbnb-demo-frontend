@@ -64,7 +64,7 @@ export default props => (
       <Checkbox
         id="home"
         checked={props.values.home}
-        onCheckboxChange={values => props.onChange(props.name, values)}
+        onCheckboxChange={value => props.onChange(props.name, {home: value, private: props.values.private, shared: props.values.shared})}
       >
         <Title>Entire home</Title>
         <Text>Have a place to yourself</Text>
@@ -75,7 +75,7 @@ export default props => (
       <Checkbox
         id="private"
         checked={props.values.private}
-        onCheckboxChange={values => props.onChange(props.name, values)}
+        onCheckboxChange={value => props.onChange(props.name, {home: props.values.home, private: value, shared: props.values.shared})}
       >
         <Title>Private room</Title>
         <Text>Have your own room and share some common spaces</Text>
@@ -86,7 +86,7 @@ export default props => (
       <Checkbox
         id="shared"
         checked={props.values.shared}
-        onCheckboxChange={values => props.onChange(props.name, values)}
+        onCheckboxChange={value => props.onChange(props.name, {home: props.values.home, private: props.values.private, shared: value})}
       >
         <Title>Shared room</Title>
         <Text>Stay in a shared space, like a common room</Text>
