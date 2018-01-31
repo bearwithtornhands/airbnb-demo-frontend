@@ -165,8 +165,6 @@ const differenceOfStates = (state, defaultState) => {
     key => !_.isEqual(defaultState[key], merger[key])
   );
 
-  console.log(differentFields.length);
-
   return differentFields.length;
 };
 

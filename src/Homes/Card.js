@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import Review from '../UI/Review';
+import React from "react";
+import styled from "styled-components";
+import Review from "../UI/Review";
 
 const Card = styled.a`
   font-size: 12px;
@@ -64,12 +64,14 @@ export default props => (
   <Card href={props.url}>
     <Image src={props.image} alt={props.title} />
     <Title>
-        ${props.price} {props.title}
+      ${props.price} {props.title}
     </Title>
     <Text>{props.descr}</Text>
     <Info>
       <Review />
-      <span>{props.superhost} · Superhost</span>
+      <span>
+        {props.reviews} {props.isSuperhost ? " · Superhost" : ""}
+      </span>
     </Info>
   </Card>
 );
