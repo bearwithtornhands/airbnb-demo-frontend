@@ -19,23 +19,34 @@ const Text = styled.p`
   margin: 0;
 `;
 
+const typeTitles = {
+  entire_home: "Entire home",
+  private_room: "Private room",
+  shared_room: "Shared room"
+};
+
+const getTypeTitle = kind => typeTitles[kind];
+
 export default class Catalog extends React.Component {
   state = {
     data: []
   };
 
-  homesTemp = data => {
-    if (data.length) {
-      return data.map(item => (
-        <div key={item.id} className="col-xs-12 col-md-6">
+  homesTemp = homesData => {
+    if (homesData.length) {
+      return homesData.map(home => (
+        <div key={home.id} className="col-xs-12 col-md-6">
           <Card
             url={"/"}
-            image={item.images[0].picture}
-            title={item.name}
-            descr={"descr"}
-            price={"price"}
-            isSuperhost={item.isSuperhost}
-            reviews={item.reviewsCount}
+            image={home.images[0].picture}
+            title={home.name}
+            descr={`${getTypeTitle(home.kind)} · ${home.bedsCount} ${
+              home.bedsCount === 1 ? "bed" : "beds"
+            }`}
+            price={home.price}
+            isSuperhost={home.isSuperhost}
+            rating={home.rating}
+            reviews={home.reviewsCount}
           />
         </div>
       ));

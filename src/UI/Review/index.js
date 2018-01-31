@@ -15,14 +15,19 @@ const Icon = styled.span`
   & + & {
     margin-left: 4px;
   }
+  ${props =>
+    !props.active &&
+    `
+    opacity: .3
+  `};
 `;
 
-export default () => (
-  <List>
-    <Icon />
-    <Icon />
-    <Icon />
-    <Icon />
-    <Icon />
-  </List>
-);
+export default props => {
+  const stars = [];
+
+  for (let i = 1; i <= 5; i++) {
+    stars.push(<Icon key={i} active={i <= props.rating.toFixed()} />);
+  }
+
+  return <List>{stars}</List>;
+};

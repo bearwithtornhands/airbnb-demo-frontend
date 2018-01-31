@@ -68,7 +68,7 @@ export default props => (
     </Title>
     <Text>{props.descr}</Text>
     <Info>
-      <Review />
+      <Review rating={props.rating} />
       <span>
         {props.reviews} {props.isSuperhost ? " · Superhost" : ""}
       </span>
