@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import {
   Section,
   Heading,
@@ -13,6 +14,27 @@ const ButtonRight = SliderRight.extend`
   top: 102px;
 `;
 
+const Scroll = styled.div`
+  display: flex;
+  overflow: auto;
+`;
+
+const List = styled.div`
+  display: flex;
+  margin: 0 -8px;
+`;
+
+const Slide = styled.div`
+  width: 213px;
+  padding: 0 8px;
+  @media (min-width: 768px) {
+    width: 320px;
+  }
+  @media (min-width: 1200px) {
+    width: 326px;
+  }
+`;
+
 export default class Homes extends React.Component {
   state = {
     data: []
@@ -21,7 +43,7 @@ export default class Homes extends React.Component {
   homesTemp = data => {
     if (data.length) {
       return data.map(item => (
-        <div key={item.id} className="col-xs-6 col-md-4">
+        <Slide key={item.id}>
           <Card
             url={"/"}
             image={item.images[0].picture}
@@ -31,7 +53,7 @@ export default class Homes extends React.Component {
             isSuperhost={item.isSuperhost}
             reviews={item.reviewsCount}
           />
-        </div>
+        </Slide>
       ));
     }
 
@@ -62,7 +84,9 @@ export default class Homes extends React.Component {
           <HeadingLink to="/homes">See all</HeadingLink>
         </Heading>
         <SliderTrack>
-          <div className="row">{homesList}</div>
+          <Scroll>
+            <List>{homesList}</List>
+          </Scroll>
           <ButtonRight type="button" />
         </SliderTrack>
       </Section>
