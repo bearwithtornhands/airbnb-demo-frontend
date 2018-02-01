@@ -25,52 +25,38 @@ const typeTitles = {
   shared_room: "Shared room"
 };
 
-const getTypeTitle = kind => typeTitles[kind];
-
 export default class Catalog extends React.Component {
   state = {
     data: []
   };
 
-  homesTemp = homesData => {
-    if (homesData.length) {
-      return homesData.map(home => (
-        <div key={home.id} className="col-xs-12 col-md-6">
-          <Card
-            url={"/"}
-            image={home.images[0].picture}
-            title={home.name}
-            descr={`${getTypeTitle(home.kind)} · ${home.bedsCount} ${
-              home.bedsCount === 1 ? "bed" : "beds"
-            }`}
-            price={home.price}
-            isSuperhost={home.isSuperhost}
-            rating={home.rating}
-            reviews={home.reviewsCount}
-          />
-        </div>
-      ));
-    }
-
-    return [];
-  };
-
-  componentDidMount() {
+  componentWillMount() {
     fetch("https://airbnb-demo-api.now.sh/v1/homes")
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error("Something went wrong ...");
-        }
-      })
+      .then(response => response.json())
       .then(data => this.setState({ data: data.items }))
-      .catch(error => console.log(error));
+      .catch(error => console.error(error));
   }
 
   render() {
     const { data } = this.state;
-    const homesList = this.homesTemp(data);
+    const homesList = data
+      ? data.map(home => (
+          <div key={home.id} className="col-xs-12 col-md-6">
+            <Card
+              url={"/"}
+              image={home.images[0].picture}
+              title={home.name}
+              descr={`${typeTitles[home.kind]} · ${home.bedsCount} ${
+                home.bedsCount === 1 ? "bed" : "beds"
+              }`}
+              price={home.price}
+              isSuperhost={home.isSuperhost}
+              rating={home.rating}
+              reviews={home.reviewsCount}
+            />
+          </div>
+        ))
+      : [];
 
     return (
       <Section>

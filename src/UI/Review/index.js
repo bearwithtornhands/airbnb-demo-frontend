@@ -23,11 +23,15 @@ const Icon = styled.span`
 `;
 
 export default props => {
-  const stars = [];
+  const rating = props.rating.toFixed();
 
-  for (let i = 1; i <= 5; i++) {
-    stars.push(<Icon key={i} active={i <= props.rating.toFixed()} />);
-  }
-
-  return <List>{stars}</List>;
+  return (
+    <List>
+      <Icon active={1 <= rating} />
+      <Icon active={2 <= rating} />
+      <Icon active={3 <= rating} />
+      <Icon active={4 <= rating} />
+      <Icon active={5 <= rating} />
+    </List>
+  );
 };
