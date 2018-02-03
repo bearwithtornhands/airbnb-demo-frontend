@@ -38,25 +38,23 @@ export default class Catalog extends React.Component {
   }
 
   render() {
-    const { data } = this.state;
-    const homesList = data
-      ? data.map(home => (
-          <div key={home.id} className="col-xs-12 col-md-6">
-            <Card
-              url={"/"}
-              image={home.images[0].picture}
-              title={home.name}
-              descr={`${typeTitles[home.kind]} · ${home.bedsCount} ${
-                home.bedsCount === 1 ? "bed" : "beds"
-              }`}
-              price={home.price}
-              isSuperhost={home.isSuperhost}
-              rating={home.rating}
-              reviews={home.reviewsCount}
-            />
-          </div>
-        ))
-      : [];
+    const { data = [] } = this.state;
+    const homesList = data.map(home => (
+      <div key={home.id} className="col-xs-12 col-md-6">
+        <Card
+          url={"/"}
+          image={home.images[0].picture}
+          title={home.name}
+          descr={`${typeTitles[home.kind]} · ${home.bedsCount} ${
+            home.bedsCount === 1 ? "bed" : "beds"
+          }`}
+          price={home.price}
+          isSuperhost={home.isSuperhost}
+          rating={home.rating}
+          reviews={home.reviewsCount}
+        />
+      </div>
+    ));
 
     return (
       <Section>

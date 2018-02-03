@@ -54,25 +54,23 @@ export default class Homes extends React.Component {
   }
 
   render() {
-    const { data } = this.state;
-    const homesList = data
-      ? data.map(home => (
-          <Slide key={home.id}>
-            <Card
-              url={"/"}
-              image={home.images[0].picture}
-              title={home.name}
-              descr={`${typeTitles[home.kind]} · ${home.bedsCount} ${
-                home.bedsCount === 1 ? "bed" : "beds"
-              }`}
-              price={home.price}
-              isSuperhost={home.isSuperhost}
-              rating={home.rating}
-              reviews={home.reviewsCount}
-            />
-          </Slide>
-        ))
-      : [];
+    const { data = [] } = this.state;
+    const homesList = data.map(home => (
+      <Slide key={home.id}>
+        <Card
+          url={"/"}
+          image={home.images[0].picture}
+          title={home.name}
+          descr={`${typeTitles[home.kind]} · ${home.bedsCount} ${
+            home.bedsCount === 1 ? "bed" : "beds"
+          }`}
+          price={home.price}
+          isSuperhost={home.isSuperhost}
+          rating={home.rating}
+          reviews={home.reviewsCount}
+        />
+      </Slide>
+    ));
 
     return (
       <Section>
