@@ -1,68 +1,90 @@
-import React from 'react';
-import { Section, Heading, HeadingH2, HeadingLink, SliderTrack, SliderRight } from '../../UI';
-import Card from '../../Homes/Card';
-import homeImg1 from './home-1.png';
-import homeImg2 from './home-2.png';
-import homeImg3 from './home-3.png';
+import React from "react";
+import styled from "styled-components";
+import {
+  Section,
+  Heading,
+  HeadingH2,
+  HeadingLink,
+  SliderTrack,
+  SliderRight
+} from "../../UI";
+import Card from "../../Homes/Card";
 
 const ButtonRight = SliderRight.extend`
   top: 102px;
 `;
 
-const homesData = [
-  {
-    id: 1,
-    url: '#url',
-    image: homeImg1,
-    title: 'La Salentina, see, nature, & relax',
-    descr: 'Entrie house · 9 bed',
-    price: 82,
-    superhost: 97,
-  },
-  {
-    id: 2,
-    url: '#url',
-    image: homeImg2,
-    title: 'Yout private 3 bedr. riad and exclusive chanels in park',
-    descr: 'Entrie house · 5 bed',
-    price: 55,
-    superhost: 161,
-  },
-  {
-    id: 3,
-    url: '#url',
-    image: homeImg3,
-    title: 'Dreamy Tropical Tree House',
-    descr: 'Entrie house · 9 bed',
-    price: 300,
-    superhost: 364,
-  },
-];
+const Scroll = styled.div`
+  display: flex;
+  overflow: auto;
+`;
 
-export default () => {
-  const list = homesData.map(home => (
-    <div key={home.id} className="col-xs-6 col-md-4">
-      <Card
-        url={home.url}
-        image={home.image}
-        title={home.title}
-        descr={home.descr}
-        price={home.price}
-        superhost={home.superhost}
-      />
-    </div>
-  ));
+const List = styled.div`
+  display: flex;
+  margin: 0 -8px;
+`;
 
-  return (
-    <Section>
-      <Heading>
-        <HeadingH2>Homes</HeadingH2>
-        <HeadingLink to="/homes">See all</HeadingLink>
-      </Heading>
-      <SliderTrack>
-        <div className="row">{list}</div>
-        <ButtonRight type="button" />
-      </SliderTrack>
-    </Section>
-  );
+const Slide = styled.div`
+  width: 213px;
+  padding: 0 8px;
+  @media (min-width: 768px) {
+    width: 320px;
+  }
+  @media (min-width: 1200px) {
+    width: 326px;
+  }
+`;
+
+const typeTitles = {
+  entire_home: "Entire home",
+  private_room: "Private room",
+  shared_room: "Shared room"
 };
+
+export default class Homes extends React.Component {
+  state = {
+    data: []
+  };
+
+  componentWillMount() {
+    fetch("https://airbnb-demo-api.now.sh/v1/homes")
+      .then(response => response.json())
+      .then(data => this.setState({ data: data.items }))
+      .catch(error => console.error(error));
+  }
+
+  render() {
+    const { data = [] } = this.state;
+    const homesList = data.map(home => (
+      <Slide key={home.id}>
+        <Card
+          url={"/"}
+          image={home.images[0].picture}
+          title={home.name}
+          descr={`${typeTitles[home.kind]} · ${home.bedsCount} ${
+            home.bedsCount === 1 ? "bed" : "beds"
+          }`}
+          price={home.price}
+          isSuperhost={home.isSuperhost}
+          rating={home.rating}
+          reviews={home.reviewsCount}
+        />
+      </Slide>
+    ));
+
+    return (
+      <Section>
+        <Heading>
+          <HeadingH2>Homes</HeadingH2>
+          <HeadingLink to="/homes">See all</HeadingLink>
+        </Heading>
+        <SliderTrack>
+          <Scroll>
+            <List>{homesList}</List>
+          </Scroll>
+          <ButtonRight type="button" />
+        </SliderTrack>
+      </Section>
+    );
+  }
+}

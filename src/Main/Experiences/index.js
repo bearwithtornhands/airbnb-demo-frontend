@@ -1,11 +1,18 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Section, Heading, HeadingH2, HeadingLink, SliderTrack, SliderRight } from '../../UI';
-import Review from '../../UI/Review';
-import expImg1 from './exp-1.png';
-import expImg2 from './exp-2.png';
-import expImg3 from './exp-3.png';
-import expImg4 from './exp-4.png';
+import React from "react";
+import styled from "styled-components";
+import {
+  Section,
+  Heading,
+  HeadingH2,
+  HeadingLink,
+  SliderTrack,
+  SliderRight
+} from "../../UI";
+import Review from "../../UI/Review";
+import expImg1 from "./exp-1.png";
+import expImg2 from "./exp-2.png";
+import expImg3 from "./exp-3.png";
+import expImg4 from "./exp-4.png";
 
 const Card = styled.div`
   font-size: 13px;
@@ -80,7 +87,7 @@ export default () => (
               <Price>$29</Price> Forest therapy
             </Link>
             <Info>
-              <Review />
+              <Review rating={5} />
               <span>44 reviews</span>
             </Info>
           </Card>
@@ -94,7 +101,7 @@ export default () => (
               <Price>$69</Price> Whale watching
             </Link>
             <Info>
-              <Review />
+              <Review rating={5} />
               <span>46 reviews</span>
             </Info>
           </Card>
@@ -102,13 +109,16 @@ export default () => (
         <div className="col-xs-6 col-md-4 col-xl-3">
           <Card>
             <ImageLink href="#url">
-              <Image src={expImg3} alt="Table Mountain Summit, Cable Car Down" />
+              <Image
+                src={expImg3}
+                alt="Table Mountain Summit, Cable Car Down"
+              />
             </ImageLink>
             <Link href="#url">
               <Price>$69</Price> Table Mountain Summit, Cable Car Down
             </Link>
             <Info>
-              <Review />
+              <Review rating={5} />
               <span>44 reviews</span>
             </Info>
           </Card>
@@ -122,7 +132,7 @@ export default () => (
               <Price>$50</Price> Salsa Night
             </Link>
             <Info>
-              <Review />
+              <Review rating={5} />
               <span>45 reviews</span>
             </Info>
           </Card>

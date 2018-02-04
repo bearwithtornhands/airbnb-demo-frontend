@@ -15,14 +15,23 @@ const Icon = styled.span`
   & + & {
     margin-left: 4px;
   }
+  ${props =>
+    !props.active &&
+    `
+    opacity: .3
+  `};
 `;
 
-export default () => (
-  <List>
-    <Icon />
-    <Icon />
-    <Icon />
-    <Icon />
-    <Icon />
-  </List>
-);
+export default props => {
+  const rating = props.rating.toFixed();
+
+  return (
+    <List>
+      <Icon active={1 <= rating} />
+      <Icon active={2 <= rating} />
+      <Icon active={3 <= rating} />
+      <Icon active={4 <= rating} />
+      <Icon active={5 <= rating} />
+    </List>
+  );
+};
