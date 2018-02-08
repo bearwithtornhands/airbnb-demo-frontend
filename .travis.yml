@@ -4,8 +4,8 @@ node_js:
 install: yarn
 script: 
   - yarn build
-  - yarn run deploy
-after_script: yarn run alias
+  - yarn deploy
+after_script: yarn alias
 env:
   global:
     secure: 0edLDuHVp/2sptYgRinzOoStmwU33EQsXceTaVPCicWKp+fTmoQZ4ljkHbfJEf1yBY5qQq1/K3ISoMspr5rY7IYoolxHoJS5lHlOPN/pU/xjYQatzLpT0sr0O923NC2KXIGdzbjYJ/Y9yvSxZOLsdW8WOJwozyskD3+XD2ORPy0/ukQPv4wDOmMCS534oH4mp6weEqp+xwAF8EHzCg33vBuNlF/L0lLJ/xd3BLy0eRh9KyxTiT8c8nnMEcIj/vhRJvBEleE1wqoiQHPoHh9k5r1paEoPjR+1V0GKfGyW8hkTGnemjg8qiofHBUL3TjL/p6IMKaOALGr1URY931Bobzs5//DSPkiqFapy7T0HMOAZnfGUNy37g/WPwP4hb+0nb+1XvWu8X/qu0AOMoGNTBn3RCxid20gzB6y9F+13gIy3MyYeYpKUoXgSeJfbPUNeGjYfJf3SztXU4NuLJ3Vy0zh3Mu1r5cuVpMJS9AnsJCuiLJxONBt8Z8yLWgrt7RHVGGKiGEWJ4SUadGfbQKGOn1v6GrfMK4HV2eAB8o/Uy0P4jlXn+zDobpV41Hk1mjuwv0ZhbtTAt+D3V3AaPRoXVexn6vtpzjSTQqQojuyXSLFvAG9DfYFa8f9P9UODzXwqQQUwgrwOJjFWgK/Jka1XTyQ8qWBhfI7dam2IHIgXBCA=
