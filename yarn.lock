@@ -4790,7 +4790,7 @@ normalize@^0.3.1:
   dependencies:
     stylus "*"
 
-now@^9.2.7:
+now@^9.2.8:
   version "9.2.8"
   resolved "https://registry.yarnpkg.com/now/-/now-9.2.8.tgz#aff508945799c75eb9db5042a290e1e5d5094591"
 
