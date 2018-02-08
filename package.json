@@ -4,7 +4,8 @@
   "private": true,
   "now": {
     "name": "Airbnb-demo",
-    "alias": "aboev-airbnb-demo"
+    "alias": "aboev-airbnb-demo",
+    "public": false
   },
   "dependencies": {
     "date-fns": "^1.29.0",
