@@ -4,7 +4,7 @@
   "private": true,
   "now": {
     "name": "Airbnb-demo",
-    "alias": "aboev-airbnb-demo.now.sh"
+    "alias": "aboev-airbnb-demo"
   },
   "dependencies": {
     "date-fns": "^1.29.0",
@@ -23,16 +23,17 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
     "rheostat": "^2.1.3",
-    "styled-components": "^2.4.0"
+    "styled-components": "^2.4.0",
+    "serve": "^6.0.6"
   },
   "scripts": {
     "start": "react-scripts start",
+    "now-start": "serve --single ./build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy":
-      "cd ./build && now -e NODE_ENV=production --token $NOW_TOKEN --npm",
-    "alias": "cd ./build && now alias --token=$NOW_TOKEN"
+    "deploy": "now -e NODE_ENV=production --token $NOW_TOKEN --npm",
+    "alias": "now alias --token=$NOW_TOKEN"
   },
   "devDependencies": {
     "now": "^9.2.7",
