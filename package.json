@@ -4,8 +4,7 @@
   "private": true,
   "now": {
     "name": "Airbnb-demo",
-    "alias": "aboev-airbnb-demo",
-    "public": false
+    "alias": "aboev-airbnb-demo"
   },
   "dependencies": {
     "date-fns": "^1.29.0",
@@ -28,7 +27,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "now-start": "serve --single ./build",
+    "now-start": "serve -s ./build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
