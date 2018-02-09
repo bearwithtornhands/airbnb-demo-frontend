@@ -4,7 +4,7 @@
   "private": true,
   "now": {
     "name": "Airbnb-demo",
-    "alias": "aboev-airbnb-demo"
+    "alias": "aboev-airbnb-demo.now.sh"
   },
   "dependencies": {
     "date-fns": "^1.29.0",
@@ -31,7 +31,7 @@
     "build": "react-scripts build && rm ./build/static/js/*.js.map",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "now build -e NODE_ENV=production --token $NOW_TOKEN",
+    "deploy": "now --public build -e NODE_ENV=production --token $NOW_TOKEN",
     "alias": "now build alias --token=$NOW_TOKEN"
   },
   "devDependencies": {
