@@ -4,7 +4,7 @@ node_js:
 install: yarn
 script: 
   - yarn build
-  - rm -rf build/static/main.js.map
+  - rm build/static/*.js.map
   - yarn deploy
 after_script: yarn alias
 env:
