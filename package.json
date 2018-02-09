@@ -28,7 +28,7 @@
   "scripts": {
     "start": "react-scripts start",
     "now-start": "serve -s",
-    "build": "react-scripts build",
+    "build": "react-scripts build && rm ./build/static/js/*.js.map",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "deploy": "now build -e NODE_ENV=production --token $NOW_TOKEN",
