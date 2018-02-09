@@ -32,7 +32,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "deploy":
-      "rm build/static/*.js.map && now build -e NODE_ENV=production --token $NOW_TOKEN",
+      "rm ./build/static/*.js.map && now build -e NODE_ENV=production --token $NOW_TOKEN",
     "alias": "now build alias --token=$NOW_TOKEN"
   },
   "devDependencies": {
