@@ -1,13 +1,11 @@
 language: node_js
 node_js:
-  - "iojs"
-  - "9"
-before_install:
-  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version version-number
-  - export PATH="$HOME/.yarn/bin:$PATH"
-cache:
-  yarn: true
-  directories:
-    - "node_modules"
+- '9'
 install: yarn
-script: yarn build
+script:
+- yarn build
+- yarn deploy
+after_script: yarn alias
+env:
+  global:
+  - secure: zcdukfkCVguxcNn7vaAvRyFbYCLhp9jN9ljptb1Poi9+NGP5EVjMIP+W8boBUQBcLeW1pT9xoD692jevWEypfkUQn139MSvv9fYSPWhwHaXkrg2BWpL2LsJ0OqWLOOwxd7eGO0UcsXB7ELIHvg7Lg/Ay9FJ9D/n5acxKf0NFGrkheRdFIhkkgwg2Jf7OG/t7vQ31i5SLwTYT1vnUzLWBVXLdBNqyFuG6nPi4rAOz19hRc0HJBmCBmBeQQuk4Gu0+0yN5s/tLTEelSPbKqTEUOUKkWe4UIdd4psV9H+SKthI43+MwobDJHCKN+TXKYXUAdw0wuX1eC2z2UPvL9ZvSv4Jq47jNxUtMfaQ4+lsFBd8BE6oDa8fEKWzusN44UaQplM7oF0y8TY36C4fsam8v219kJ5PM5EqDY14nGGN2uQu4QPj8XJRue7T/XHxQqX/ACQ0NXuGUpU4XN3VXKco12clYbSsirgVcVNfQKNjd/N6EHJsG0OmwETQE5nimor6tKVFPsTJOokZU5gf/RlWeb1MshCU5Qhu4/ZfRA1SSlhyRIhYzMX5+Duqttwqhdc9LZQ8rZO5GsDDEjyUDRruDPg0tRKSmNB4qL1tpqxser+PyzpY98Jho+SosHYdE7FNkiG1I1Jsea4LLWdIYhbbd2VeeoBKMTji/7VBFDUXknr4=

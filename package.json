@@ -1,7 +1,11 @@
 {
-  "name": "airbnb",
+  "name": "airbnb-demo",
   "version": "0.1.0",
   "private": true,
+  "now": {
+    "name": "airbnb-demo",
+    "alias": "aboev-airbnb-demo"
+  },
   "dependencies": {
     "date-fns": "^1.29.0",
     "flexboxgrid2": "^7.0.0-alpha12",
@@ -23,9 +27,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "now-start": "serve -s",
+    "build": "react-scripts build && rm ./build/static/js/*.js.map",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "now --public build --name airbnb-demo -e NODE_ENV=production --token $NOW_TOKEN",
+    "alias": "now alias --token=$NOW_TOKEN"
   },
   "devDependencies": {
     "babel-eslint": "7",
@@ -34,6 +41,8 @@
     "eslint-plugin-fp": "^2.3.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.4.0"
+    "eslint-plugin-react": "^7.4.0",
+    "now": "^9.2.8",
+    "serve": "^6.4.9"
   }
 }
